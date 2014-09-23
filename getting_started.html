@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; dripline 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dripline 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="Contribute" href="contribute.html"/>
+        <link rel="prev" title="Specifications" href="spec.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> dripline</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/getting_started.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<p>The required librares are <a class="reference external" href="pika.readthedocs.org">pika</a>, <a class="reference external" href="pyyaml.org">PyYAML</a>, and <a class="reference external" href="msgpack.org">msgpack</a>.
+To build this documentation, you also need <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> and <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">sphinx_rtd_theme</a>.
+All three can be obtained through <a class="reference external" href="http://pip.readthedocs.org/en/latest/installing.html">pip</a>.</p>
+<p><em>Note</em>:
+The steps above will give you a fully functioning dripline client, but
+without a message broker to communicate with, the client won&#8217;t do you much
+good.  We recommend using a standard AMQP broker such as
+<a class="reference external" href="https://www.rabbitmq.com">RabbitMQ</a></p>
+</div>
+<div class="section" id="operating-system-python">
+<h2>Operating System &amp; Python<a class="headerlink" href="#operating-system-python" title="Permalink to this headline">¶</a></h2>
+<p>The development of dripline is being done on OS X and various linux systems.
+While running on windows or other operating systems may be possible, the author&#8217;s make no promise or offer of support.
+Similarly, the expected versions of python are 2.7.3 and &gt;= 3.3.0.
+We will try to keep the codebase compatible with both, but use of older versions is untested and not guaranteed to work.</p>
+<div class="section" id="prepare-an-environment">
+<h3>Prepare an Environment<a class="headerlink" href="#prepare-an-environment" title="Permalink to this headline">¶</a></h3>
+<p>The recommended usage is with a <a class="reference external" href="virtualenv.readthedocs.org/en/latest">virtual environment</a> and the <a class="reference external" href="ipython.org">ipython</a> interpreter.
+Assuming you have virtualenv installed (most likely available in the package manager for your system) it is relatively simple to get everything going.
+For the complete experience, you would run the following three commands (the last line installs recommended extras).:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ virtualenv path/to/virt_environments/dripline
+$ source path/to/virt_environments/dripline/bin/activate
+$ pip install pika PyYAML msgpack-python
+$ pip install ipython sphinx sphinx_rtd_theme
+</pre></div>
+</div>
+<p>Note that sphinx is only required if you want to (re)build this documentation and sphinx_rtd_theme is purely cosmetic.
+Similarly, ipython is nice for the user but does not change available dripline features.</p>
+</div>
+<div class="section" id="first-steps">
+<h3>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h3>
+<p>To get started, we will follow the example of connecting a simple
+endpoint to the broker which provides a random number generator.  We will
+make a request to this endpoint using a dripline client.</p>
+<p>Dripline uses <a class="reference external" href="http://www.yaml.org/">YAML</a> formatted files as its
+configuration file format.  In the <cite>examples</cite> directory of the dripline
+source tree, you will find a file called <tt class="docutils literal"><span class="pre">random_node.yaml</span></tt> which should
+look like this:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">broker</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
+<span class="l-Scalar-Plain">nodename</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">random_node</span>
+<span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">local</span>
+  <span class="l-Scalar-Plain">endpoints</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rng</span>
+    <span class="l-Scalar-Plain">module</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">random_float</span>
+</pre></div>
+</div>
+<p>When this configuration file is loaded by dripline, it will construct an
+<cite>object graph</cite> from the list of providers and endpoints that appear.  This
+particular configuration file tells dripline that we wish to construct an
+object graph that has an endpoint named <tt class="docutils literal"><span class="pre">rng</span></tt> whose behavior can be found
+in a module tagged as <tt class="docutils literal"><span class="pre">random_float</span></tt> (more on this later).  That endpoint
+belongs to a provider called <tt class="docutils literal"><span class="pre">local</span></tt>.  The name for the dripline node that
+will be started is <tt class="docutils literal"><span class="pre">random_node</span></tt>, and the node will try to connect to
+an AMQP broker running on <tt class="docutils literal"><span class="pre">localhost</span></tt>.</p>
+<p>On that note, you need an AMQP broker running to run the example code.  Install
+an instance of RabbitMQ server to the host of your choice, and start it.  No
+configuration is necessary at all - dripline will take care of the rest.</p>
+<p>To start the node which is providing the random number generating service,
+simply do the following from the examples directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./rng_demo_node.py
+</pre></div>
+</div>
+<p>Now, to start the client which will request a single random number and print it
+to the screen, do</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./rng_demo_client.py
+</pre></div>
+</div>
+<p>You should see some log entries about connections, and a random floating point
+number between 0 and 1!</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contribute.html" class="btn btn-neutral float-right" title="Contribute"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spec.html" class="btn btn-neutral" title="Specifications"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

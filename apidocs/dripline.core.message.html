@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dripline.core.message module &mdash; dripline 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dripline 0.0.1 documentation" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> dripline</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>dripline.core.message module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/apidocs/dripline.core.message.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="module-dripline.core.message">
+<span id="dripline-core-message-module"></span><h1>dripline.core.message module<a class="headerlink" href="#module-dripline.core.message" title="Permalink to this headline">¶</a></h1>
+<p>Meta and derived classes for dripline messages</p>
+<dl class="class">
+<dt id="dripline.core.message.ReplyMessage">
+<em class="property">class </em><tt class="descclassname">dripline.core.message.</tt><tt class="descname">ReplyMessage</tt><big>(</big><em>msgop=None</em>, <em>target=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>exceptions=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#ReplyMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.ReplyMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><tt class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></tt></a></p>
+<p>Derrived class for Reply type messages</p>
+<dl class="attribute">
+<dt id="dripline.core.message.ReplyMessage.msgtype">
+<tt class="descname">msgtype</tt><a class="reference internal" href="../_modules/dripline/core/message.html#ReplyMessage.msgtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.ReplyMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.RequestMessage">
+<em class="property">class </em><tt class="descclassname">dripline.core.message.</tt><tt class="descname">RequestMessage</tt><big>(</big><em>msgop=None</em>, <em>target=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>exceptions=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#RequestMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.RequestMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><tt class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></tt></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.RequestMessage.msgtype">
+<tt class="descname">msgtype</tt><a class="reference internal" href="../_modules/dripline/core/message.html#RequestMessage.msgtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.RequestMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.InfoMessage">
+<em class="property">class </em><tt class="descclassname">dripline.core.message.</tt><tt class="descname">InfoMessage</tt><big>(</big><em>msgop=None</em>, <em>target=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>exceptions=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#InfoMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.InfoMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><tt class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></tt></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.InfoMessage.msgtype">
+<tt class="descname">msgtype</tt><a class="reference internal" href="../_modules/dripline/core/message.html#InfoMessage.msgtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.InfoMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.AlertMessage">
+<em class="property">class </em><tt class="descclassname">dripline.core.message.</tt><tt class="descname">AlertMessage</tt><big>(</big><em>msgop=None</em>, <em>target=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>exceptions=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#AlertMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.AlertMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><tt class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></tt></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.AlertMessage.msgtype">
+<tt class="descname">msgtype</tt><a class="reference internal" href="../_modules/dripline/core/message.html#AlertMessage.msgtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.AlertMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.Message">
+<em class="property">class </em><tt class="descclassname">dripline.core.message.</tt><tt class="descname">Message</tt><big>(</big><em>msgop=None</em>, <em>target=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>exceptions=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#Message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>metaclass for dripline messages</p>
+<dl class="attribute">
+<dt id="dripline.core.message.Message.exceptions">
+<tt class="descname">exceptions</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.exceptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.exceptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.core.message.Message.from_dict">
+<em class="property">static </em><tt class="descname">from_dict</tt><big>(</big><em>msg_dict</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.core.message.Message.from_msgpack">
+<em class="property">static </em><tt class="descname">from_msgpack</tt><big>(</big><em>msg</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_msgpack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_msgpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.msgop">
+<tt class="descname">msgop</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.msgop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.msgop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.msgtype">
+<tt class="descname">msgtype</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.msgtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.payload">
+<tt class="descname">payload</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.payload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.target">
+<tt class="descname">target</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.timestamp">
+<tt class="descname">timestamp</tt><a class="reference internal" href="../_modules/dripline/core/message.html#Message.timestamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.message.Message.to_msgpack">
+<tt class="descname">to_msgpack</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/message.html#Message.to_msgpack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.to_msgpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

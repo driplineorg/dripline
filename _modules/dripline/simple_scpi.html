@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dripline.simple_scpi &mdash; dripline 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dripline 0.0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../index.html" class="fa fa-home"> dripline</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>dripline.simple_scpi</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for dripline.simple_scpi</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">sensor</span> <span class="kn">import</span> <span class="n">AutoReply</span>
+<span class="kn">from</span> <span class="nn">factory</span> <span class="kn">import</span> <span class="n">constructor_registry</span> <span class="k">as</span> <span class="n">reg</span>
+
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">from</span> <span class="nn">provider</span> <span class="kn">import</span> <span class="n">Provider</span>
+
+<div class="viewcode-block" id="SimpleSCPIInstrument"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPIInstrument">[docs]</a><span class="k">class</span> <span class="nc">SimpleSCPIInstrument</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_addr</span><span class="o">=</span><span class="s">&#39;10.0.0.60&#39;</span><span class="p">,</span> <span class="n">scpi_port</span><span class="o">=</span><span class="mi">5025</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="p">{}</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">ip_addr</span> <span class="o">=</span> <span class="n">ip_addr</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">scpi_port</span> <span class="o">=</span> <span class="n">scpi_port</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">ip_addr</span><span class="p">,</span><span class="n">scpi_port</span><span class="p">))</span>
+
+<div class="viewcode-block" id="SimpleSCPIInstrument.add_endpoint"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPIInstrument.add_endpoint">[docs]</a>	<span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="n">endpoint</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">endpoint</span>
+		<span class="n">endpoint</span><span class="o">.</span><span class="n">set_provider</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPIInstrument.list_endpoints"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPIInstrument.list_endpoints">[docs]</a>	<span class="k">def</span> <span class="nf">list_endpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPIInstrument.endpoint"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPIInstrument.endpoint">[docs]</a>	<span class="k">def</span> <span class="nf">endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">endpoint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_endpoints</span><span class="p">():</span>
+			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="n">endpoint</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPIInstrument.send_sync"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPIInstrument.send_sync">[docs]</a>	<span class="k">def</span> <span class="nf">send_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_send</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">to_send</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\r\n</span><span class="s">&#39;</span><span class="p">)</span>
+		<span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">data</span>
+</div></div>
+<div class="viewcode-block" id="SimpleSCPISensor"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor">[docs]</a><span class="k">class</span> <span class="nc">SimpleSCPISensor</span><span class="p">(</span><span class="n">AutoReply</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">on_get</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">on_set</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_provider</span> <span class="o">=</span> <span class="bp">None</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_on_get</span> <span class="o">=</span> <span class="n">on_get</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_on_set</span> <span class="o">=</span> <span class="n">on_set</span>
+
+<div class="viewcode-block" id="SimpleSCPISensor.on_get"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor.on_get">[docs]</a>	<span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_provider</span><span class="o">.</span><span class="n">send_sync</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_get</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPISensor.on_set"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor.on_set">[docs]</a>	<span class="k">def</span> <span class="nf">on_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_provider</span><span class="o">.</span><span class="n">send_sync</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_set</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+		<span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPISensor.on_config"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor.on_config">[docs]</a>	<span class="k">def</span> <span class="nf">on_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPISensor.provider"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor.provider">[docs]</a>	<span class="k">def</span> <span class="nf">provider</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_provider</span>
+</div>
+<div class="viewcode-block" id="SimpleSCPISensor.set_provider"><a class="viewcode-back" href="../../dripline.html#dripline.simple_scpi.SimpleSCPISensor.set_provider">[docs]</a>	<span class="k">def</span> <span class="nf">set_provider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_provider</span> <span class="o">=</span> <span class="n">provider</span>
+</div></div>
+<span class="n">reg</span><span class="p">[</span><span class="s">&#39;simple_scpi_instrument&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SimpleSCPIInstrument</span>
+<span class="n">reg</span><span class="p">[</span><span class="s">&#39;simple_scpi_sensor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SimpleSCPISensor</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

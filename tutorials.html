@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorials &mdash; dripline 0.0.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dripline 0.0.1 documentation" href="index.html"/>
+        <link rel="prev" title="Contribute" href="contribute.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> dripline</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorials</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/tutorials.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-dripline-powered-key-value-store">
+<h2>A Dripline powered key-value store<a class="headerlink" href="#a-dripline-powered-key-value-store" title="Permalink to this headline">¶</a></h2>
+<p>As a way to explore how dripline creates sensors that we can interact with
+via the dripline protocol, let&#8217;s create and interact with a simple example:
+a key-value store which is implemented as a dripline endpoint.  The key-value
+store will be very simple: a list of keys, each of which is a string (for
+example, <tt class="docutils literal"><span class="pre">key0</span></tt>, <tt class="docutils literal"><span class="pre">foo_key</span></tt>, <tt class="docutils literal"><span class="pre">some_name</span></tt>, whatever).  Associated with
+each key is a floating point number which is its value: 1.3 perhaps, or -3.4,
+or 1.4e21, or really anything that can represent a floating point number.
+What we want as a user is some remote storage for such a key-value store, where
+we can ask dripline for the current value of <tt class="docutils literal"><span class="pre">key0</span></tt> and have it answer with
+whatever that current value may be.</p>
+<div class="section" id="a-quick-refresher">
+<h3>A quick refresher<a class="headerlink" href="#a-quick-refresher" title="Permalink to this headline">¶</a></h3>
+<p>First let&#8217;s recall how things are structured in a dripline
+node.  The most basic functional unit in a dripline node is an <em>endpoint</em>.
+An endpoint represents something that we want to interact with - perhaps it is
+the contents of some file in a directory, or the input to a voltmeter, or
+in this case, a value associated with some key.  In a dripline configuration
+file, an endpoint is always declared in a block whose name is <tt class="docutils literal"><span class="pre">endpoints</span></tt>.</p>
+<p><strong>Every</strong> endpoint must have a <em>provider</em> associated with it.  The concept
+of a provider represents an element in the system without which an endpoint
+could not independently function.  For example, consider a case where an
+endpoint represents the input to a digital voltmeter which is connected to
+an ethernet router.  Without a connection to the voltmeter, we clearly can&#8217;t
+communicate with the endpoint.  For that reason, we may write some code which
+performs the communication with the voltmeter itself, and then we say that
+code <em>provides</em> the endpoint which is the input to the voltmeter.  It&#8217;s also
+the case that once we have one connection to the voltmeter, it seems like
+wasted effort to duplicate that among many objects, and so the voltmeter
+provider can act as a logical way to group endpoints together.</p>
+</div>
+<div class="section" id="let-s-go">
+<h3>Let&#8217;s go<a class="headerlink" href="#let-s-go" title="Permalink to this headline">¶</a></h3>
+<p>To start with, let&#8217;s consider the structure of our key-value store.  We
+have a list of some keys that have string names, and each key has a floating
+point value associated with it.  We will consider a list of items at a store,
+each of which has a price in dollars.  It&#8217;s not a very big store - we only
+have peaches, chips, and waffles.  The prices of these items fluctuates a lot
+due to global waffle demand, and so we want to be able to both ask our system
+what the current price is, and change the prices as necessary.</p>
+<p>The dripline <tt class="docutils literal"><span class="pre">kv_store</span></tt> provider and <tt class="docutils literal"><span class="pre">kv_store_key</span></tt> endpoint will give us
+exactly this in a very simple way.  If the current pricelist is something like</p>
+<ul class="simple">
+<li>Peaches: 0.75</li>
+<li>Chips: 1.75</li>
+<li>Waffles: 4.00</li>
+</ul>
+<p>We can write a configuration file for dripline (note, this exact file is in ``
+examples/kv_store_tutorial.yaml``) that looks like this and represents our
+pricelist in a very recognizable way:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">nodename</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_store</span>
+<span class="l-Scalar-Plain">broker</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
+<span class="l-Scalar-Plain">providers</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_price_list</span>
+    <span class="l-Scalar-Plain">module</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kv_store</span>
+    <span class="l-Scalar-Plain">endpoints</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">peaches</span>
+        <span class="l-Scalar-Plain">module</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kv_store_key</span>
+        <span class="l-Scalar-Plain">initial_value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.75</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">chips</span>
+        <span class="l-Scalar-Plain">module</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kv_store_key</span>
+        <span class="l-Scalar-Plain">initial_value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1.75</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">waffles</span>
+        <span class="l-Scalar-Plain">module</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kv_store_key</span>
+        <span class="l-Scalar-Plain">initial_value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4.00</span>
+</pre></div>
+</div>
+<p>That&#8217;s it.  The <tt class="docutils literal"><span class="pre">nodename</span></tt> parameter is simply telling dripline that we want
+our dripline node to be called <tt class="docutils literal"><span class="pre">my_store</span></tt>.  The <tt class="docutils literal"><span class="pre">broker</span></tt> is telling
+dripline that there is an AMQP router which is installed on localhost.
+In the <tt class="docutils literal"><span class="pre">providers</span></tt> section, we declare a provider named <tt class="docutils literal"><span class="pre">my_price_list</span></tt>,
+with the <tt class="docutils literal"><span class="pre">module</span></tt> parameter set to <tt class="docutils literal"><span class="pre">kv_store</span></tt>.  When dripline sees the
+<tt class="docutils literal"><span class="pre">module</span></tt> parameter, it will look to see what that string value corresponds to
+in terms of the object that it should construct.  In this case, it will
+construct an object of type <tt class="docutils literal"><span class="pre">KVStore</span></tt> and give it the name <tt class="docutils literal"><span class="pre">my_price_list</span></tt>.
+The <tt class="docutils literal"><span class="pre">endpoints</span></tt> of <tt class="docutils literal"><span class="pre">my_price_list</span></tt> correspond to the prices of each
+individual item.  Each endpoint has a <tt class="docutils literal"><span class="pre">name</span></tt>, which is simply the name of the
+item, and a <tt class="docutils literal"><span class="pre">module</span></tt>, which is identical to the idea of a provider module.</p>
+<p>The only new thing here is the <tt class="docutils literal"><span class="pre">initial_value</span></tt> parameter, which you notice
+is equal in each case to the initial price of the object of the same name
+as the endpoint.  Dripline considers every parameter which isn&#8217;t called
+<tt class="docutils literal"><span class="pre">name</span></tt> or <tt class="docutils literal"><span class="pre">module</span></tt> to be <em>specific to the object</em> and passes it along to
+the object for it to do with as it likes.  In this instance, the initializer
+of the <tt class="docutils literal"><span class="pre">KVStoreKey</span></tt> object looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">initial_value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
+       <span class="bp">self</span><span class="o">.</span><span class="n">initial_value</span> <span class="o">=</span> <span class="n">initial_value</span>
+</pre></div>
+</div>
+<p>Note that initial_value is a keyword argument to the constructor, which sets
+whatever that parameter may be to be the initial value associated with the
+key.</p>
+</div>
+<div class="section" id="interacting-with-it">
+<h3>Interacting with it<a class="headerlink" href="#interacting-with-it" title="Permalink to this headline">¶</a></h3>
+<p>OK, enough details.  To fire up our key-value store and start interacting with
+it, we want to start a dripline node which will use our configuration file.
+To do that, we will use <tt class="docutils literal"><span class="pre">start_node.py</span></tt> located in the dripline directory.
+We point it to our configuration file (if you are intrepid enough to make your
+own, point to whatever you created), and fire it up:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python start_node.py -c examples/kv_store_tutorial.yaml
+</pre></div>
+</div>
+<p>You should see output that looks like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python start_node.py -c examples/kv_store_tutorial.yaml
+2014-09-08 13:28:57,201 - node - INFO - connecting to broker localhost
+2014-09-08 13:29:00,746 - node - INFO - adding provider my_price_list
+2014-09-08 13:29:00,746 - node - INFO - adding endpoint peaches to provider my_price_list
+2014-09-08 13:29:01,504 - node - INFO - adding endpoint chips to provider my_price_list
+2014-09-08 13:29:02,262 - node - INFO - adding endpoint waffles to provider my_price_list
+2014-09-08 13:29:03,020 - node - INFO - starting event loop <span class="k">for </span>node my_store
+</pre></div>
+</div>
+<p>This isn&#8217;t too hard to follow - dripline starts up, connects to the broker
+you told it to, adds a provider and the endpoints, and is ready to go.</p>
+<p>Now let&#8217;s start getting some prices.  We&#8217;re going to use <tt class="docutils literal"><span class="pre">dripline_agent.py</span></tt>
+to do this, as it gives us a very easy way to interact with dripline
+endpoints from the command line.  First of all, let&#8217;s check the current
+price of peaches:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python dripline_agent.py -b localhost get peaches 0
+2014-09-08 13:45:57,905 - node - INFO - connecting to broker localhost
+peaches: 0.75
+</pre></div>
+</div>
+<p>Nice.  So the current price of peaches in our store is 0.75.  What about
+waffles?</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python dripline_agent.py -b localhost get waffles 0
+2014-09-08 13:52:26,597 - node - INFO - connecting to broker localhost
+waffles: 4.0
+</pre></div>
+</div>
+<p>Now let&#8217;s say that there&#8217;s been a global rush on chips and the price we
+have to charge has skyrocketed from 1.75 to 1.79.  We can use
+<tt class="docutils literal"><span class="pre">dripline_agent.py</span></tt> to set the new value:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python dripline_agent.py -b localhost get chips 0
+2014-09-08 13:53:57,432 - node - INFO - connecting to broker localhost
+chips: 1.75
+
+<span class="nv">$ </span>python dripline_agent.py -b localhost <span class="nb">set </span>chips 1.79
+2014-09-08 13:53:38,545 - node - INFO - connecting to broker localhost
+chips-&gt;1.79: <span class="nb">complete</span>
+
+<span class="nv">$ </span>python dripline_agent.py -b localhost get chips 0
+2014-09-08 13:53:59,768 - node - INFO - connecting to broker localhost
+chips: 1.79
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="contribute.html" class="btn btn-neutral" title="Contribute"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
