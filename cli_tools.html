@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Module Index &mdash; dripline 0.0.2 documentation</title>
+  <title>Command Line Tools &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -31,9 +31,7 @@
 
   
     <link rel="top" title="dripline 0.0.2 documentation" href="index.html"/>
- 
-
-
+        <link rel="prev" title="Tutorials" href="tutorials.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -60,7 +58,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
@@ -88,10 +86,10 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cli_tools.html">Command Line Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#start-node">start_node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#message-monitor">message_monitor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
@@ -117,8 +115,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li>Command Line Tools</li>
       <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/cli_tools.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -126,103 +126,72 @@
 </div>
           <div role="main">
             
+  <div class="section" id="command-line-tools">
+<h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dripline-agent">
+<h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-c configuration file] [-b AMQP broker address]
+                      verb target [value [value ...]]
 
-   <h1>Python Module Index</h1>
+dripline_agent provides basic a CLI to the dripline system.
 
-   <div class="modindex-jumpbox">
-   <a href="#cap-d"><strong>d</strong></a>
-   </div>
+positional arguments:
+  verb
+  target
+  value
 
-   <table class="indextable modindextable" cellspacing="0" cellpadding="2">
-     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
-     <tr class="cap" id="cap-d"><td></td><td>
-       <strong>d</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <a href="apidocs/dripline.html#module-dripline"><code class="xref">dripline</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.html#module-dripline.core"><code class="xref">dripline.core</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.binding.html#module-dripline.core.binding"><code class="xref">dripline.core.binding</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.config.html#module-dripline.core.config"><code class="xref">dripline.core.config</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.connection.html#module-dripline.core.connection"><code class="xref">dripline.core.connection</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.constants.html#module-dripline.core.constants"><code class="xref">dripline.core.constants</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.endpoint.html#module-dripline.core.endpoint"><code class="xref">dripline.core.endpoint</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.message.html#module-dripline.core.message"><code class="xref">dripline.core.message</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.node.html#module-dripline.core.node"><code class="xref">dripline.core.node</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.provider.html#module-dripline.core.provider"><code class="xref">dripline.core.provider</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.core.sensor.html#module-dripline.core.sensor"><code class="xref">dripline.core.sensor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.instruments.html#module-dripline.instruments"><code class="xref">dripline.instruments</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.instruments.agilent34461a.html#module-dripline.instruments.agilent34461a"><code class="xref">dripline.instruments.agilent34461a</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.instruments.kv_store.html#module-dripline.instruments.kv_store"><code class="xref">dripline.instruments.kv_store</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.instruments.random_sensor.html#module-dripline.instruments.random_sensor"><code class="xref">dripline.instruments.random_sensor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&nbsp;&nbsp;&nbsp;
-       <a href="apidocs/dripline.instruments.simple_scpi.html#module-dripline.instruments.simple_scpi"><code class="xref">dripline.instruments.simple_scpi</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+optional arguments:
+  -h, --help            show this help message and exit
+  -c configuration file, --config configuration file
+                        full path to a dripline YAML configuration file.
+  -b AMQP broker address, --broker AMQP broker address
+                        the address of the AMQP broker dripline should use
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-node">
+<h2>start_node<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>usage: start_node [-h] [-c configuration file]
+
+Start a dripline node.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c configuration file, --config configuration file
+                        full path to a dripline YAML configuration file.
+</pre></div>
+</div>
+</div>
+<div class="section" id="message-monitor">
+<h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-a amqp server host address] [-e exchange name]
+                       [-k [binding keys [binding keys ...]]]
+
+Print messages from an exchange.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a amqp server host address, --amqp amqp server host address
+                        full network name of amqp host
+  -e exchange name, --exchange exchange name
+                        amqp name of the exchange to monitor
+  -k [binding keys [binding keys ...]], --keys [binding keys [binding keys ...]]
+                        amqp binding keys to follow
+</pre></div>
+</div>
+</div>
+</div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tutorials.html" class="btn btn-neutral" title="Tutorials"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

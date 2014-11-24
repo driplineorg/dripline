@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.instruments.kv_store &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.instruments.kv_store &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -84,6 +84,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
@@ -144,19 +150,21 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Provider</span><span class="p">,</span> <span class="n">Endpoint</span>
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Provider</span><span class="p">,</span> <span class="n">Endpoint</span><span class="p">,</span> <span class="n">DataLogger</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;kv_store&#39;</span><span class="p">,</span> <span class="s">&#39;kv_store_key&#39;</span><span class="p">]</span>
 
 
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 <div class="viewcode-block" id="kv_store"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store">[docs]</a><span class="k">class</span> <span class="nc">kv_store</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The KV store.  This is just a wrapper around a dict.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="kv_store.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
@@ -167,7 +175,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">endpoint</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="p">[</span><span class="n">endpoint</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">endpoint</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="n">endpoint</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">endpoint</span><span class="o">.</span><span class="n">initial_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">[</span><span class="n">endpoint</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">endpoint</span><span class="o">.</span><span class="n">initial_value</span>
 </div>
 <div class="viewcode-block" id="kv_store.endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store.endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -181,24 +189,37 @@
 <span class="sd">        This is the same as enumerating the keys in the</span>
 <span class="sd">        dict.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="c"># TODO: is there a reason for this, rather than inherit from dict?</span>
+    <span class="c"># I&#39;ll need to think about that</span></div>
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
 </div>
-<div class="viewcode-block" id="kv_store_key"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key">[docs]</a><span class="k">class</span> <span class="nc">kv_store_key</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">):</span>
+<div class="viewcode-block" id="kv_store_key"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key">[docs]</a><span class="k">class</span> <span class="nc">kv_store_key</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">DataLogger</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A key in the KV store.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">initial_value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">initial_value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">log_interval</span><span class="o">=</span><span class="mf">0.</span><span class="p">):</span>
+        <span class="c"># DataLogger stuff</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">kv_store_key</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_interval</span> <span class="o">=</span> <span class="n">log_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_log</span>
+
+        <span class="c"># derrived class stuff</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initial_value</span> <span class="o">=</span> <span class="n">initial_value</span>
 
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="kv_store_key.report_log"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key.report_log">[docs]</a>    <span class="k">def</span> <span class="nf">report_log</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>  
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Should be logging value: {}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</div>
 <div class="viewcode-block" id="kv_store_key.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the value associated with this</span>
@@ -213,17 +234,22 @@
 <span class="sd">        to some new value.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;value received is {} of type {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
             <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;argument to set must be a float!&#39;</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="kv_store_key.on_config"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key.on_config">[docs]</a>    <span class="k">def</span> <span class="nf">on_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="kv_store_key.on_config"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.kv_store.html#dripline.instruments.kv_store.kv_store_key.on_config">[docs]</a>    <span class="k">def</span> <span class="nf">on_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Configuring a key is not defined.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="ne">NotImplementedError</span>
-</pre></div></div></div>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;set {} to {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s">&quot;No attribute: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attribute</span><span class="p">))</span></div></div>
+</pre></div>
 
           </div>
           <footer>
@@ -253,7 +279,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

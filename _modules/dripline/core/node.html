@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.node &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.node &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -86,6 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -128,14 +134,9 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">message</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-<span class="n">ch</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%(asctime)s</span><span class="s"> - </span><span class="si">%(name)s</span><span class="s"> - </span><span class="si">%(levelname)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">)</span>
-<span class="n">ch</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
-
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Node&#39;</span><span class="p">]</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="Node"><a class="viewcode-back" href="../../../apidocs/dripline.core.node.html#dripline.core.node.Node">[docs]</a><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -237,6 +238,8 @@
                   <span class="n">on_get</span><span class="o">=</span><span class="n">endpoint</span><span class="o">.</span><span class="n">on_get</span><span class="p">,</span>
                   <span class="n">on_set</span><span class="o">=</span><span class="n">endpoint</span><span class="o">.</span><span class="n">on_set</span><span class="p">,</span>
                   <span class="n">on_config</span><span class="o">=</span><span class="n">endpoint</span><span class="o">.</span><span class="n">on_config</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="s">&#39;store_value&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">send_alert</span><span class="p">)</span>
+        <span class="n">endpoint</span><span class="o">.</span><span class="n">report_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">send_alert</span>
 
     <span class="c"># TODO: god these names are awkward, who came up with this???</span></div>
 <div class="viewcode-block" id="Node.provider_list"><a class="viewcode-back" href="../../../apidocs/dripline.core.node.html#dripline.core.node.Node.provider_list">[docs]</a>    <span class="k">def</span> <span class="nf">provider_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -309,7 +312,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

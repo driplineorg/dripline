@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.binding &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.binding &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -86,6 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -126,11 +132,16 @@
 <span class="sd">and the functions which are called when that name is addressed</span>
 <span class="sd">on the dripline mesh.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">message</span>
-<span class="kn">import</span> <span class="nn">constants</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
 <span class="kn">import</span> <span class="nn">pika</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">message</span>
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">constants</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Binding&#39;</span><span class="p">]</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Binding"><a class="viewcode-back" href="../../../apidocs/dripline.core.binding.html#dripline.core.binding.Binding">[docs]</a><span class="k">class</span> <span class="nc">Binding</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -160,6 +171,12 @@
 <span class="sd">        endpoint which is bound by this binding.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">from_msgpack</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="c"># TODO: this is a really messy abstraction, the endpoint baseclass </span>
+        <span class="c"># should be able to handle this with with a dict mapping constant values</span>
+        <span class="c"># to abstract methods</span>
+        <span class="c"># (ie add OP_SENSOR_&lt;whatever&gt; to constants, add a abstract method for</span>
+        <span class="c"># it, and add an entry to the constant-&gt;method dict)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_GET</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
@@ -168,11 +185,27 @@
             <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">on_set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_set</span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;set returned: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;complete&#39;</span>
             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;got: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_CONFIG</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_config</span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;config failed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Got an operation request of unsupported type&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="s">&quot;operation unknown&quot;</span><span class="p">)</span>
             <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span></div></div>
 </pre></div>
 
@@ -204,7 +237,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

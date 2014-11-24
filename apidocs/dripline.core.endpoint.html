@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.endpoint module &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.endpoint module &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../index.html"/> 
+    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -85,6 +85,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -123,37 +129,37 @@
 <span id="dripline-core-endpoint-module"></span><h1>dripline.core.endpoint module<a class="headerlink" href="#module-dripline.core.endpoint" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dripline.core.endpoint.Endpoint">
-<em class="property">class </em><tt class="descclassname">dripline.core.endpoint.</tt><tt class="descname">Endpoint</tt><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<em class="property">class </em><code class="descclassname">dripline.core.endpoint.</code><code class="descname">Endpoint</code><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="dripline.core.endpoint.Endpoint.on_config">
-<tt class="descname">on_config</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_config" title="Permalink to this definition">¶</a></dt>
+<code class="descname">on_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.endpoint.Endpoint.on_get">
-<tt class="descname">on_get</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.endpoint.Endpoint.on_set">
-<tt class="descname">on_set</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_set" title="Permalink to this definition">¶</a></dt>
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_set" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="dripline.core.endpoint.AutoReply">
-<em class="property">class </em><tt class="descclassname">dripline.core.endpoint.</tt><tt class="descname">AutoReply</tt><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><tt class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></tt></a></p>
+<em class="property">class </em><code class="descclassname">dripline.core.endpoint.</code><code class="descname">AutoReply</code><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
 <dl class="method">
 <dt id="dripline.core.endpoint.AutoReply.handle_request">
-<tt class="descname">handle_request</tt><big>(</big><em>channel</em>, <em>method</em>, <em>properties</em>, <em>request</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply.handle_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply.handle_request" title="Permalink to this definition">¶</a></dt>
+<code class="descname">handle_request</code><span class="sig-paren">(</span><em>channel</em>, <em>method</em>, <em>properties</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply.handle_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply.handle_request" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.endpoint.AutoReply.send_reply">
-<tt class="descname">send_reply</tt><big>(</big><em>channel</em>, <em>properties</em>, <em>result</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply.send_reply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply.send_reply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_reply</code><span class="sig-paren">(</span><em>channel</em>, <em>properties</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#AutoReply.send_reply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.AutoReply.send_reply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -189,7 +195,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

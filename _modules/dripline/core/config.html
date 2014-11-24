@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.config &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.config &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -86,6 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -134,12 +140,12 @@
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
-<span class="n">STREAM_HANDLER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">MSG_FORMAT</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%(asctime)s</span><span class="s"> - </span><span class="si">%(name)s</span><span class="s"> - </span><span class="si">%(levelname)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span>
-<span class="n">FORMATTER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">MSG_FORMAT</span><span class="p">)</span>
-<span class="n">STREAM_HANDLER</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">FORMATTER</span><span class="p">)</span>
-<span class="n">LOGGER</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="n">LOGGER</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">STREAM_HANDLER</span><span class="p">)</span>
+<span class="c">#STREAM_HANDLER = logging.StreamHandler()</span>
+<span class="c">#MSG_FORMAT = &#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;</span>
+<span class="c">#FORMATTER = logging.Formatter(MSG_FORMAT)</span>
+<span class="c">#STREAM_HANDLER.setFormatter(FORMATTER)</span>
+<span class="c">#LOGGER.setLevel(logging.INFO)</span>
+<span class="c">#LOGGER.addHandler(STREAM_HANDLER)</span>
 
 <span class="n">DUP_MESSAGE</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
 <span class="s">            duplicate definition: {category} with name {name} already</span>
@@ -327,7 +333,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

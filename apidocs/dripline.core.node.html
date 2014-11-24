@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.node module &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.node module &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../index.html"/> 
+    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -85,6 +85,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -123,8 +129,8 @@
 <span id="dripline-core-node-module"></span><h1>dripline.core.node module<a class="headerlink" href="#module-dripline.core.node" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="dripline.core.node.Node">
-<em class="property">class </em><tt class="descclassname">dripline.core.node.</tt><tt class="descname">Node</tt><big>(</big><em>configuration</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<em class="property">class </em><code class="descclassname">dripline.core.node.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>configuration</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>The Node is the core abstraction in the dripline model.  A Node object
 represents an entity on the dripline mesh which can send and receive
 messages.  Providers &#8216;belong&#8217; to the Node, and endpoints are attached
@@ -132,12 +138,12 @@ to the Node through the bind and bind_endpoint methods for a given Node
 instance.</p>
 <dl class="method">
 <dt id="dripline.core.node.Node.add_provider">
-<tt class="descname">add_provider</tt><big>(</big><em>provider</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.add_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.add_provider" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.add_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.add_provider" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.bind">
-<tt class="descname">bind</tt><big>(</big><em>name</em>, <em>on_get=None</em>, <em>on_set=None</em>, <em>on_config=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind" title="Permalink to this definition">¶</a></dt>
+<code class="descname">bind</code><span class="sig-paren">(</span><em>name</em>, <em>on_get=None</em>, <em>on_set=None</em>, <em>on_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind an arbitrary set of set/get/config functions to the
 dripline node.  Note that currently this cannot be called
 directly in a configuration file!  It is only used internally
@@ -146,7 +152,7 @@ by dripline.</p>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.bind_endpoint">
-<tt class="descname">bind_endpoint</tt><big>(</big><em>endpoint</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind_endpoint" title="Permalink to this definition">¶</a></dt>
+<code class="descname">bind_endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind_endpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind an endpoint to the dripline node.  Once an endpoint is bound by
 name, it has an address and may be found on the dripline node by
 that name.</p>
@@ -154,14 +160,14 @@ that name.</p>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.config">
-<tt class="descname">config</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.config" title="Permalink to this definition">¶</a></dt>
+<code class="descname">config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the YAML string representation of this dripline Node&#8217;s
 configuration.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.extend_object_graph">
-<tt class="descname">extend_object_graph</tt><big>(</big><em>provider</em>, <em>endpoints=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.extend_object_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.extend_object_graph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extend_object_graph</code><span class="sig-paren">(</span><em>provider</em>, <em>endpoints=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.extend_object_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.extend_object_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a provider and its endpoints, extend the object graph.</p>
 <p>The object graph connects objects which are related by a provider
 -&gt; endpoint relationship. During the process of building the
@@ -170,28 +176,28 @@ object graph, bindings are created for endpoints.</p>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.locate_provider">
-<tt class="descname">locate_provider</tt><big>(</big><em>endpoint</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.locate_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.locate_provider" title="Permalink to this definition">¶</a></dt>
+<code class="descname">locate_provider</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.locate_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.locate_provider" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.nodename">
-<tt class="descname">nodename</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.nodename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.nodename" title="Permalink to this definition">¶</a></dt>
+<code class="descname">nodename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.nodename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.nodename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the name of the node on the dripline mesh.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.provider_endpoints">
-<tt class="descname">provider_endpoints</tt><big>(</big><em>provider</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_endpoints" title="Permalink to this definition">¶</a></dt>
+<code class="descname">provider_endpoints</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_endpoints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.provider_list">
-<tt class="descname">provider_list</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_list" title="Permalink to this definition">¶</a></dt>
+<code class="descname">provider_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.send_sync">
-<tt class="descname">send_sync</tt><big>(</big><em>to_send</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.send_sync" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_sync</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.send_sync" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send a message synchronously to an endpoint which is connected
 to the dripline mesh.  This method will wait for a reply and return
 it synchronously to the caller.  The provided message to be sent
@@ -202,7 +208,7 @@ will also subclass Message.</p>
 
 <dl class="method">
 <dt id="dripline.core.node.Node.start_event_loop">
-<tt class="descname">start_event_loop</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/node.html#Node.start_event_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.start_event_loop" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start_event_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.start_event_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.start_event_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the event loop for processing messages.</p>
 </dd></dl>
 
@@ -239,7 +245,7 @@ will also subclass Message.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

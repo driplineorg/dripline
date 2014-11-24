@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.connection module &mdash; dripline 0.0.1 documentation</title>
+  <title>dripline.core.connection module &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="dripline 0.0.1 documentation" href="../index.html"/> 
+    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -85,6 +85,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -124,17 +130,23 @@
 <p>A connection to the AMQP broker</p>
 <dl class="class">
 <dt id="dripline.core.connection.Connection">
-<em class="property">class </em><tt class="descclassname">dripline.core.connection.</tt><tt class="descname">Connection</tt><big>(</big><em>broker_host='localhost'</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<em class="property">class </em><code class="descclassname">dripline.core.connection.</code><code class="descname">Connection</code><span class="sig-paren">(</span><em>broker_host='localhost'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="dripline.core.connection.Connection.send_alert">
+<code class="descname">send_alert</code><span class="sig-paren">(</span><em>alert</em>, <em>severity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_alert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>send an alert</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="dripline.core.connection.Connection.send_request">
-<tt class="descname">send_request</tt><big>(</big><em>target</em>, <em>request</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_request" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send_request</code><span class="sig-paren">(</span><em>target</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>send a request to a specific consumer.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.connection.Connection.start">
-<tt class="descname">start</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.start" title="Permalink to this definition">¶</a></dt>
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -170,7 +182,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.1',
+            VERSION:'0.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
