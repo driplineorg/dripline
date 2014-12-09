@@ -69,11 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -129,7 +124,7 @@
   <div class="section" id="command-line-tools">
 <h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dripline-agent">
-<h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-c configuration file] [-b AMQP broker address]
                       verb target [value [value ...]]
 
@@ -150,7 +145,7 @@ optional arguments:
 </div>
 </div>
 <div class="section" id="start-node">
-<h2>start_node<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>start_node<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text"><div class="highlight"><pre>usage: start_node [-h] [-c configuration file]
 
 Start a dripline node.
@@ -163,9 +158,9 @@ optional arguments:
 </div>
 </div>
 <div class="section" id="message-monitor">
-<h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-a amqp server host address] [-e exchange name]
-                       [-k [binding keys [binding keys ...]]]
+                       [-k [key [key ...]]]
 
 Print messages from an exchange.
 
@@ -175,7 +170,7 @@ optional arguments:
                         full network name of amqp host
   -e exchange name, --exchange exchange name
                         amqp name of the exchange to monitor
-  -k [binding keys [binding keys ...]], --keys [binding keys [binding keys ...]]
+  -k [key [key ...]], --keys [key [key ...]]
                         amqp binding keys to follow
 </pre></div>
 </div>

@@ -69,11 +69,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../spec.html#messages">Messages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -178,9 +173,12 @@
         <span class="c"># it, and add an entry to the constant-&gt;method dict)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_GET</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;got: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
         <span class="k">elif</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_SET</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">try</span><span class="p">:</span>
@@ -188,11 +186,10 @@
                 <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_set</span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;set returned: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;complete&#39;</span>
-            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;got: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_CONFIG</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">try</span><span class="p">:</span>
@@ -202,11 +199,10 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;config failed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Got an operation request of unsupported type&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="s">&quot;operation unknown&quot;</span><span class="p">)</span>
-            <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span></div></div>
+        <span class="n">channel</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>

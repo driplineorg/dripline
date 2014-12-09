@@ -70,11 +70,6 @@
 <li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -228,7 +223,7 @@ key.</p>
 <h3>Interacting with it<a class="headerlink" href="#interacting-with-it" title="Permalink to this headline">¶</a></h3>
 <p>OK, enough details.  To fire up our key-value store and start interacting with
 it, we want to start a dripline node which will use our configuration file.
-To do that, we will use <code class="docutils literal"><span class="pre">start_node.py</span></code> located in the dripline directory.
+To do that, we will use <a class="reference internal" href="cli_tools.html#start-node"><em>start_node</em></a> located in the bin directory.
 We point it to our configuration file (if you are intrepid enough to make your
 own, point to whatever you created), and fire it up:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>start_node -c examples/kv_store_tutorial.yaml
