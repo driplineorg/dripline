@@ -141,16 +141,16 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><strong>Endpoints</strong>: are conceptually the destination of requests. Endpoints are hosted by nodes, and a node may be responsible for many endpoints. Endpoints are uniquely named by a single string which may contain any alphanumeric character, underscores, or hyphens; but which may <em>not</em> contain periods or commas (<em>i.e.</em> matching the regular expression <code class="docutils literal"><span class="pre">^[a-zA-Z0-9_][^[.,]]*$</span></code>. A <em>request</em> is directed toward a particular endpoint, the <em>target</em>, and the node which hosts that endpoint is responsible for delegating the request.</dt>
+<dt><strong>Endpoints</strong>: are conceptually the destination of requests. Endpoints are hosted by nodes, and a node may be responsible for many endpoints. Endpoints are uniquely named by a single string which may contain any alphanumeric character, underscores, or hyphens; but which may <em>not</em> contain periods or commas (<em>i.e.</em> matching the regular expression <tt class="docutils literal"><span class="pre">^[a-zA-Z0-9_][^[.,]]*$</span></tt>. A <em>request</em> is directed toward a particular endpoint, the <em>target</em>, and the node which hosts that endpoint is responsible for delegating the request.</dt>
 <dd><ul class="first last simple">
-<li><strong>Services</strong> are endpoints that perform some task. For example, the digitizer DAQ may expose some service called <em>e.g.</em> <code class="docutils literal"><span class="pre">take_data</span></code> which begins an acquisition.</li>
+<li><strong>Services</strong> are endpoints that perform some task. For example, the digitizer DAQ may expose some service called <em>e.g.</em> <tt class="docutils literal"><span class="pre">take_data</span></tt> which begins an acquisition.</li>
 <li><strong>Sensors</strong> are endpoints that read some physical value in the system. For example, this may be a pressure or a voltage.</li>
 <li><strong>Monitors</strong> (not currently implemented) are endpoints which monitor the status of nodes to detect failures.</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="first"><strong>Groups</strong> (not implemented) can be used to form logical groupings of endpoints into a single endpoint. For example, two channels <code class="docutils literal"><span class="pre">bore_pressure</span></code> and <code class="docutils literal"><span class="pre">source_pressure</span></code> could be grouped into a logical endpoint called <code class="docutils literal"><span class="pre">pressure</span></code>.</p>
+<li><p class="first"><strong>Groups</strong> (not implemented) can be used to form logical groupings of endpoints into a single endpoint. For example, two channels <tt class="docutils literal"><span class="pre">bore_pressure</span></tt> and <tt class="docutils literal"><span class="pre">source_pressure</span></tt> could be grouped into a logical endpoint called <tt class="docutils literal"><span class="pre">pressure</span></tt>.</p>
 </li>
 </ul>
 </div>
@@ -159,37 +159,37 @@
 <p>The wire format for messages is MessagePack. The message structure is simple:</p>
 <ul>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">msgtype::integer</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">msgtype::integer</span></tt></dt>
 <dd><p class="first last">The type of the message, which is (see above) either Reply(2), Request(3), Alert(4), or Info(5). This field <em>must</em> be defined for every message sent.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">msgop::integer</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">msgop::integer</span></tt></dt>
 <dd><p class="first last">The operation to perform. This field need only be defined for messages with msgtype set to Request</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">target::string</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">target::string</span></tt></dt>
 <dd><p class="first last">The target endpoint for a request.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">timestamp::string</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">timestamp::string</span></tt></dt>
 <dd><p class="first last">A timestamp for the message in <a class="reference external" href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format. The sender of the message is responisible for setting this. It <em>must</em> be attached to every message.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">payload::any</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">payload::any</span></tt></dt>
 <dd><p class="first last">Data which is attached to the message. This may be of any type.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">exceptions::</span> <span class="pre">any</span></code></dt>
+<dt><tt class="docutils literal"><span class="pre">exceptions::</span> <span class="pre">any</span></tt></dt>
 <dd><p class="first last">Any error or information that is generated during the processing of a request. This may be set for any message.</p>
 </dd>
 </dl>

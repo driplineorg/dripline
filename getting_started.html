@@ -162,7 +162,7 @@ endpoint to the broker which provides a random number generator.  We will
 make a request to this endpoint using a dripline client.</p>
 <p>Dripline uses <a class="reference external" href="http://www.yaml.org/">YAML</a> formatted files as its
 configuration file format.  In the <cite>examples</cite> directory of the dripline
-source tree, you will find a file called <code class="docutils literal"><span class="pre">random_node.yaml</span></code> which should
+source tree, you will find a file called <tt class="docutils literal"><span class="pre">random_node.yaml</span></tt> which should
 look like this:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">broker</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 <span class="l-Scalar-Plain">nodename</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">random_node</span>
@@ -176,11 +176,11 @@ look like this:</p>
 <p>When this configuration file is loaded by dripline, it will construct an
 <cite>object graph</cite> from the list of providers and endpoints that appear.  This
 particular configuration file tells dripline that we wish to construct an
-object graph that has an endpoint named <code class="docutils literal"><span class="pre">rng</span></code> whose behavior can be found
-in a module tagged as <code class="docutils literal"><span class="pre">random_float</span></code> (more on this later).  That endpoint
-belongs to a provider called <code class="docutils literal"><span class="pre">local</span></code>.  The name for the dripline node that
-will be started is <code class="docutils literal"><span class="pre">random_node</span></code>, and the node will try to connect to
-an AMQP broker running on <code class="docutils literal"><span class="pre">localhost</span></code>.</p>
+object graph that has an endpoint named <tt class="docutils literal"><span class="pre">rng</span></tt> whose behavior can be found
+in a module tagged as <tt class="docutils literal"><span class="pre">random_float</span></tt> (more on this later).  That endpoint
+belongs to a provider called <tt class="docutils literal"><span class="pre">local</span></tt>.  The name for the dripline node that
+will be started is <tt class="docutils literal"><span class="pre">random_node</span></tt>, and the node will try to connect to
+an AMQP broker running on <tt class="docutils literal"><span class="pre">localhost</span></tt>.</p>
 <p>On that note, you need an AMQP broker running to run the example code.  Install
 an instance of RabbitMQ server to the host of your choice, and start it.  No
 configuration is necessary at all - dripline will take care of the rest.</p>
