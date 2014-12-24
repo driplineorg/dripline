@@ -77,8 +77,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#mocking">Mocking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
@@ -129,15 +130,16 @@
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
 
-    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_endpoints</span> <span class="o">=</span> <span class="p">[]</span>
+
 <div class="viewcode-block" id="Provider.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="n">endpoint</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_endpoints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
 </div>
-    <span class="nd">@abstractmethod</span>
 <div class="viewcode-block" id="Provider.endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider.endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </div>
-    <span class="nd">@abstractmethod</span>
 <div class="viewcode-block" id="Provider.list_endpoints"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider.list_endpoints">[docs]</a>    <span class="k">def</span> <span class="nf">list_endpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 </pre></div>
@@ -150,7 +152,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+        &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
 

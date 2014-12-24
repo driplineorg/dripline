@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.connection module &mdash; dripline 0.0.2 documentation</title>
+  <title>Tutorials &mdash; dripline 0.0.2 documentation</title>
   
 
   
@@ -30,7 +30,9 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
+    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/>
+        <link rel="next" title="A Dripline powered key-value store" href="kv_store.html"/>
+        <link rel="prev" title="Contribute" href="../contribute.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -57,9 +59,9 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -76,8 +78,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../contribute.html#mocking">Mocking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prologix.html">A Single GPIB Instrument with Prologix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
@@ -109,10 +112,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>dripline.core.connection module</li>
+    <li>Tutorials</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.core.connection.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/tutorials/tutorials.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -120,37 +123,38 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-dripline.core.connection">
-<span id="dripline-core-connection-module"></span><h1>dripline.core.connection module<a class="headerlink" href="#module-dripline.core.connection" title="Permalink to this headline">¶</a></h1>
-<p>A connection to the AMQP broker</p>
-<dl class="class">
-<dt id="dripline.core.connection.Connection">
-<em class="property">class </em><tt class="descclassname">dripline.core.connection.</tt><tt class="descname">Connection</tt><big>(</big><em>broker_host='localhost'</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="dripline.core.connection.Connection.send_alert">
-<tt class="descname">send_alert</tt><big>(</big><em>alert</em>, <em>severity</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_alert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_alert" title="Permalink to this definition">¶</a></dt>
-<dd><p>send an alert</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.connection.Connection.send_request">
-<tt class="descname">send_request</tt><big>(</big><em>target</em>, <em>request</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_request" title="Permalink to this definition">¶</a></dt>
-<dd><p>send a request to a specific consumer.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.connection.Connection.start">
-<tt class="descname">start</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prologix.html#configuring-a-service">Configuring a Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prologix.html#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kv_store.html" class="btn btn-neutral float-right" title="A Dripline powered key-value store"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../contribute.html" class="btn btn-neutral" title="Contribute"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dripline.instruments.prologix &mdash; dripline 0.0.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../../../index.html" class="fa fa-home"> dripline</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>dripline.instruments.prologix</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <h1>Source code for dripline.instruments.prologix</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">&lt;this should say something useful&gt;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Spime</span><span class="p">,</span> <span class="n">Provider</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;PrologixSpimescape&#39;</span><span class="p">,</span>
+           <span class="s">&#39;GPIBInstrument&#39;</span><span class="p">,</span>
+           <span class="s">&#39;SimpleGetSpime&#39;</span><span class="p">,</span>
+           <span class="s">&#39;SimpleGetSetSpime&#39;</span><span class="p">,</span>
+          <span class="p">]</span>
+
+
+<div class="viewcode-block" id="PrologixSpimescape"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape">[docs]</a><span class="k">class</span> <span class="nc">PrologixSpimescape</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_poll_interval</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">([],</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">re</span>
+            <span class="n">re_str</span> <span class="o">=</span> <span class="s">&quot;\([</span><span class="se">\&quot;</span><span class="s">&#39;](\S+)[</span><span class="se">\&quot;</span><span class="s">&#39;], (\d+)\)&quot;</span>
+            <span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span> <span class="o">=</span> <span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reconnect</span><span class="p">()</span>
+
+<div class="viewcode-block" id="PrologixSpimescape.reconnect"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.reconnect">[docs]</a>    <span class="k">def</span> <span class="nf">reconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;connection with info: {} refused&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">))</span>
+            <span class="k">raise</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PrologixSpimescape.spimes"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.spimes">[docs]</a>    <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="nd">@devices.setter</span>
+<div class="viewcode-block" id="PrologixSpimescape.devices"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.devices">[docs]</a>    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="n">device_dict</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_cycle</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span></div>
+<div class="viewcode-block" id="PrologixSpimescape.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spime</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">spime</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;spime &quot;{}&quot; already present&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">+</span><span class="p">[(</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">spime</span><span class="p">)])</span>
+        <span class="n">spime</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;spime list is now: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">))</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span>
+    <span class="nd">@keep_polling.setter</span>
+<div class="viewcode-block" id="PrologixSpimescape.keep_polling"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.keep_polling">[docs]</a>    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+</div>
+    <span class="k">def</span> <span class="nf">_queue_next_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_polling</span> <span class="ow">and</span> <span class="p">(</span><span class="n">from_check</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_poll_interval</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_next_status</span><span class="p">,</span> <span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">_check_next_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_cycle</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&#39;*ESR?</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">from_spime</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="p">[</span><span class="n">device</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="p">[</span><span class="n">device</span><span class="p">]</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="p">[</span><span class="n">device</span><span class="p">][</span><span class="s">&#39;opc&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">(</span><span class="n">from_check</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PrologixSpimescape.send"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">from_spime</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        that is, the call to the device blocks for a response</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">from_spime</span><span class="p">:</span>
+            <span class="n">tosend</span> <span class="o">=</span> <span class="n">command</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tosend</span> <span class="o">=</span> <span class="s">&#39;++addr {}</span><span class="se">\r</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">from_spime</span><span class="o">.</span><span class="n">addr</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">tosend</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;sync: {} -&gt; {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+</div></div>
+<div class="viewcode-block" id="GPIBInstrument"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.GPIBInstrument">[docs]</a><span class="k">class</span> <span class="nc">GPIBInstrument</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A Provider class intended for GPIB devices.</span>
+
+<span class="sd">    It expects to have a set of Simple*Spime endpoints which return SCPI commands.</span>
+<span class="sd">    The _cmd_term attribute is appended to those commands before being passed up to</span>
+<span class="sd">    the higher level provider which actually maintains a connection (eg PrologixSpimescape).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cmd_term</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spimes</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="GPIBInstrument.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.GPIBInstrument.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spime</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spimes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">spime</span><span class="p">})</span>
+        <span class="n">spime</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">self</span>
+</div>
+<div class="viewcode-block" id="GPIBInstrument.send"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.GPIBInstrument.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">cmd</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_cmd_term</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="SimpleGetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleGetSpime</span><span class="p">(</span><span class="n">Spime</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A generic Spime for SCPI commands which take no arguments (ie queries).</span>
+
+<span class="sd">    It is assumed that the command will:</span>
+<span class="sd">        1) return something</span>
+<span class="sd">        2) return quickly</span>
+
+<span class="sd">    If either assumption is wrong then you need a different Spime derived class</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">=</span> <span class="n">base_str</span>
+        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SimpleGetSpime.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSpime.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="SimpleGetSetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSetSpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleGetSetSpime</span><span class="p">(</span><span class="n">Spime</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A generic Spime for SCPI commands using a standard pattern for query and assignment.</span>
+
+<span class="sd">    The pattern looks like the following. Consider a command &quot;CMD&quot;</span>
+<span class="sd">        ~To request the current value, the SCPI command would be: &quot;CMD?&quot;</span>
+<span class="sd">        ~To assign a new value, the SCPI command would be &quot;CMD &lt;value&gt;;*OPC?&quot;</span>
+
+<span class="sd">    It is assumed that both of the above constructions will:</span>
+<span class="sd">        1) return something</span>
+<span class="sd">        2) return quickly</span>
+
+<span class="sd">    If either of those assumptions is wrong then you want a different Spime derived class</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">=</span> <span class="n">base_str</span>
+        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SimpleGetSetSpime.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSetSpime.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">+</span> <span class="s">&#39;?&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="SimpleGetSetSpime.on_set"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSetSpime.on_set">[docs]</a>    <span class="k">def</span> <span class="nf">on_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">+</span> <span class="s">&#39; {};*OPC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, The Project 8 Collaboration.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

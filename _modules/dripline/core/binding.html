@@ -77,8 +77,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#mocking">Mocking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
@@ -171,8 +172,8 @@
         <span class="c"># to abstract methods</span>
         <span class="c"># (ie add OP_SENSOR_&lt;whatever&gt; to constants, add a abstract method for</span>
         <span class="c"># it, and add an entry to the constant-&gt;method dict)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_GET</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
@@ -180,6 +181,7 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;got: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">))</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
         <span class="k">elif</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_SET</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span>
@@ -191,6 +193,7 @@
                 <span class="n">result</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_send_reply</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">msg</span><span class="o">.</span><span class="n">msgop</span> <span class="o">==</span> <span class="n">constants</span><span class="o">.</span><span class="n">OP_SENSOR_CONFIG</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span>
@@ -213,7 +216,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+        &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
 

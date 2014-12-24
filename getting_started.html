@@ -78,8 +78,9 @@
 <li class="toctree-l2"><a class="reference internal" href="contribute.html#mocking">Mocking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cli_tools.html">Command Line Tools</a><ul>
@@ -126,14 +127,45 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="libraries">
 <h2>Libraries!<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
-<p>The required librares are <a class="reference external" href="pika.readthedocs.org">pika</a>, <a class="reference external" href="pyyaml.org">PyYAML</a>, and <a class="reference external" href="msgpack.org">msgpack</a>.
-To build this documentation, you also need <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> and <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">sphinx_rtd_theme</a>.
+<p>There are quite a few dependencies for dripline, some required and many optional (though needed for certain features).</p>
+<div class="section" id="required">
+<h3>Required<a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="pika.readthedocs.org">Pika</a> is an amqp library for python 2 (not 3.x).</p>
+<p><a class="reference external" href="msgpack.org">msgpack</a> is used to store payloads in messages transferred via amqp.</p>
+</div>
+<div class="section" id="optional">
+<h3>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="pyyaml.org">PyYAML</a> is used to read yaml formatted configuration files.
+While not required, configuration input files are used heavily and so it will be needed in nearly all cases.</p>
+<p><a class="reference external" href="unknown">SQLAlchemy</a> is used to talk to our postgresql database.
+It is only required for builds which will be used to log sensor values.
+For use with postgres, it requires <strong>I need to look this up</strong> which usually needs to be installed via package manager as it is not pure python and wraps other language library files.</p>
+<p><a class="reference external" href="unknown">Colorlog</a> is completely aesthetic.
+The logging module is used throughout dripline and this allows for colorized format of log messages.</p>
+</div>
+<div class="section" id="helpful-python-packages">
+<h3>Helpful Python Packages<a class="headerlink" href="#helpful-python-packages" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="unknown">ipython</a> is not actually a dependency at all, but is highly recommended.
+The expanded tab completion, command and output history, and doc access make it a powerful python interpretor for developing or manually interacting with dripline components.</p>
+<p><a class="reference external" href="unknown">virtualenv</a> provides a clean way to install python libraries without polluting the system python install (or if you don&#8217;t have permission to modify the system).</p>
+</div>
+<div class="section" id="for-building-documentation">
+<h3>For Building Documentation<a class="headerlink" href="#for-building-documentation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> is required to compile this documentation.</p>
+<p><a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">Sphinx-rdc-theme</a> is used by Sphinx for a nicer look.</p>
+<p><a class="reference external" href="unknown">Sphinx-contrib-programoutput</a> Is used to automatically include the &#8211;help for the various utility programs.</p>
+<p>To build this documentation, you also need <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> and <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">sphinx_rtd_theme</a>.
 All three can be obtained through <a class="reference external" href="http://pip.readthedocs.org/en/latest/installing.html">pip</a>.</p>
-<p><em>Note</em>:
-The steps above will give you a fully functioning dripline client, but
-without a message broker to communicate with, the client won&#8217;t do you much
-good.  We recommend using a standard AMQP broker such as
-<a class="reference external" href="https://www.rabbitmq.com">RabbitMQ</a></p>
+</div>
+<div class="section" id="external">
+<h3>External<a class="headerlink" href="#external" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="unknown">AMQP</a> is completely external to dripline.
+One such service must be operating or dripline components will have no means to communicate.
+If developing for dripline, you are encouraged to install your own broker so that you can test locally.
+The slow control administrator must maintain this service for use in the production system, others shouldn&#8217;t need to interact with it other than to provide the host url to services.
+Dripline is developed with <a class="reference external" href="https://www.rabbitmq.com">rabbitMQ</a> and a standard install of that service is recommended.
+Other AMQP systems make work but are untested.</p>
+</div>
 </div>
 <div class="section" id="operating-system-python">
 <h2>Operating System &amp; Python<a class="headerlink" href="#operating-system-python" title="Permalink to this headline">¶</a></h2>
@@ -155,9 +187,9 @@ $ pip install ipython sphinx sphinx_rtd_theme sphinxcontrib-programoutput colorl
 <p>Note that sphinx is only required if you want to (re)build this documentation and sphinx_rtd_theme is purely cosmetic.
 Similarly, ipython is nice for the user but does not change available dripline features.</p>
 <p>If you just want to run dripline you would run the following commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$cd</span> /path/to/dripline/repo
-<span class="nv">$cd</span> python
-<span class="nv">$python</span> setup.py  install
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/dripline/repo
+<span class="nv">$ </span><span class="nb">cd </span>python
+<span class="nv">$ </span>python setup.py  install
 </pre></div>
 </div>
 <p>This will install the local dripline source into your same virtual environment. If you are going to develop on the source replace the last line with</p>
@@ -231,7 +263,7 @@ number between 0 and 1!</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+        &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
 

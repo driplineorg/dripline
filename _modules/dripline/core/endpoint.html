@@ -77,8 +77,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#mocking">Mocking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials.html#a-dripline-powered-key-value-store">A Dripline powered key-value store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
@@ -134,15 +135,15 @@
 <div class="viewcode-block" id="Endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.core.endpoint.html#dripline.core.endpoint.Endpoint">[docs]</a><span class="k">class</span> <span class="nc">Endpoint</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
 
-    <span class="nd">@abstractmethod</span>
+    <span class="c"># @abstractmethod</span>
 <div class="viewcode-block" id="Endpoint.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.core.endpoint.html#dripline.core.endpoint.Endpoint.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-</div>
-    <span class="nd">@abstractmethod</span>
+
+    <span class="c"># @abstractmethod</span></div>
 <div class="viewcode-block" id="Endpoint.on_set"><a class="viewcode-back" href="../../../apidocs/dripline.core.endpoint.html#dripline.core.endpoint.Endpoint.on_set">[docs]</a>    <span class="k">def</span> <span class="nf">on_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-</div>
-    <span class="nd">@abstractmethod</span>
+
+    <span class="c"># @abstractmethod</span></div>
 <div class="viewcode-block" id="Endpoint.on_config"><a class="viewcode-back" href="../../../apidocs/dripline.core.endpoint.html#dripline.core.endpoint.Endpoint.on_config">[docs]</a>    <span class="k">def</span> <span class="nf">on_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         </div></div>
@@ -173,7 +174,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014, Jared Kofron, Ben LaRoque.
+        &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
 
