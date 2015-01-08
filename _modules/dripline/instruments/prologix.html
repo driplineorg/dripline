@@ -60,7 +60,7 @@
         
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -141,30 +141,38 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;PrologixSpimescape&#39;</span><span class="p">,</span>
            <span class="s">&#39;GPIBInstrument&#39;</span><span class="p">,</span>
            <span class="s">&#39;SimpleGetSpime&#39;</span><span class="p">,</span>
+           <span class="s">&#39;MuxerGetSpime&#39;</span><span class="p">,</span>
            <span class="s">&#39;SimpleGetSetSpime&#39;</span><span class="p">,</span>
           <span class="p">]</span>
 
 
 <div class="viewcode-block" id="PrologixSpimescape"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape">[docs]</a><span class="k">class</span> <span class="nc">PrologixSpimescape</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">,</span>
+                 <span class="n">socket_timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                 <span class="n">socket_info</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">),</span>
+                 <span class="o">**</span><span class="n">kwargs</span>
+                <span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Provider</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_poll_interval</span> <span class="o">=</span> <span class="mf">0.5</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">socket_timeout</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span> <span class="o">=</span> <span class="n">socket_info</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">([],</span> <span class="p">{})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="c">#        for k,v in kwargs.items():</span>
+<span class="c">#            setattr(self, k, v)</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
             <span class="kn">import</span> <span class="nn">re</span>
             <span class="n">re_str</span> <span class="o">=</span> <span class="s">&quot;\([</span><span class="se">\&quot;</span><span class="s">&#39;](\S+)[</span><span class="se">\&quot;</span><span class="s">&#39;], (\d+)\)&quot;</span>
             <span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">re_str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span> <span class="o">=</span> <span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;socket info is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reconnect</span><span class="p">()</span>
 
 <div class="viewcode-block" id="PrologixSpimescape.reconnect"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.reconnect">[docs]</a>    <span class="k">def</span> <span class="nf">reconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -178,17 +186,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span><span class="p">)</span>
 </div>
     <span class="nd">@property</span>
-<div class="viewcode-block" id="PrologixSpimescape.spimes"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.spimes">[docs]</a>    <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span>
-</div>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
     <span class="nd">@devices.setter</span>
-<div class="viewcode-block" id="PrologixSpimescape.devices"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.devices">[docs]</a>    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_dict</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_dict</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="n">device_dict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_device_cycle</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span>
 <div class="viewcode-block" id="PrologixSpimescape.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spime</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">spime</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;spime &quot;{}&quot; already present&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
@@ -201,7 +209,7 @@
     <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span>
     <span class="nd">@keep_polling.setter</span>
-<div class="viewcode-block" id="PrologixSpimescape.keep_polling"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.keep_polling">[docs]</a>    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
@@ -210,7 +218,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">False</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-</div>
+
     <span class="k">def</span> <span class="nf">_queue_next_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_polling</span> <span class="ow">and</span> <span class="p">(</span><span class="n">from_check</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">()):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_poll_interval</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_next_status</span><span class="p">,</span> <span class="p">())</span>
@@ -252,8 +260,9 @@
 <span class="sd">    The _cmd_term attribute is appended to those commands before being passed up to</span>
 <span class="sd">    the higher level provider which actually maintains a connection (eg PrologixSpimescape).</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">Provider</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c">#self.name = name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expecting</span> <span class="o">=</span> <span class="bp">False</span>
@@ -280,12 +289,22 @@
 
 <span class="sd">    If either assumption is wrong then you need a different Spime derived class</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">=</span> <span class="n">base_str</span>
-        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SimpleGetSpime.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSpime.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="MuxerGetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.MuxerGetSpime">[docs]</a><span class="k">class</span> <span class="nc">MuxerGetSpime</span><span class="p">(</span><span class="n">SimpleGetSpime</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">SimpleGetSpime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_parsed_value</span>
+
+<div class="viewcode-block" id="MuxerGetSpime.get_parsed_value"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.MuxerGetSpime.get_parsed_value">[docs]</a>    <span class="k">def</span> <span class="nf">get_parsed_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">raw_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_get</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">raw_data</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
 </div></div>
 <div class="viewcode-block" id="SimpleGetSetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSetSpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleGetSetSpime</span><span class="p">(</span><span class="n">Spime</span><span class="p">):</span>
@@ -302,9 +321,9 @@
 
 <span class="sd">    If either of those assumptions is wrong then you want a different Spime derived class</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">base_str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">=</span> <span class="n">base_str</span>
-        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SimpleGetSetSpime.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.SimpleGetSetSpime.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">+</span> <span class="s">&#39;?&#39;</span><span class="p">)</span>

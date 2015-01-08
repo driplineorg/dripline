@@ -60,7 +60,7 @@
         
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -130,7 +130,8 @@
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_endpoints</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="Provider.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.core.provider.html#dripline.core.provider.Provider.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">):</span>

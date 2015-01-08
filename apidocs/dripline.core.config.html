@@ -59,7 +59,7 @@
         
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -128,8 +128,8 @@
 is the in-memory representation of the configuration of a dripline node.</p>
 <dl class="class">
 <dt id="dripline.core.config.Config">
-<em class="property">class </em><tt class="descclassname">dripline.core.config.</tt><tt class="descname">Config</tt><big>(</big><em>config_file=None</em>, <em>yaml_string=None</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/config.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<em class="property">class </em><code class="descclassname">dripline.core.config.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>config_file=None</em>, <em>yaml_string=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/config.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>The Config class contains all of the configuration data that is relevant
 to a dripline node, and is in fact how a dripline object graph is created.
 An instance of Config is created from a YAML string which describes a
@@ -194,13 +194,13 @@ module: yet_another_endpoint_module</li>
 file in the examples directory.</p>
 <dl class="method">
 <dt id="dripline.core.config.Config.get_provider">
-<tt class="descname">get_provider</tt><big>(</big><em>provider_name</em><big>)</big><a class="reference internal" href="../_modules/dripline/core/config.html#Config.get_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config.get_provider" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_provider</code><span class="sig-paren">(</span><em>provider_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/config.html#Config.get_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config.get_provider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the data associated with a given provider.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="dripline.core.config.Config.provider_count">
-<tt class="descname">provider_count</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/dripline/core/config.html#Config.provider_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config.provider_count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">provider_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/config.html#Config.provider_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.config.Config.provider_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of providers which are associated with the node,
 exclusive of the node itself.  This means that for a configuration file
 which contains no providers, provider_count will return zero.</p>

@@ -60,7 +60,7 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -126,7 +126,7 @@
 <h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dripline-agent">
 <span id="id1"></span><h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-c configuration file] [-b AMQP broker address]
+<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-v] [-l LOGFILE] [-b BROKER] [-c CONFIG]
                       verb target [value [value ...]]
 
 dripline_agent provides basic a CLI to the dripline system.
@@ -138,10 +138,13 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -c configuration file, --config configuration file
-                        full path to a dripline YAML configuration file.
-  -b AMQP broker address, --broker AMQP broker address
-                        the address of the AMQP broker dripline should use
+  -v, --verbose         increases terminal output verbosity
+  -l LOGFILE, --logfile LOGFILE
+                        file to save logged output
+  -b BROKER, --broker BROKER
+                        network path for the AMQP broker
+  -c CONFIG, --config CONFIG
+                        path (absolute or relative) to configuration file
 </pre></div>
 </div>
 </div>
@@ -160,15 +163,18 @@ optional arguments:
 </div>
 <div class="section" id="message-monitor">
 <span id="id3"></span><h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-a amqp server host address] [-e exchange name]
+<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-v] [-l LOGFILE] [-b BROKER] [-e exchange name]
                        [-k [key [key ...]]]
 
-Print messages from an exchange.
+Print messages from an exchange
 
 optional arguments:
   -h, --help            show this help message and exit
-  -a amqp server host address, --amqp amqp server host address
-                        full network name of amqp host
+  -v, --verbose         increases terminal output verbosity
+  -l LOGFILE, --logfile LOGFILE
+                        file to save logged output
+  -b BROKER, --broker BROKER
+                        network path for the AMQP broker
   -e exchange name, --exchange exchange name
                         amqp name of the exchange to monitor
   -k [key [key ...]], --keys [key [key ...]]

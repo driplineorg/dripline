@@ -61,7 +61,7 @@
         
             <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -126,40 +126,40 @@
   <div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="libraries">
-<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<h2>Libraries!<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
 <p>There are quite a few dependencies for dripline, some required and many optional (though needed for certain features).</p>
 <div class="section" id="required">
 <h3>Required<a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pika.readthedocs.org">Pika</a> is an amqp library for python 2 (not 3.x).</p>
-<p><a class="reference external" href="msgpack.org">msgpack</a> is used to store payloads in messages transferred via amqp.</p>
+<p><a class="reference external" href="http://pika.readthedocs.org">Pika</a> is an amqp library for python 2 (not 3.x).</p>
+<p><a class="reference external" href="http://msgpack.org">msgpack</a> is used to store payloads in messages transferred via amqp.</p>
 </div>
 <div class="section" id="optional">
 <h3>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pyyaml.org">PyYAML</a> is used to read yaml formatted configuration files.
+<p><a class="reference external" href="http://pyyaml.org">PyYAML</a> is used to read yaml formatted configuration files.
 While not required, configuration input files are used heavily and so it will be needed in nearly all cases.</p>
-<p><a class="reference external" href="unknown">SQLAlchemy</a> is used to talk to our postgresql database.
+<p><a class="reference external" href="http://www.sqlalchemy.org">SQLAlchemy</a> is used to talk to our postgresql database.
 It is only required for builds which will be used to log sensor values.
 For use with postgres, it requires <strong>I need to look this up</strong> which usually needs to be installed via package manager as it is not pure python and wraps other language library files.</p>
-<p><a class="reference external" href="unknown">Colorlog</a> is completely aesthetic.
+<p><a class="reference external" href="http://pypi.python.org/pypi/colorlog">Colorlog</a> is completely aesthetic.
 The logging module is used throughout dripline and this allows for colorized format of log messages.</p>
 </div>
 <div class="section" id="helpful-python-packages">
 <h3>Helpful Python Packages<a class="headerlink" href="#helpful-python-packages" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="unknown">ipython</a> is not actually a dependency at all, but is highly recommended.
+<p><a class="reference external" href="http://ipython.org">ipython</a> is not actually a dependency at all, but is highly recommended.
 The expanded tab completion, command and output history, and doc access make it a powerful python interpretor for developing or manually interacting with dripline components.</p>
-<p><a class="reference external" href="unknown">virtualenv</a> provides a clean way to install python libraries without polluting the system python install (or if you don&#8217;t have permission to modify the system).</p>
+<p><a class="reference external" href="http://virtualenv.readthedocs.org/en/latest">virtualenv</a> provides a clean way to install python libraries without polluting the system python install (or if you don&#8217;t have permission to modify the system).</p>
 </div>
 <div class="section" id="for-building-documentation">
 <h3>For Building Documentation<a class="headerlink" href="#for-building-documentation" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="http://sphinx-doc.org/">Sphinx</a> is required to compile this documentation.</p>
 <p><a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">Sphinx-rdc-theme</a> is used by Sphinx for a nicer look.</p>
-<p><a class="reference external" href="unknown">Sphinx-contrib-programoutput</a> Is used to automatically include the &#8211;help for the various utility programs.</p>
+<p><a class="reference external" href="http://pythonhosted.org/sphinxcontrib-programoutput/">Sphinx-contrib-programoutput</a> Is used to automatically include the &#8211;help for the various utility programs.</p>
 <p>To build this documentation, you also need <a class="reference external" href="http://sphinx-doc.org/">sphinx</a> and <a class="reference external" href="https://github.com/snide/sphinx_rtd_theme">sphinx_rtd_theme</a>.
 All three can be obtained through <a class="reference external" href="http://pip.readthedocs.org/en/latest/installing.html">pip</a>.</p>
 </div>
 <div class="section" id="external">
 <h3>External<a class="headerlink" href="#external" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="unknown">AMQP</a> is completely external to dripline.
+<p><a class="reference external" href="http://www.amqp.org">AMQP</a> is completely external to dripline.
 One such service must be operating or dripline components will have no means to communicate.
 If developing for dripline, you are encouraged to install your own broker so that you can test locally.
 The slow control administrator must maintain this service for use in the production system, others shouldn&#8217;t need to interact with it other than to provide the host url to services.
@@ -187,9 +187,9 @@ $ pip install ipython sphinx sphinx_rtd_theme sphinxcontrib-programoutput colorl
 <p>Note that sphinx is only required if you want to (re)build this documentation and sphinx_rtd_theme is purely cosmetic.
 Similarly, ipython is nice for the user but does not change available dripline features.</p>
 <p>If you just want to run dripline you would run the following commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$cd</span> /path/to/dripline/repo
-<span class="nv">$cd</span> python
-<span class="nv">$python</span> setup.py  install
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/dripline/repo
+<span class="nv">$ </span><span class="nb">cd </span>python
+<span class="nv">$ </span>python setup.py  install
 </pre></div>
 </div>
 <p>This will install the local dripline source into your same virtual environment. If you are going to develop on the source replace the last line with</p>
@@ -207,7 +207,7 @@ endpoint to the broker which provides a random number generator.  We will
 make a request to this endpoint using a dripline client.</p>
 <p>Dripline uses <a class="reference external" href="http://www.yaml.org/">YAML</a> formatted files as its
 configuration file format.  In the <cite>examples</cite> directory of the dripline
-source tree, you will find a file called <tt class="docutils literal"><span class="pre">random_node.yaml</span></tt> which should
+source tree, you will find a file called <code class="docutils literal"><span class="pre">random_node.yaml</span></code> which should
 look like this:</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">broker</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 <span class="l-Scalar-Plain">nodename</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">random_node</span>
@@ -221,11 +221,11 @@ look like this:</p>
 <p>When this configuration file is loaded by dripline, it will construct an
 <cite>object graph</cite> from the list of providers and endpoints that appear.  This
 particular configuration file tells dripline that we wish to construct an
-object graph that has an endpoint named <tt class="docutils literal"><span class="pre">rng</span></tt> whose behavior can be found
-in a module tagged as <tt class="docutils literal"><span class="pre">random_float</span></tt> (more on this later).  That endpoint
-belongs to a provider called <tt class="docutils literal"><span class="pre">local</span></tt>.  The name for the dripline node that
-will be started is <tt class="docutils literal"><span class="pre">random_node</span></tt>, and the node will try to connect to
-an AMQP broker running on <tt class="docutils literal"><span class="pre">localhost</span></tt>.</p>
+object graph that has an endpoint named <code class="docutils literal"><span class="pre">rng</span></code> whose behavior can be found
+in a module tagged as <code class="docutils literal"><span class="pre">random_float</span></code> (more on this later).  That endpoint
+belongs to a provider called <code class="docutils literal"><span class="pre">local</span></code>.  The name for the dripline node that
+will be started is <code class="docutils literal"><span class="pre">random_node</span></code>, and the node will try to connect to
+an AMQP broker running on <code class="docutils literal"><span class="pre">localhost</span></code>.</p>
 <p>On that note, you need an AMQP broker running to run the example code.  Install
 an instance of RabbitMQ server to the host of your choice, and start it.  No
 configuration is necessary at all - dripline will take care of the rest.</p>

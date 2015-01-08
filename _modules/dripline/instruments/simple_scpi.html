@@ -60,7 +60,7 @@
         
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -131,8 +131,8 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;simple_scpi_instrument&#39;</span><span class="p">,</span> <span class="s">&#39;simple_scpi_sensor&#39;</span><span class="p">]</span>
 
 <div class="viewcode-block" id="simple_scpi_instrument"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.simple_scpi.html#dripline.instruments.simple_scpi.simple_scpi_instrument">[docs]</a><span class="k">class</span> <span class="nc">simple_scpi_instrument</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_addr</span><span class="o">=</span><span class="s">&#39;10.0.0.60&#39;</span><span class="p">,</span> <span class="n">scpi_port</span><span class="o">=</span><span class="mi">5025</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_addr</span><span class="o">=</span><span class="s">&#39;10.0.0.60&#39;</span><span class="p">,</span> <span class="n">scpi_port</span><span class="o">=</span><span class="mi">5025</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">Provider</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ip_addr</span> <span class="o">=</span> <span class="n">ip_addr</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scpi_port</span> <span class="o">=</span> <span class="n">scpi_port</span>
