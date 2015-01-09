@@ -105,3 +105,12 @@ It is possible to configure the logging interval, and toggle on and off logging,
     
     $ dripline_agent -b myrna.local config tickler_pulse_width log_interval 60
     $ dripline_agent -b myrna.local config tickler_pulse_width logging_status on
+
+You can watch the raw outputs from loggers using the :ref:`message_monitor` utility.
+To listen in for values emitted from spimes in particular, the following is most likely sufficient.
+
+.. code-block:: bash
+
+    $ message_monitor -b myrna.local -e alerts -k sensor_value
+
+
