@@ -276,6 +276,11 @@ tickler_pulse_width: 1.00000E-3
 <span class="nv">$ </span>dripline_agent -b myrna.local config tickler_pulse_width logging_status on
 </pre></div>
 </div>
+<p>You can watch the raw outputs from loggers using the <a class="reference internal" href="../cli_tools.html#message-monitor"><em>message_monitor</em></a> utility.
+To listen in for values emitted from spimes in particular, the following is most likely sufficient.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>message_monitor -b myrna.local -e alerts -k sensor_value
+</pre></div>
+</div>
 </div>
 </div>
 
