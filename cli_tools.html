@@ -84,7 +84,8 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-node">start_node:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#message-monitor">message_monitor</a></li>
 </ul>
 </li>
@@ -126,7 +127,7 @@
 <h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dripline-agent">
 <span id="id1"></span><h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-v] [-l LOGFILE] [-b BROKER] [-c CONFIG]
+<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-c configuration file] [-b AMQP broker address]
                       verb target [value [value ...]]
 
 dripline_agent provides basic a CLI to the dripline system.
@@ -138,18 +139,15 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -v, --verbose         increases terminal output verbosity
-  -l LOGFILE, --logfile LOGFILE
-                        file to save logged output
-  -b BROKER, --broker BROKER
-                        network path for the AMQP broker
-  -c CONFIG, --config CONFIG
-                        path (absolute or relative) to configuration file
+  -c configuration file, --config configuration file
+                        full path to a dripline YAML configuration file.
+  -b AMQP broker address, --broker AMQP broker address
+                        the address of the AMQP broker dripline should use
 </pre></div>
 </div>
 </div>
 <div class="section" id="start-node">
-<span id="id2"></span><h2>start_node<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>start_node:<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text"><div class="highlight"><pre>usage: start_node [-h] [-c configuration file]
 
 Start a dripline node.
@@ -161,20 +159,23 @@ optional arguments:
 </pre></div>
 </div>
 </div>
+<div class="section" id="open-spimescap-portal">
+<span id="open-spimescape-portal"></span><h2>open_spimescap_portal<a class="headerlink" href="#open-spimescap-portal" title="Permalink to this headline">¶</a></h2>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/home/laroque/Repos/dripline/python/doc/cli_tools.rst</tt>, line 30)</p>
+Command u&#8217;open_spimescape_portal &#8211;help&#8217; failed: [Errno 2] No such file or directory</div>
+</div>
 <div class="section" id="message-monitor">
 <span id="id3"></span><h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-v] [-l LOGFILE] [-b BROKER] [-e exchange name]
+<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-a amqp server host address] [-e exchange name]
                        [-k [key [key ...]]]
 
-Print messages from an exchange
+Print messages from an exchange.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -v, --verbose         increases terminal output verbosity
-  -l LOGFILE, --logfile LOGFILE
-                        file to save logged output
-  -b BROKER, --broker BROKER
-                        network path for the AMQP broker
+  -a amqp server host address, --amqp amqp server host address
+                        full network name of amqp host
   -e exchange name, --exchange exchange name
                         amqp name of the exchange to monitor
   -k [key [key ...]], --keys [key [key ...]]

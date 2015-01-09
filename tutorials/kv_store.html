@@ -86,7 +86,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
@@ -132,11 +133,11 @@
 via the dripline protocol, let&#8217;s create and interact with a simple example:
 a key-value store which is implemented as a dripline endpoint.  The key-value
 store will be very simple: a list of keys, each of which is a string (for
-example, <code class="docutils literal"><span class="pre">key0</span></code>, <code class="docutils literal"><span class="pre">foo_key</span></code>, <code class="docutils literal"><span class="pre">some_name</span></code>, whatever).  Associated with
+example, <tt class="docutils literal"><span class="pre">key0</span></tt>, <tt class="docutils literal"><span class="pre">foo_key</span></tt>, <tt class="docutils literal"><span class="pre">some_name</span></tt>, whatever).  Associated with
 each key is a floating point number which is its value: 1.3 perhaps, or -3.4,
 or 1.4e21, or really anything that can represent a floating point number.
 What we want as a user is some remote storage for such a key-value store, where
-we can ask dripline for the current value of <code class="docutils literal"><span class="pre">key0</span></code> and have it answer with
+we can ask dripline for the current value of <tt class="docutils literal"><span class="pre">key0</span></tt> and have it answer with
 whatever that current value may be.</p>
 <div class="section" id="a-quick-refresher">
 <h2>A quick refresher<a class="headerlink" href="#a-quick-refresher" title="Permalink to this headline">¶</a></h2>
@@ -145,7 +146,7 @@ node.  The most basic functional unit in a dripline node is an <em>endpoint</em>
 An endpoint represents something that we want to interact with - perhaps it is
 the contents of some file in a directory, or the input to a voltmeter, or
 in this case, a value associated with some key.  In a dripline configuration
-file, an endpoint is always declared in a block whose name is <code class="docutils literal"><span class="pre">endpoints</span></code>.</p>
+file, an endpoint is always declared in a block whose name is <tt class="docutils literal"><span class="pre">endpoints</span></tt>.</p>
 <p><strong>Every</strong> endpoint must have a <em>provider</em> associated with it.  The concept
 of a provider represents an element in the system without which an endpoint
 could not independently function.  For example, consider a case where an
@@ -167,7 +168,7 @@ each of which has a price in dollars.  It&#8217;s not a very big store - we only
 have peaches, chips, and waffles.  The prices of these items fluctuates a lot
 due to global waffle demand, and so we want to be able to both ask our system
 what the current price is, and change the prices as necessary.</p>
-<p>The dripline <code class="docutils literal"><span class="pre">kv_store</span></code> provider and <code class="docutils literal"><span class="pre">kv_store_key</span></code> endpoint will give us
+<p>The dripline <tt class="docutils literal"><span class="pre">kv_store</span></tt> provider and <tt class="docutils literal"><span class="pre">kv_store_key</span></tt> endpoint will give us
 exactly this in a very simple way.  If the current pricelist is something like</p>
 <ul class="simple">
 <li>Peaches: 0.75</li>
@@ -194,23 +195,23 @@ pricelist in a very recognizable way:</p>
         <span class="l-Scalar-Plain">initial_value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4.00</span>
 </pre></div>
 </div>
-<p>That&#8217;s it.  The <code class="docutils literal"><span class="pre">nodename</span></code> parameter is simply telling dripline that we want
-our dripline node to be called <code class="docutils literal"><span class="pre">my_store</span></code>.  The <code class="docutils literal"><span class="pre">broker</span></code> is telling
+<p>That&#8217;s it.  The <tt class="docutils literal"><span class="pre">nodename</span></tt> parameter is simply telling dripline that we want
+our dripline node to be called <tt class="docutils literal"><span class="pre">my_store</span></tt>.  The <tt class="docutils literal"><span class="pre">broker</span></tt> is telling
 dripline that there is an AMQP router which is installed on localhost.
-In the <code class="docutils literal"><span class="pre">providers</span></code> section, we declare a provider named <code class="docutils literal"><span class="pre">my_price_list</span></code>,
-with the <code class="docutils literal"><span class="pre">module</span></code> parameter set to <code class="docutils literal"><span class="pre">kv_store</span></code>.  When dripline sees the
-<code class="docutils literal"><span class="pre">module</span></code> parameter, it will look to see what that string value corresponds to
+In the <tt class="docutils literal"><span class="pre">providers</span></tt> section, we declare a provider named <tt class="docutils literal"><span class="pre">my_price_list</span></tt>,
+with the <tt class="docutils literal"><span class="pre">module</span></tt> parameter set to <tt class="docutils literal"><span class="pre">kv_store</span></tt>.  When dripline sees the
+<tt class="docutils literal"><span class="pre">module</span></tt> parameter, it will look to see what that string value corresponds to
 in terms of the object that it should construct.  In this case, it will
-construct an object of type <code class="docutils literal"><span class="pre">KVStore</span></code> and give it the name <code class="docutils literal"><span class="pre">my_price_list</span></code>.
-The <code class="docutils literal"><span class="pre">endpoints</span></code> of <code class="docutils literal"><span class="pre">my_price_list</span></code> correspond to the prices of each
-individual item.  Each endpoint has a <code class="docutils literal"><span class="pre">name</span></code>, which is simply the name of the
-item, and a <code class="docutils literal"><span class="pre">module</span></code>, which is identical to the idea of a provider module.</p>
-<p>The only new thing here is the <code class="docutils literal"><span class="pre">initial_value</span></code> parameter, which you notice
+construct an object of type <tt class="docutils literal"><span class="pre">KVStore</span></tt> and give it the name <tt class="docutils literal"><span class="pre">my_price_list</span></tt>.
+The <tt class="docutils literal"><span class="pre">endpoints</span></tt> of <tt class="docutils literal"><span class="pre">my_price_list</span></tt> correspond to the prices of each
+individual item.  Each endpoint has a <tt class="docutils literal"><span class="pre">name</span></tt>, which is simply the name of the
+item, and a <tt class="docutils literal"><span class="pre">module</span></tt>, which is identical to the idea of a provider module.</p>
+<p>The only new thing here is the <tt class="docutils literal"><span class="pre">initial_value</span></tt> parameter, which you notice
 is equal in each case to the initial price of the object of the same name
 as the endpoint.  Dripline considers every parameter which isn&#8217;t called
-<code class="docutils literal"><span class="pre">name</span></code> or <code class="docutils literal"><span class="pre">module</span></code> to be <em>specific to the object</em> and passes it along to
+<tt class="docutils literal"><span class="pre">name</span></tt> or <tt class="docutils literal"><span class="pre">module</span></tt> to be <em>specific to the object</em> and passes it along to
 the object for it to do with as it likes.  In this instance, the initializer
-of the <code class="docutils literal"><span class="pre">KVStoreKey</span></code> object looks like this:</p>
+of the <tt class="docutils literal"><span class="pre">KVStoreKey</span></tt> object looks like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">initial_value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
@@ -225,7 +226,7 @@ key.</p>
 <h2>Interacting with it<a class="headerlink" href="#interacting-with-it" title="Permalink to this headline">¶</a></h2>
 <p>OK, enough details.  To fire up our key-value store and start interacting with
 it, we want to start a dripline node which will use our configuration file.
-To do that, we will use <a class="reference internal" href="../cli_tools.html#start-node"><em>start_node</em></a> located in the bin directory.
+To do that, we will use <a class="reference internal" href="../cli_tools.html#start-node"><em>start_node:</em></a> located in the bin directory.
 We point it to our configuration file (if you are intrepid enough to make your
 own, point to whatever you created), and fire it up:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>start_node -c examples/kv_store_tutorial.yaml
@@ -243,7 +244,7 @@ own, point to whatever you created), and fire it up:</p>
 </div>
 <p>This isn&#8217;t too hard to follow - dripline starts up, connects to the broker
 you told it to, adds a provider and the endpoints, and is ready to go.</p>
-<p>Now let&#8217;s start getting some prices.  We&#8217;re going to use <code class="docutils literal"><span class="pre">dripline_agent</span></code>
+<p>Now let&#8217;s start getting some prices.  We&#8217;re going to use <tt class="docutils literal"><span class="pre">dripline_agent</span></tt>
 to do this, as it gives us a very easy way to interact with dripline
 endpoints from the command line.  First of all, let&#8217;s check the current
 price of peaches:</p>
@@ -261,7 +262,7 @@ waffles: 4.0
 </div>
 <p>Now let&#8217;s say that there&#8217;s been a global rush on chips and the price we
 have to charge has skyrocketed from 1.75 to 1.79.  We can use
-<code class="docutils literal"><span class="pre">dripline_agent</span></code> to set the new value:</p>
+<tt class="docutils literal"><span class="pre">dripline_agent</span></tt> to set the new value:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>dripline_agent -b localhost get chips
 2014-09-08 13:53:57,432 - node - INFO - connecting to broker localhost
 chips: 1.75

@@ -61,7 +61,7 @@
         
             <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
 </ul>
 </li>
@@ -144,7 +144,7 @@ the decision metric for when a piece of code is up to standards.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p>The above code has an obvious typo - we are subtracting in the <code class="docutils literal"><span class="pre">add</span></code> method where we clearly meant to add.  If we
+<p>The above code has an obvious typo - we are subtracting in the <tt class="docutils literal"><span class="pre">add</span></tt> method where we clearly meant to add.  If we
 deployed this code in production, at some point it would break, and we would have to do some extensive debugging to
 figure out where.  This type of error is especially insidious as we would have to figure out not just that the
 arithmetic was bad, but also <em>where</em> the arithmetic went wrong.</p>
@@ -160,15 +160,15 @@ immediately:</p>
 <p>This is the crux of test driven development: we want to write tests that establish a contract for the code that we
 haven&#8217;t written yet.  We know how we <em>want</em> it to behave - and so we specify that as a test, and have a testing framework
 run our tests for us.  Dripline uses the excellent <a class="reference external" href="http://pytest.org">py.test</a> for this, and an extensive number of tests
-is in the <code class="docutils literal"><span class="pre">test</span></code> subdirectory of the dripline source tree.</p>
+is in the <tt class="docutils literal"><span class="pre">test</span></tt> subdirectory of the dripline source tree.</p>
 </div>
 <div class="section" id="contributing-with-tdd">
 <h2>Contributing with TDD<a class="headerlink" href="#contributing-with-tdd" title="Permalink to this headline">¶</a></h2>
 <p>Think of the tests as a contract.  If you modify some code, and tests start failing, identify the source of the failure
 and fix the code.  More than likely, if your contribution is self-contained, you won&#8217;t break tests that belong to other
 parts of the code - in other words, you are fulfilling the contract that is laid out by the tests.</p>
-<p>To start, write down the contract in the tests directory as a file called <code class="docutils literal"><span class="pre">test_whatever.py</span></code> where whatever has something
-to do with the code that you&#8217;re writing.  Looking at e.g. <code class="docutils literal"><span class="pre">test_factory.py</span></code> may be a good place to get some inspiration,
+<p>To start, write down the contract in the tests directory as a file called <tt class="docutils literal"><span class="pre">test_whatever.py</span></tt> where whatever has something
+to do with the code that you&#8217;re writing.  Looking at e.g. <tt class="docutils literal"><span class="pre">test_factory.py</span></tt> may be a good place to get some inspiration,
 as the code is extremely simple and highlights the basic idea:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pytest</span>
 <span class="kn">from</span> <span class="nn">agilent34461a</span> <span class="kn">import</span> <span class="n">Agilent34461a</span>
@@ -184,8 +184,8 @@ completely disinterested in the <em>internal</em> way in which the constructor_r
 the expected behavior is correct.</p>
 <p>On that note, write tests that express the ideas you have about how your code ought to work.  If there are logical statements
 or invariants that must be true for your code, write them as tests.  If you are writing a class that has some well-defined
-API, ensure that it works as you expect it to!  If you have two methods on some object called <code class="docutils literal"><span class="pre">set_x</span></code> and <code class="docutils literal"><span class="pre">get_x</span></code>,
-write a test to make sure that a call to <code class="docutils literal"><span class="pre">get_x</span></code> after <code class="docutils literal"><span class="pre">set_x</span></code> returns what you expect.</p>
+API, ensure that it works as you expect it to!  If you have two methods on some object called <tt class="docutils literal"><span class="pre">set_x</span></tt> and <tt class="docutils literal"><span class="pre">get_x</span></tt>,
+write a test to make sure that a call to <tt class="docutils literal"><span class="pre">get_x</span></tt> after <tt class="docutils literal"><span class="pre">set_x</span></tt> returns what you expect.</p>
 </div>
 <div class="section" id="don-t-stop-there">
 <h2>Don&#8217;t stop there<a class="headerlink" href="#don-t-stop-there" title="Permalink to this headline">¶</a></h2>
@@ -206,7 +206,7 @@ network.  To get around this and test the functionality of our code, it is neces
 classes so that the behavior of our code can be tested independently of communication with the outside world.</p>
 <p>This may be a limitation in some respect, but note that you can mock a function in such a way that it will return whatever
 you might expect from a remote host, and therefore preserve the logic of your program.</p>
-<p>Mocking is a subject unto itself - see examples in <code class="docutils literal"><span class="pre">test_node.py</span></code>, or read more extensively about the mocking capabilities
+<p>Mocking is a subject unto itself - see examples in <tt class="docutils literal"><span class="pre">test_node.py</span></tt>, or read more extensively about the mocking capabilities
 in py.test <a class="reference external" href="http://pytest.org/latest/monkeypatch.html">here</a></p>
 </div>
 </div>

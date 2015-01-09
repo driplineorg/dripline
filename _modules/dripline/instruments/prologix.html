@@ -84,7 +84,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
@@ -186,17 +187,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_timeout</span><span class="p">)</span>
 </div>
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PrologixSpimescape.spimes"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.spimes">[docs]</a>    <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span>
-
+</div>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
     <span class="nd">@devices.setter</span>
-    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_dict</span><span class="p">):</span>
+<div class="viewcode-block" id="PrologixSpimescape.devices"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.devices">[docs]</a>    <span class="k">def</span> <span class="nf">devices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_dict</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="n">device_dict</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_device_cycle</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_devices</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queue_next_check</span><span class="p">()</span></div>
 <div class="viewcode-block" id="PrologixSpimescape.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spime</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">spime</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;spime &quot;{}&quot; already present&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
@@ -209,7 +210,7 @@
     <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span>
     <span class="nd">@keep_polling.setter</span>
-    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="PrologixSpimescape.keep_polling"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.PrologixSpimescape.keep_polling">[docs]</a>    <span class="k">def</span> <span class="nf">keep_polling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
@@ -218,7 +219,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_keep_polling</span> <span class="o">=</span> <span class="bp">False</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-
+</div>
     <span class="k">def</span> <span class="nf">_queue_next_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_polling</span> <span class="ow">and</span> <span class="p">(</span><span class="n">from_check</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">()):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_poll_interval</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_next_status</span><span class="p">,</span> <span class="p">())</span>
