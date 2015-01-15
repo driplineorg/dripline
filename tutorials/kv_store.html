@@ -86,7 +86,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
@@ -225,20 +226,35 @@ key.</p>
 <h2>Interacting with it<a class="headerlink" href="#interacting-with-it" title="Permalink to this headline">¶</a></h2>
 <p>OK, enough details.  To fire up our key-value store and start interacting with
 it, we want to start a dripline node which will use our configuration file.
-To do that, we will use <a class="reference internal" href="../cli_tools.html#start-node"><em>start_node</em></a> located in the bin directory.
+To do that, we will use <a class="reference internal" href="../cli_tools.html#open-spimescape-portal"><em>open_spimescap_portal</em></a> located in the bin directory.
 We point it to our configuration file (if you are intrepid enough to make your
 own, point to whatever you created), and fire it up:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>start_node -c examples/kv_store_tutorial.yaml
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>open_spimescape_portal -c examples/kv_store_tutorial.yaml -vvv
 </pre></div>
 </div>
-<p>You should see output that looks like this:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>start_node -c examples/kv_store_tutorial.yaml
-2014-09-08 13:28:57,201 - node - INFO - connecting to broker localhost
-2014-09-08 13:29:00,746 - node - INFO - adding provider my_price_list
-2014-09-08 13:29:00,746 - node - INFO - adding endpoint peaches to provider my_price_list
-2014-09-08 13:29:01,504 - node - INFO - adding endpoint chips to provider my_price_list
-2014-09-08 13:29:02,262 - node - INFO - adding endpoint waffles to provider my_price_list
-2014-09-08 13:29:03,020 - node - INFO - starting event loop <span class="k">for</span> node my_store
+<p>Notice the <code class="docutils literal"><span class="pre">-vvv</span></code> which sets the output to its most verbose. For each &#8220;v&#8221; you
+omit, one logging severity level will be omited. If no <code class="docutils literal"><span class="pre">-v</span></code> option is given,
+normal operation should produce no terminal output. If you do the above, you should
+see output that looks like this:</p>
+<div class="highlight-bash"><div class="highlight"><pre>2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>45<span class="o">)</span> -&gt; args parsed, reading config
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>47<span class="o">)</span> -&gt; config parsed
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> dripline.core.portal<span class="o">(</span>24<span class="o">)</span> -&gt; connecting to broker localhost
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>22<span class="o">)</span> -&gt; starting my_store
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>35<span class="o">)</span> -&gt; creating a &lt;kv_store&gt; with args:
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;my_price_list&#39;</span><span class="o">}</span>
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>35<span class="o">)</span> -&gt; creating a &lt;kv_store_key&gt; with args:
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;peaches&#39;</span>, <span class="s1">&#39;initial_value&#39;</span>: 0.75<span class="o">}</span>
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>35<span class="o">)</span> -&gt; creating a &lt;kv_store_key&gt; with args:
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;chips&#39;</span>, <span class="s1">&#39;initial_value&#39;</span>: 1.75<span class="o">}</span>
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>35<span class="o">)</span> -&gt; creating a &lt;kv_store_key&gt; with args:
+<span class="o">{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;waffles&#39;</span>, <span class="s1">&#39;initial_value&#39;</span>: 4.0<span class="o">}</span>
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>26<span class="o">)</span> -&gt; spimescapes created and populated
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>27<span class="o">)</span> -&gt; creating bindings
+2015-01-15T11:47:07Z <span class="o">[</span>DEBUG   <span class="o">]</span> dripline.core.portal<span class="o">(</span>53<span class="o">)</span> -&gt; creating binding <span class="k">for</span>: peaches
+2015-01-15T11:47:07Z <span class="o">[</span>DEBUG   <span class="o">]</span> dripline.core.portal<span class="o">(</span>53<span class="o">)</span> -&gt; creating binding <span class="k">for</span>: chips
+2015-01-15T11:47:07Z <span class="o">[</span>DEBUG   <span class="o">]</span> dripline.core.portal<span class="o">(</span>53<span class="o">)</span> -&gt; creating binding <span class="k">for</span>: waffles
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> portal<span class="o">(</span>29<span class="o">)</span> -&gt; starting consumption
+2015-01-15T11:47:07Z <span class="o">[</span>INFO    <span class="o">]</span> dripline.core.portal<span class="o">(</span>103<span class="o">)</span> -&gt; starting event loop <span class="k">for</span> node my_store
 </pre></div>
 </div>
 <p>This isn&#8217;t too hard to follow - dripline starts up, connects to the broker
@@ -259,6 +275,17 @@ waffles?</p>
 waffles: 4.0
 </pre></div>
 </div>
+<p>If you have another computer on your local network (or any network that can see
+your amqp broker) then you can do the same thing from there:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">(</span>on_amqp_server<span class="o">)</span> <span class="nv">$ </span>dripline_agent -vvv get waffles
+2015-01-15T13:00:30Z<span class="o">[</span>INFO    <span class="o">]</span> dripline.core.node<span class="o">(</span>22<span class="o">)</span> -&gt; connecting to broker None
+waffles: 4.0
+
+<span class="o">(</span>on_some_other_server<span class="o">)</span> <span class="nv">$ </span>dripline_agent -b &lt;amqp.broker.server.address&gt; get peaches
+peaches: 0.75
+</pre></div>
+</div>
+<p>Note again that the <code class="docutils literal"><span class="pre">-v</span></code> option can be given to increase the output verbosity.</p>
 <p>Now let&#8217;s say that there&#8217;s been a global rush on chips and the price we
 have to charge has skyrocketed from 1.75 to 1.79.  We can use
 <code class="docutils literal"><span class="pre">dripline_agent</span></code> to set the new value:</p>

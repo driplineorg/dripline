@@ -84,7 +84,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
@@ -165,8 +166,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">poll_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">([],</span> <span class="p">{})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="c">#        for k,v in kwargs.items():</span>
-<span class="c">#            setattr(self, k, v)</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_info</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
             <span class="kn">import</span> <span class="nn">re</span>
             <span class="n">re_str</span> <span class="o">=</span> <span class="s">&quot;\([</span><span class="se">\&quot;</span><span class="s">&#39;](\S+)[</span><span class="se">\&quot;</span><span class="s">&#39;], (\d+)\)&quot;</span>
@@ -187,6 +186,10 @@
 </div>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">spimes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">endpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_devices</span>
 
     <span class="nd">@property</span>
@@ -269,10 +272,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cmd_term</span> <span class="o">=</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spimes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span> <span class="o">=</span> <span class="p">{}</span>
 
 <div class="viewcode-block" id="GPIBInstrument.add_endpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.GPIBInstrument.add_endpoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_endpoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spime</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spimes</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">spime</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">spime</span><span class="o">.</span><span class="n">name</span><span class="p">:</span><span class="n">spime</span><span class="p">})</span>
         <span class="n">spime</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">self</span>
 </div>
 <div class="viewcode-block" id="GPIBInstrument.send"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.prologix.html#dripline.instruments.prologix.GPIBInstrument.send">[docs]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">):</span>
