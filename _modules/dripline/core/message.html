@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.message &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.core.message &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,11 +30,13 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
+
+  
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,30 +47,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../../../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#alert-messages">Alert Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../spec.html">Specifications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#abstractions">Abstractions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#messages">Messages</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -78,19 +111,50 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apidocs/modules.html">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../apidocs/dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -117,66 +181,89 @@
     <li>dripline.core.message</li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <h1>Source code for dripline.core.message</h1><div class="highlight"><pre>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">Meta and derived classes for dripline messages</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
+
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;ReplyMessage&#39;</span><span class="p">,</span> <span class="s">&#39;RequestMessage&#39;</span><span class="p">,</span> <span class="s">&#39;InfoMessage&#39;</span><span class="p">,</span> <span class="s">&#39;AlertMessage&#39;</span><span class="p">,</span>
+<span class="c"># standard libs</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pwd</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="c"># 3rd party libs</span>
+<span class="kn">import</span> <span class="nn">msgpack</span>
+
+<span class="c"># internal imports</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">__version__</span><span class="p">,</span> <span class="n">__commit__</span>
+
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;ReplyMessage&#39;</span><span class="p">,</span>
+           <span class="s">&#39;RequestMessage&#39;</span><span class="p">,</span>
+           <span class="s">&#39;InfoMessage&#39;</span><span class="p">,</span>
+           <span class="s">&#39;AlertMessage&#39;</span><span class="p">,</span>
            <span class="s">&#39;Message&#39;</span><span class="p">]</span>
 
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">msgpack</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span>
-
-
-<div class="viewcode-block" id="Message"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.Message">[docs]</a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Message"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message">[docs]</a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    metaclass for dripline messages</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">payload</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">exceptions</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">msgop</span> <span class="o">=</span> <span class="n">msgop</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">retcode</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sender_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">msgop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msgop</span> <span class="o">=</span> <span class="n">msgop</span>
         <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">TIME_FORMAT</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">payload</span> <span class="o">=</span> <span class="n">payload</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">exceptions</span> <span class="o">=</span> <span class="n">exceptions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retcode</span> <span class="o">=</span> <span class="n">retcode</span>
+        <span class="k">if</span> <span class="n">sender_info</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">this_exe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">this_host</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+            <span class="n">this_username</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwuid</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sender_info</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;package&#39;</span><span class="p">:</span> <span class="s">&#39;dripline&#39;</span><span class="p">,</span>
+                                <span class="s">&#39;exe&#39;</span><span class="p">:</span> <span class="n">this_exe</span><span class="p">,</span>
+                                <span class="s">&#39;version&#39;</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
+                                <span class="s">&#39;commit&#39;</span><span class="p">:</span> <span class="n">__commit__</span><span class="p">,</span>
+                                <span class="s">&#39;hostname&#39;</span><span class="p">:</span> <span class="n">this_host</span><span class="p">,</span>
+                                <span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="n">this_username</span><span class="p">,</span>
+                               <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sender_info</span> <span class="o">=</span> <span class="n">sender_info</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;msgop&#39;</span><span class="p">]</span>
-
     <span class="nd">@msgop.setter</span>
     <span class="k">def</span> <span class="nf">msgop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;msgop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;target&#39;</span><span class="p">]</span>
-
-    <span class="nd">@target.setter</span>
-    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;msgop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;timestamp&#39;</span><span class="p">]</span>
-
     <span class="nd">@timestamp.setter</span>
     <span class="k">def</span> <span class="nf">timestamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">[</span><span class="s">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
@@ -184,29 +271,40 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">payload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;payload&#39;</span><span class="p">]</span>
-
     <span class="nd">@payload.setter</span>
     <span class="k">def</span> <span class="nf">payload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">[</span><span class="s">&#39;payload&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;exceptions&#39;</span><span class="p">]</span>
-
-    <span class="nd">@exceptions.setter</span>
-    <span class="k">def</span> <span class="nf">exceptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;exceptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">retcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;retcode&#39;</span><span class="p">]</span>
+    <span class="nd">@retcode.setter</span>
+    <span class="k">def</span> <span class="nf">retcode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;retcode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">None</span>
-
     <span class="nd">@msgtype.setter</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s">&#39;msgtype cannot be changed&#39;</span><span class="p">)</span>
 
-    <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="Message.from_dict"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.Message.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">msg_dict</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sender_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s">&#39;sender_info&#39;</span><span class="p">]</span>
+        <span class="n">this_exe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&#39;package&#39;</span><span class="p">:</span> <span class="s">&#39;dripline&#39;</span><span class="p">,</span>
+                <span class="s">&#39;exe&#39;</span><span class="p">:</span> <span class="n">this_exe</span><span class="p">,</span>
+                <span class="s">&#39;version&#39;</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
+                <span class="s">&#39;commit&#39;</span><span class="p">:</span> <span class="n">__commit</span><span class="p">,</span>
+               <span class="p">}</span>
+    <span class="nd">@sender_info.setter</span>
+    <span class="k">def</span> <span class="nf">sender_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s">&#39;sender_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Message.from_dict"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">msg_dict</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;from_dict is: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg_dict</span><span class="p">))</span>
         <span class="n">subclasses_dict</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">constants</span><span class="o">.</span><span class="n">T_REPLY</span><span class="p">:</span> <span class="n">ReplyMessage</span><span class="p">,</span>
             <span class="n">constants</span><span class="o">.</span><span class="n">T_REQUEST</span><span class="p">:</span> <span class="n">RequestMessage</span><span class="p">,</span>
@@ -214,43 +312,84 @@
             <span class="n">constants</span><span class="o">.</span><span class="n">T_INFO</span><span class="p">:</span> <span class="n">InfoMessage</span><span class="p">,</span>
         <span class="p">}</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">msg_type</span> <span class="o">=</span> <span class="n">msg_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;msgtype&#39;</span><span class="p">)</span>
+            <span class="n">msg_type</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">msg_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;msgtype&#39;</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;msgtype is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg_type</span><span class="p">))</span>
+            <span class="k">if</span> <span class="s">&#39;target&#39;</span> <span class="ow">in</span> <span class="n">msg_dict</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;this is a hack&#39;</span><span class="p">)</span>
+                <span class="n">msg_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;target&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">subclasses_dict</span><span class="p">[</span><span class="n">msg_type</span><span class="p">](</span><span class="o">**</span><span class="n">msg_dict</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;present keys are: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;msgtype must be defined as in spec!&#39;</span><span class="p">)</span>
 </div>
-    <span class="nd">@staticmethod</span>
-<div class="viewcode-block" id="Message.from_msgpack"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.Message.from_msgpack">[docs]</a>    <span class="k">def</span> <span class="nf">from_msgpack</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">unpackb</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="n">Message</span><span class="o">.</span><span class="n">from_dict</span><span class="p">)</span>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Message.from_msgpack"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.from_msgpack">[docs]</a>    <span class="k">def</span> <span class="nf">from_msgpack</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">message_dict</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">unpackb</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">message_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">message</span>
 </div>
-<div class="viewcode-block" id="Message.to_msgpack"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.Message.to_msgpack">[docs]</a>    <span class="k">def</span> <span class="nf">to_msgpack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Message.from_json"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.from_json">[docs]</a>    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">message_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">message_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">message</span>
+</div>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Message.from_encoded"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.from_encoded">[docs]</a>    <span class="k">def</span> <span class="nf">from_encoded</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;json&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;msgpack&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_msgpack</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;encoding &lt;{}&gt; not recognized&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">encoding</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Message.to_msgpack"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.to_msgpack">[docs]</a>    <span class="k">def</span> <span class="nf">to_msgpack</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">temp_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">temp_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;msgtype&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">msgtype</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">packb</span><span class="p">(</span><span class="n">temp_dict</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Message.to_json"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">temp_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">temp_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;msgtype&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">msgtype</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">temp_dict</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Message.to_encoding"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message.to_encoding">[docs]</a>    <span class="k">def</span> <span class="nf">to_encoding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;json&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&quot;msgpack&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_msgpack</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;encoding &lt;{}&gt; not recognized&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">encoding</span><span class="p">))</span>
 
 </div></div>
-<div class="viewcode-block" id="ReplyMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.ReplyMessage">[docs]</a><span class="k">class</span> <span class="nc">ReplyMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<div class="viewcode-block" id="ReplyMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.ReplyMessage">[docs]</a><span class="k">class</span> <span class="nc">ReplyMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Derrived class for Reply type messages</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">retcode</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">retcode</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">retcode</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;retcode&#39;</span><span class="p">:</span><span class="n">retcode</span><span class="p">})</span>
+        <span class="n">Message</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">T_REPLY</span>
 
 </div>
-<div class="viewcode-block" id="RequestMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.RequestMessage">[docs]</a><span class="k">class</span> <span class="nc">RequestMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<div class="viewcode-block" id="RequestMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.RequestMessage">[docs]</a><span class="k">class</span> <span class="nc">RequestMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">T_REQUEST</span>
 
 </div>
-<div class="viewcode-block" id="InfoMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.InfoMessage">[docs]</a><span class="k">class</span> <span class="nc">InfoMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<div class="viewcode-block" id="InfoMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.InfoMessage">[docs]</a><span class="k">class</span> <span class="nc">InfoMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">T_INFO</span>
 
 </div>
-<div class="viewcode-block" id="AlertMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.message.html#dripline.core.message.AlertMessage">[docs]</a><span class="k">class</span> <span class="nc">AlertMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
+<div class="viewcode-block" id="AlertMessage"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.AlertMessage">[docs]</a><span class="k">class</span> <span class="nc">AlertMessage</span><span class="p">(</span><span class="n">Message</span><span class="p">):</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">msgtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">constants</span><span class="o">.</span><span class="n">T_ALERT</span></div>
@@ -267,9 +406,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -284,7 +424,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

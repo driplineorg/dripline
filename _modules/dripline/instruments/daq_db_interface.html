@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dripline.instruments.daq_db_interface &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#alert-messages">Alert Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apidocs/modules.html">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../apidocs/dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>dripline.instruments.daq_db_interface</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for dripline.instruments.daq_db_interface</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">A service fo interfacing with the DAQ DB (the run table in particular)</span>
+
+<span class="sd">Note: services using this module will require sqlalchemy (and assuming we&#39;re still using postgresql, psycopg2 as the sqlalchemy backend)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="c"># std libraries</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="c"># 3rd party libraries</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;warning sqlalchmy not found, database support will not be available&#39;</span><span class="p">)</span>
+<span class="c">####### the above import really does go here, there should probably be some plugin infrastructure or something to deal with this as an optional feature, for now I&#39;ll import elsewhere</span>
+
+<span class="c"># local imports</span>
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">Provider</span><span class="p">,</span> <span class="n">Endpoint</span><span class="p">,</span> <span class="n">fancy_init_doc</span>
+<span class="kn">from</span> <span class="nn">..core.exceptions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;RunDBInterface&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="RunDBInterface"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.html#dripline.instruments.daq_db_interface.RunDBInterface">[docs]</a><span class="k">class</span> <span class="nc">RunDBInterface</span><span class="p">(</span><span class="n">Provider</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A not-so-flexible provider for getting run_id values.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">database_server</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        ~Params</span>
+<span class="sd">            user (str): user name for connecting to database</span>
+<span class="sd">            password (str): password for connecting to database</span>
+<span class="sd">            database_name (str): name of the database to connect to</span>
+<span class="sd">            database_server (str): network resolvable hostname of database server</span>
+<span class="sd">            tables (list): list of names (str) of tables in the database</span>
+<span class="sd">        ~Params</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">StringType</span><span class="p">):</span>
+            <span class="n">tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">tables</span><span class="p">]</span>
+        <span class="n">Provider</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect_to_db</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">database_server</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">tables</span><span class="p">)</span>
+
+<div class="viewcode-block" id="RunDBInterface.connect_to_db"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.html#dripline.instruments.daq_db_interface.RunDBInterface.connect_to_db">[docs]</a>    <span class="k">def</span> <span class="nf">connect_to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">database_server</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">table_names</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">engine_str</span> <span class="o">=</span> <span class="s">&#39;postgresql://{}:{}@{}/{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">database_server</span><span class="p">,</span> <span class="n">database_name</span><span class="p">)</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">engine_str</span><span class="p">)</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">MetaData</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="n">table</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">autoload</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="s">&#39;runs&#39;</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_insert_with_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">insert_kv_dict</span><span class="p">,</span> <span class="n">return_col_names_list</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="o">**</span><span class="n">insert_kv_dict</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">return_col_names_list</span><span class="p">:</span>
+                <span class="n">ins</span> <span class="o">=</span> <span class="n">ins</span><span class="o">.</span><span class="n">returning</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">return_col_names_list</span><span class="p">])</span>
+            <span class="n">insert_result</span> <span class="o">=</span> <span class="n">ins</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">return_col_names_list</span><span class="p">:</span>
+                <span class="n">return_values</span> <span class="o">=</span> <span class="n">insert_result</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">return_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;(psycopg2.IntegrityError)&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">DriplineDatabaseError</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;unknown error while working with sql&#39;</span><span class="p">)</span>
+                <span class="k">raise</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">return_col_names_list</span><span class="p">,</span> <span class="n">return_values</span><span class="p">))</span>
+
+</div>
+<span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;InsertDBEndpoint&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="InsertDBEndpoint"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.html#dripline.instruments.daq_db_interface.InsertDBEndpoint">[docs]</a><span class="k">class</span> <span class="nc">InsertDBEndpoint</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A class for making calls to _insert_with_return</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">required_insert_names</span><span class="p">,</span>
+                 <span class="n">return_col_names</span><span class="o">=</span><span class="p">[],</span>
+                 <span class="n">optional_insert_names</span><span class="o">=</span><span class="p">[],</span>
+                 <span class="n">default_insert_values</span><span class="o">=</span><span class="p">{},</span>
+                 <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        ~Params</span>
+<span class="sd">            table_name (str): name of the table to insert to</span>
+<span class="sd">            required_insert_names (list): list of names (str) of the table columns which must be included on every requested insert</span>
+<span class="sd">            return_col_names (list): list of names (str) of columns whose values should be returned on completion of the insert</span>
+<span class="sd">            optional_insert_names (list): list of names (str) of columns which the user may specify on an insert request, but which may be omitted</span>
+<span class="sd">            default_insert_values (dict): dictionary of {column_names: values} to serve as defaults when inserting, any values provided explicitly on the insert request will override these values</span>
+<span class="sd">        ~Params</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">Endpoint</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_table_name</span> <span class="o">=</span> <span class="n">table_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_return_names</span> <span class="o">=</span> <span class="n">return_col_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_required_insert_names</span> <span class="o">=</span> <span class="n">required_insert_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_optional_insert_names</span> <span class="o">=</span> <span class="n">optional_insert_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_insert_dict</span> <span class="o">=</span> <span class="n">default_insert_values</span>
+
+<div class="viewcode-block" id="InsertDBEndpoint.do_insert"><a class="viewcode-back" href="../../../apidocs/dripline.instruments.html#dripline.instruments.daq_db_interface.InsertDBEndpoint.do_insert">[docs]</a>    <span class="k">def</span> <span class="nf">do_insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="p">,</span> <span class="n">RunDBInterface</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">DriplineInternalError</span><span class="p">(</span><span class="s">&#39;InsertDBEndpoint must have a RunDBInterface as provider&#39;</span><span class="p">)</span>
+        <span class="c"># make sure that all provided insert values are expected</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_required_insert_names</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_optional_insert_names</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">DriplineDatabaseError</span><span class="p">(</span><span class="s">&#39;not allowed to insert into: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+        <span class="c"># make sure that all required columns are present</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_required_insert_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">raise</span> <span class="n">DriplineDatabaseError</span><span class="p">(</span><span class="s">&#39;a value for &lt;{}&gt; is required&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+        <span class="c"># build the insert dict</span>
+        <span class="n">this_insert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_insert_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">this_insert</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">return_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">_insert_with_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_name</span><span class="p">,</span>
+                                                        <span class="n">this_insert</span><span class="p">,</span>
+                                                        <span class="bp">self</span><span class="o">.</span><span class="n">_return_names</span><span class="p">,</span>
+                                                       <span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_vals</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, The Project 8 Collaboration.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'v1.4.7-67-g457f17d',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

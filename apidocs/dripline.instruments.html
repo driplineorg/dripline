@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.instruments &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.instruments package &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,14 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../index.html"/>
+        <link rel="up" title="dripline package" href="dripline.html"/>
+        <link rel="prev" title="dripline.core package" href="dripline.core.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,25 +48,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#alert-messages">Alert Messages</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#abstractions">Abstractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#messages">Messages</a></li>
@@ -77,8 +117,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
@@ -88,7 +144,23 @@
 </ul>
 </li>
 </ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dripline</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dripline.html">dripline package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dripline.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -110,33 +182,728 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>dripline.instruments</li>
+          <li><a href="modules.html">dripline</a> &raquo;</li>
+      
+          <li><a href="dripline.html">dripline package</a> &raquo;</li>
+      
+    <li>dripline.instruments package</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.instruments.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/dripline.instruments.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
-  <div class="section" id="module-dripline.instruments">
-<span id="dripline-instruments"></span><h1>dripline.instruments<a class="headerlink" href="#module-dripline.instruments" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dripline-instruments-package">
+<h1>dripline.instruments package<a class="headerlink" href="#dripline-instruments-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-dripline.instruments.agilent34461a">
+<span id="dripline-instruments-agilent34461a-module"></span><h2>dripline.instruments.agilent34461a module<a class="headerlink" href="#module-dripline.instruments.agilent34461a" title="Permalink to this headline">¶</a></h2>
+<p>Implementation for the agilent 34461 DMM</p>
+<dl class="class">
+<dt id="dripline.instruments.agilent34461a.agilent34461a">
+<em class="property">class </em><code class="descclassname">dripline.instruments.agilent34461a.</code><code class="descname">agilent34461a</code><span class="sig-paren">(</span><em>name</em>, <em>ip_addr='10.0.0.60'</em>, <em>scpi_port=5025</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a.add_endpoint">
+<code class="descname">add_endpoint</code><span class="sig-paren">(</span><em>sensor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a.add_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a.add_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a.endpoint">
+<code class="descname">endpoint</code><span class="sig-paren">(</span><em>sensorname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a.endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a.list_endpoints">
+<code class="descname">list_endpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a.list_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a.list_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.agilent34461a.agilent34461a.module_key">
+<code class="descname">module_key</code><em class="property"> = 'agilent34461a'</em><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a.module_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a.send_sync">
+<code class="descname">send_sync</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a.send_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input">
+<em class="property">class </em><code class="descclassname">dripline.instruments.agilent34461a.</code><code class="descname">agilent34461a_voltage_input</code><span class="sig-paren">(</span><em>name</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.module_key">
+<code class="descname">module_key</code><em class="property"> = 'agilent34461a_voltage_input'</em><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.module_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.provider">
+<code class="descname">provider</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input.provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.agilent34461a.agilent34461a_voltage_input.set_provider">
+<code class="descname">set_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/agilent34461a.html#agilent34461a_voltage_input.set_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.agilent34461a.agilent34461a_voltage_input.set_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.daq_db_interface">
+<span id="dripline-instruments-daq-db-interface-module"></span><h2>dripline.instruments.daq_db_interface module<a class="headerlink" href="#module-dripline.instruments.daq_db_interface" title="Permalink to this headline">¶</a></h2>
+<p>A service fo interfacing with the DAQ DB (the run table in particular)</p>
+<p>Note: services using this module will require sqlalchemy (and assuming we&#8217;re still using postgresql, psycopg2 as the sqlalchemy backend)</p>
+<dl class="class">
+<dt id="dripline.instruments.daq_db_interface.RunDBInterface">
+<em class="property">class </em><code class="descclassname">dripline.instruments.daq_db_interface.</code><code class="descname">RunDBInterface</code><span class="sig-paren">(</span><em>user</em>, <em>password</em>, <em>database_name</em>, <em>database_server</em>, <em>tables</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#RunDBInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.RunDBInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<p>A not-so-flexible provider for getting run_id values.</p>
+<dl class="method">
+<dt id="dripline.instruments.daq_db_interface.RunDBInterface.connect_to_db">
+<code class="descname">connect_to_db</code><span class="sig-paren">(</span><em>user</em>, <em>password</em>, <em>database_server</em>, <em>database_name</em>, <em>table_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#RunDBInterface.connect_to_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.RunDBInterface.connect_to_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.daq_db_interface.InsertDBEndpoint">
+<em class="property">class </em><code class="descclassname">dripline.instruments.daq_db_interface.</code><code class="descname">InsertDBEndpoint</code><span class="sig-paren">(</span><em>table_name</em>, <em>required_insert_names</em>, <em>return_col_names=[]</em>, <em>optional_insert_names=[]</em>, <em>default_insert_values={}</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#InsertDBEndpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.InsertDBEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<p>A class for making calls to _insert_with_return</p>
+<dl class="method">
+<dt id="dripline.instruments.daq_db_interface.InsertDBEndpoint.do_insert">
+<code class="descname">do_insert</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#InsertDBEndpoint.do_insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.InsertDBEndpoint.do_insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.daq_run_interface">
+<span id="dripline-instruments-daq-run-interface-module"></span><h2>dripline.instruments.daq_run_interface module<a class="headerlink" href="#module-dripline.instruments.daq_run_interface" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.daq_run_interface.DAQProvider">
+<em class="property">class </em><code class="descclassname">dripline.instruments.daq_run_interface.</code><code class="descname">DAQProvider</code><span class="sig-paren">(</span><em>daq_name</em>, <em>run_table_endpoint</em>, <em>directory_path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#DAQProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.DAQProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<p>Base class for providing a uniform interface to different DAQ systems</p>
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.DAQProvider.end_run">
+<code class="descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#DAQProvider.end_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.DAQProvider.end_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.daq_run_interface.DAQProvider.run_name">
+<code class="descname">run_name</code><a class="headerlink" href="#dripline.instruments.daq_run_interface.DAQProvider.run_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.DAQProvider.start_run">
+<code class="descname">start_run</code><span class="sig-paren">(</span><em>run_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#DAQProvider.start_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.DAQProvider.start_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.DAQProvider.start_timed_run">
+<code class="descname">start_timed_run</code><span class="sig-paren">(</span><em>run_name</em>, <em>run_time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#DAQProvider.start_timed_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.DAQProvider.start_timed_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.daq_run_interface.MantisAcquisitionInterface">
+<em class="property">class </em><code class="descclassname">dripline.instruments.daq_run_interface.</code><code class="descname">MantisAcquisitionInterface</code><span class="sig-paren">(</span><em>mantis_queue='mantis'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#MantisAcquisitionInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.MantisAcquisitionInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.instruments.daq_run_interface.DAQProvider" title="dripline.instruments.daq_run_interface.DAQProvider"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.daq_run_interface.DAQProvider</span></code></a>, <a class="reference internal" href="dripline.core.html#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<p>A DAQProvider for interacting with Mantis DAQ</p>
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.MantisAcquisitionInterface.end_run">
+<code class="descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#MantisAcquisitionInterface.end_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.MantisAcquisitionInterface.end_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.MantisAcquisitionInterface.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#MantisAcquisitionInterface.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.MantisAcquisitionInterface.on_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setting an on_get so that the logging functionality can be used to queue multiple acquisitions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.MantisAcquisitionInterface.start_run">
+<code class="descname">start_run</code><span class="sig-paren">(</span><em>run_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#MantisAcquisitionInterface.start_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.MantisAcquisitionInterface.start_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.daq_run_interface.RSAAcquisitionInterface">
+<em class="property">class </em><code class="descclassname">dripline.instruments.daq_run_interface.</code><code class="descname">RSAAcquisitionInterface</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#RSAAcquisitionInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.RSAAcquisitionInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.instruments.daq_run_interface.DAQProvider" title="dripline.instruments.daq_run_interface.DAQProvider"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.daq_run_interface.DAQProvider</span></code></a>, <a class="reference internal" href="#dripline.instruments.ethernet_scpi.EthernetSCPI" title="dripline.instruments.ethernet_scpi.EthernetSCPI"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.ethernet_scpi.EthernetSCPI</span></code></a></p>
+<p>A DAQProvider for interacting with the RSA</p>
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.RSAAcquisitionInterface.end_run">
+<code class="descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#RSAAcquisitionInterface.end_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.RSAAcquisitionInterface.end_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.daq_run_interface.RSAAcquisitionInterface.start_run">
+<code class="descname">start_run</code><span class="sig-paren">(</span><em>run_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_run_interface.html#RSAAcquisitionInterface.start_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_run_interface.RSAAcquisitionInterface.start_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.dsp_lockin_7265">
+<span id="dripline-instruments-dsp-lockin-7265-module"></span><h2>dripline.instruments.dsp_lockin_7265 module<a class="headerlink" href="#module-dripline.instruments.dsp_lockin_7265" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.dsp_lockin_7265.DSPLockin7265">
+<em class="property">class </em><code class="descclassname">dripline.instruments.dsp_lockin_7265.</code><code class="descname">DSPLockin7265</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#DSPLockin7265"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.DSPLockin7265" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.instruments.prologix.GPIBInstrument" title="dripline.instruments.prologix.GPIBInstrument"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.prologix.GPIBInstrument</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.instruments.dsp_lockin_7265.DSPLockin7265.number_of_points">
+<code class="descname">number_of_points</code><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.DSPLockin7265.number_of_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.dsp_lockin_7265.DSPLockin7265.sampling_interval">
+<code class="descname">sampling_interval</code><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.DSPLockin7265.sampling_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sampling interval in ms</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.dsp_lockin_7265.RawSendEndpoint">
+<em class="property">class </em><code class="descclassname">dripline.instruments.dsp_lockin_7265.</code><code class="descname">RawSendEndpoint</code><span class="sig-paren">(</span><em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#RawSendEndpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.RawSendEndpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.RawSendEndpoint.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#RawSendEndpoint.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.RawSendEndpoint.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.RawSendEndpoint.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#RawSendEndpoint.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.RawSendEndpoint.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.dsp_lockin_7265.CallProviderMethod">
+<em class="property">class </em><code class="descclassname">dripline.instruments.dsp_lockin_7265.</code><code class="descname">CallProviderMethod</code><span class="sig-paren">(</span><em>method_name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#CallProviderMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.CallProviderMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.CallProviderMethod.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#CallProviderMethod.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.CallProviderMethod.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.CallProviderMethod.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#CallProviderMethod.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.CallProviderMethod.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.dsp_lockin_7265.ProviderProperty">
+<em class="property">class </em><code class="descclassname">dripline.instruments.dsp_lockin_7265.</code><code class="descname">ProviderProperty</code><span class="sig-paren">(</span><em>property_name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#ProviderProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.ProviderProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.ProviderProperty.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#ProviderProperty.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.ProviderProperty.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.dsp_lockin_7265.ProviderProperty.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/dsp_lockin_7265.html#ProviderProperty.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.dsp_lockin_7265.ProviderProperty.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.ethernet_scpi">
+<span id="dripline-instruments-ethernet-scpi-module"></span><h2>dripline.instruments.ethernet_scpi module<a class="headerlink" href="#module-dripline.instruments.ethernet_scpi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.ethernet_scpi.EthernetSCPI">
+<em class="property">class </em><code class="descclassname">dripline.instruments.ethernet_scpi.</code><code class="descname">EthernetSCPI</code><span class="sig-paren">(</span><em>socket_timeout=1.0</em>, <em>socket_info=('localhost'</em>, <em>1234)</em>, <em>response_terminator=None</em>, <em>command_terminator=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetSCPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetSCPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.ethernet_scpi.EthernetSCPI.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetSCPI.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetSCPI.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.ethernet_scpi.EthernetSCPI.reconnect">
+<code class="descname">reconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetSCPI.reconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetSCPI.reconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.ethernet_scpi.EthernetSCPI.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetSCPI.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetSCPI.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>this issues commands</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.ethernet_scpi.EthernetSCPI.spimes">
+<code class="descname">spimes</code><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetSCPI.spimes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.ethernet_scpi.EthernetRepeater">
+<em class="property">class </em><code class="descclassname">dripline.instruments.ethernet_scpi.</code><code class="descname">EthernetRepeater</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetRepeater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetRepeater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.instruments.ethernet_scpi.EthernetSCPI" title="dripline.instruments.ethernet_scpi.EthernetSCPI"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.ethernet_scpi.EthernetSCPI</span></code></a>, <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.ethernet_scpi.EthernetRepeater.on_send">
+<code class="descname">on_send</code><span class="sig-paren">(</span><em>*to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/ethernet_scpi.html#EthernetRepeater.on_send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.ethernet_scpi.EthernetRepeater.on_send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.kv_store">
+<span id="dripline-instruments-kv-store-module"></span><h2>dripline.instruments.kv_store module<a class="headerlink" href="#module-dripline.instruments.kv_store" title="Permalink to this headline">¶</a></h2>
+<p>kv_store.py</p>
+<p>A simple key-value store which is a dripline provider.
+The endpoints of this provider are associated with
+keys, and are determined by the configuration file.
+For example, if the configuration file has a provider
+section that looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>providers:
+  - name: kv_example
+    module: kv_store
+    endpoints:
+      -name: foo
+        module: kv_store_key
+      -name: bar
+        module: kv_store_key
+      -name: baz
+        module: kv_store_key
+</pre></div>
+</div>
+<p>Then the KV store will have three keys, foo, bar, and
+baz, which are associated with it.  They can be addressed
+as such on the network, or can also be addressed using their
+fully qualified hierarchical address e.g. somenode.kv.foo.</p>
+<dl class="class">
+<dt id="dripline.instruments.kv_store.kv_store">
+<em class="property">class </em><code class="descclassname">dripline.instruments.kv_store.</code><code class="descname">kv_store</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<p>The KV store.  This is just a wrapper around a dict.</p>
+<dl class="method">
+<dt id="dripline.instruments.kv_store.kv_store.endpoint">
+<code class="descname">endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store.endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the endpoint associated with some key.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.kv_store.kv_store.list_endpoints">
+<code class="descname">list_endpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store.list_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store.list_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all endpoints associated with this KV store.
+This is the same as enumerating the keys in the
+dict.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.kv_store.kv_store_key">
+<em class="property">class </em><code class="descclassname">dripline.instruments.kv_store.</code><code class="descname">kv_store_key</code><span class="sig-paren">(</span><em>initial_value=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<p>A key in the KV store.</p>
+<dl class="method">
+<dt id="dripline.instruments.kv_store.kv_store_key.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store_key.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store_key.on_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value associated with this
+key.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.kv_store.kv_store_key.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store_key.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store_key.on_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value associated with this key
+to some new value.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.instruments.kv_store.kv_store_key.report_log">
+<em class="property">static </em><code class="descname">report_log</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/kv_store.html#kv_store_key.report_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.kv_store.kv_store_key.report_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.prologix">
+<span id="dripline-instruments-prologix-module"></span><h2>dripline.instruments.prologix module<a class="headerlink" href="#module-dripline.instruments.prologix" title="Permalink to this headline">¶</a></h2>
+<p>&lt;this should say something useful&gt;</p>
+<dl class="class">
+<dt id="dripline.instruments.prologix.PrologixSpimescape">
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">PrologixSpimescape</code><span class="sig-paren">(</span><em>socket_timeout=1.0</em>, <em>socket_info=('localhost'</em>, <em>1234)</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.instruments.prologix.PrologixSpimescape.devices">
+<code class="descname">devices</code><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.devices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.prologix.PrologixSpimescape.keep_polling">
+<code class="descname">keep_polling</code><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.keep_polling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.prologix.PrologixSpimescape.reconnect">
+<code class="descname">reconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape.reconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.reconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.prologix.PrologixSpimescape.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>that is, the call to the device blocks for a response</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.instruments.prologix.PrologixSpimescape.spimes">
+<code class="descname">spimes</code><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.spimes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.prologix.GPIBInstrument">
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">GPIBInstrument</code><span class="sig-paren">(</span><em>name</em>, <em>addr</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#GPIBInstrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.GPIBInstrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<p>A Provider class intended for GPIB devices that implement the full
+IEEE 488.2 (488.1 or 488 need to use some other class).</p>
+<p>It expects to have a set of Simple*Spime endpoints which return SCPI commands.
+The _cmd_term attribute is appended to those commands before being passed up to
+the higher level provider which actually maintains a connection (eg PrologixSpimescape).</p>
+<dl class="method">
+<dt id="dripline.instruments.prologix.GPIBInstrument.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#GPIBInstrument.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.GPIBInstrument.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.prologix.SimpleGetSpime">
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSpime</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.spime.SimpleSCPIGetSpime" title="dripline.core.spime.SimpleSCPIGetSpime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.SimpleSCPIGetSpime</span></code></a></p>
+<p>A generic Spime for SCPI commands which take no arguments (ie queries).</p>
+<dl class="docutils">
+<dt>It is assumed that the command will:</dt>
+<dd><ol class="first last arabic simple">
+<li>return something</li>
+<li>return quickly</li>
+</ol>
+</dd>
+</dl>
+<p>If either assumption is wrong then you need a different Spime derived class</p>
+<dl class="method">
+<dt id="dripline.instruments.prologix.SimpleGetSpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.prologix.MuxerGetSpime">
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">MuxerGetSpime</code><span class="sig-paren">(</span><em>ch_number</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.instruments.prologix.SimpleGetSpime" title="dripline.instruments.prologix.SimpleGetSpime"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.prologix.SimpleGetSpime</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.prologix.MuxerGetSpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.prologix.SimpleGetSetSpime">
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSetSpime</code><span class="sig-paren">(</span><em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<p>A generic Spime for SCPI commands using a standard pattern for query and assignment.</p>
+<dl class="docutils">
+<dt>The pattern looks like the following. Consider a command &#8220;CMD&#8221;</dt>
+<dd>~To request the current value, the SCPI command would be: &#8220;CMD?&#8221;
+~To assign a new value, the SCPI command would be &#8220;CMD &lt;value&gt;;*OPC?&#8221;</dd>
+<dt>It is assumed that both of the above constructions will:</dt>
+<dd><ol class="first last arabic simple">
+<li>return something</li>
+<li>return quickly</li>
+</ol>
+</dd>
+</dl>
+<p>If either of those assumptions is wrong then you want a different Spime derived class</p>
+<dl class="method">
+<dt id="dripline.instruments.prologix.SimpleGetSetSpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSetSpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSetSpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.prologix.SimpleGetSetSpime.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSetSpime.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSetSpime.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.random_sensor">
+<span id="dripline-instruments-random-sensor-module"></span><h2>dripline.instruments.random_sensor module<a class="headerlink" href="#module-dripline.instruments.random_sensor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.random_sensor.random_sensor">
+<em class="property">class </em><code class="descclassname">dripline.instruments.random_sensor.</code><code class="descname">random_sensor</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/random_sensor.html#random_sensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.random_sensor.random_sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.random_sensor.random_sensor.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/random_sensor.html#random_sensor.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.random_sensor.random_sensor.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.random_sensor.random_sensor.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/random_sensor.html#random_sensor.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.random_sensor.random_sensor.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.repeater_provider">
+<span id="dripline-instruments-repeater-provider-module"></span><h2>dripline.instruments.repeater_provider module<a class="headerlink" href="#module-dripline.instruments.repeater_provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider">
+<em class="property">class </em><code class="descclassname">dripline.instruments.repeater_provider.</code><code class="descname">RepeaterProvider</code><span class="sig-paren">(</span><em>repeat_target</em>, <em>broker</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><em>attribute</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider.on_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.repeater_provider.RepeaterProvider.send_request">
+<code class="descname">send_request</code><span class="sig-paren">(</span><em>target</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/repeater_provider.html#RepeaterProvider.send_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.repeater_provider.RepeaterProvider.send_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.simple_scpi">
+<span id="dripline-instruments-simple-scpi-module"></span><h2>dripline.instruments.simple_scpi module<a class="headerlink" href="#module-dripline.instruments.simple_scpi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_instrument">
+<em class="property">class </em><code class="descclassname">dripline.instruments.simple_scpi.</code><code class="descname">simple_scpi_instrument</code><span class="sig-paren">(</span><em>name</em>, <em>ip_addr='10.0.0.60'</em>, <em>scpi_port=5025</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_instrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_instrument.endpoint">
+<code class="descname">endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_instrument.endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_instrument.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_instrument.list_endpoints">
+<code class="descname">list_endpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_instrument.list_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_instrument.list_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_instrument.send_sync">
+<code class="descname">send_sync</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_instrument.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_instrument.send_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor">
+<em class="property">class </em><code class="descclassname">dripline.instruments.simple_scpi.</code><code class="descname">simple_scpi_sensor</code><span class="sig-paren">(</span><em>name</em>, <em>on_get=None</em>, <em>on_set=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor.on_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor.provider">
+<code class="descname">provider</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor.provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_scpi.simple_scpi_sensor.set_provider">
+<code class="descname">set_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_scpi.html#simple_scpi_sensor.set_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_scpi.simple_scpi_sensor.set_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.simple_shell">
+<span id="dripline-instruments-simple-shell-module"></span><h2>dripline.instruments.simple_shell module<a class="headerlink" href="#module-dripline.instruments.simple_shell" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.simple_shell.simple_shell_instrument">
+<em class="property">class </em><code class="descclassname">dripline.instruments.simple_shell.</code><code class="descname">simple_shell_instrument</code><span class="sig-paren">(</span><em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_instrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_instrument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_instrument.endpoint">
+<code class="descname">endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_instrument.endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_instrument.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_instrument.list_endpoints">
+<code class="descname">list_endpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_instrument.list_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_instrument.list_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_instrument.send_sync">
+<code class="descname">send_sync</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_instrument.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_instrument.send_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.simple_shell.simple_shell_command">
+<em class="property">class </em><code class="descclassname">dripline.instruments.simple_shell.</code><code class="descname">simple_shell_command</code><span class="sig-paren">(</span><em>name</em>, <em>on_get=None</em>, <em>on_set=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_command.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command.on_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_command.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_command.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_command.provider">
+<code class="descname">provider</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command.provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.simple_shell_command.set_provider">
+<code class="descname">set_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#simple_shell_command.set_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.simple_shell_command.set_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp">
+<em class="property">class </em><code class="descclassname">dripline.instruments.simple_shell.</code><code class="descname">sensors_command_temp</code><span class="sig-paren">(</span><em>name</em>, <em>core=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<p>Temperature sensors on higgsino</p>
+<p>This assumes that the &#8220;sensors&#8221; command is installed, which it probably isn&#8217;t.</p>
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><em>attribute</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.on_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.provider">
+<code class="descname">provider</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.report_log">
+<em class="property">static </em><code class="descname">report_log</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.report_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.report_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.simple_shell.sensors_command_temp.set_provider">
+<code class="descname">set_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/simple_shell.html#sensors_command_temp.set_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.simple_shell.sensors_command_temp.set_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments.step_attenuator">
+<span id="dripline-instruments-step-attenuator-module"></span><h2>dripline.instruments.step_attenuator module<a class="headerlink" href="#module-dripline.instruments.step_attenuator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.instruments.step_attenuator.StepAttenuator">
+<em class="property">class </em><code class="descclassname">dripline.instruments.step_attenuator.</code><code class="descname">StepAttenuator</code><span class="sig-paren">(</span><em>file_name='/tmp/step_atten.txt'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/step_attenuator.html#StepAttenuator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.step_attenuator.StepAttenuator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.instruments.step_attenuator.StepAttenuator.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/step_attenuator.html#StepAttenuator.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.step_attenuator.StepAttenuator.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.instruments.step_attenuator.StepAttenuator.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/step_attenuator.html#StepAttenuator.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.step_attenuator.StepAttenuator.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.instruments">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dripline.instruments" title="Permalink to this headline">¶</a></h2>
 <p>Implementation of instrument services.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dripline.instruments.agilent34461a.html">dripline.instruments.agilent34461a module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.instruments.kv_store.html">dripline.instruments.kv_store module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.instruments.random_sensor.html">dripline.instruments.random_sensor module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.instruments.simple_scpi.html">dripline.instruments.simple_scpi module</a></li>
-</ul>
 </div>
 </div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="dripline.core.html" class="btn btn-neutral" title="dripline.core package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -146,9 +913,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -163,7 +931,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

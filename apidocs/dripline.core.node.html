@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.node module &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.core.node module &mdash; dripline v1.4.1-0-gca2106e documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,15 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.1-0-gca2106e documentation" href="../index.html"/>
+        <link rel="up" title="dripline.core" href="dripline.core.html"/>
+        <link rel="next" title="dripline.core.provider module" href="dripline.core.provider.html"/>
+        <link rel="prev" title="dripline.core.message module" href="dripline.core.message.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,23 +49,46 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#for-building-documentation">For Building Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#external">External</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#first-steps">First Steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
@@ -77,18 +105,66 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="auto_all.html">Auto All</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dripline</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dripline.html">dripline</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dripline.core.html">dripline.core</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.binding.html">dripline.core.binding module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.config.html">dripline.core.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.connection.html">dripline.core.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.constants.html">dripline.core.constants module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.endpoint.html">dripline.core.endpoint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.message.html">dripline.core.message module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">dripline.core.node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.provider.html">dripline.core.provider module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.sensor.html">dripline.core.sensor module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.html">dripline.instruments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.agilent34461a.html">dripline.instruments.agilent34461a module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.kv_store.html">dripline.instruments.kv_store module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.random_sensor.html">dripline.instruments.random_sensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.simple_scpi.html">dripline.instruments.simple_scpi module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_all.html">Auto All</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 </ul>
 
+          
         
       </div>
       &nbsp;
@@ -110,111 +186,41 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
+          <li><a href="modules.html">dripline</a> &raquo;</li>
+      
+          <li><a href="dripline.html">dripline</a> &raquo;</li>
+      
+          <li><a href="dripline.core.html">dripline.core</a> &raquo;</li>
+      
     <li>dripline.core.node module</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.core.node.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/dripline.core.node.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
-  <div class="section" id="module-dripline.core.node">
-<span id="dripline-core-node-module"></span><h1>dripline.core.node module<a class="headerlink" href="#module-dripline.core.node" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="dripline.core.node.Node">
-<em class="property">class </em><code class="descclassname">dripline.core.node.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>configuration</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>The Node is the core abstraction in the dripline model.  A Node object
-represents an entity on the dripline mesh which can send and receive
-messages.  Providers &#8216;belong&#8217; to the Node, and endpoints are attached
-to the Node through the bind and bind_endpoint methods for a given Node
-instance.</p>
-<dl class="method">
-<dt id="dripline.core.node.Node.add_provider">
-<code class="descname">add_provider</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.add_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.add_provider" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.bind">
-<code class="descname">bind</code><span class="sig-paren">(</span><em>name</em>, <em>on_get=None</em>, <em>on_set=None</em>, <em>on_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bind an arbitrary set of set/get/config functions to the
-dripline node.  Note that currently this cannot be called
-directly in a configuration file!  It is only used internally
-by dripline.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.bind_endpoint">
-<code class="descname">bind_endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.bind_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.bind_endpoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bind an endpoint to the dripline node.  Once an endpoint is bound by
-name, it has an address and may be found on the dripline node by
-that name.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.config">
-<code class="descname">config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the YAML string representation of this dripline Node&#8217;s
-configuration.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.extend_object_graph">
-<code class="descname">extend_object_graph</code><span class="sig-paren">(</span><em>provider</em>, <em>endpoints=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.extend_object_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.extend_object_graph" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a provider and its endpoints, extend the object graph.</p>
-<p>The object graph connects objects which are related by a provider
--&gt; endpoint relationship. During the process of building the
-object graph, bindings are created for endpoints.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.locate_provider">
-<code class="descname">locate_provider</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.locate_provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.locate_provider" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.nodename">
-<code class="descname">nodename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.nodename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.nodename" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the name of the node on the dripline mesh.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.provider_endpoints">
-<code class="descname">provider_endpoints</code><span class="sig-paren">(</span><em>provider</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_endpoints" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.provider_list">
-<code class="descname">provider_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.provider_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.provider_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.send_sync">
-<code class="descname">send_sync</code><span class="sig-paren">(</span><em>to_send</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.send_sync"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.send_sync" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send a message synchronously to an endpoint which is connected
-to the dripline mesh.  This method will wait for a reply and return
-it synchronously to the caller.  The provided message to be sent
-should subclass dripline.Message such that it can be serialized to
-msgpack via a to_msgpack method.  The result of calling this function
-will also subclass Message.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="dripline.core.node.Node.start_event_loop">
-<code class="descname">start_event_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/node.html#Node.start_event_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.node.Node.start_event_loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Start the event loop for processing messages.</p>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="dripline-core-node-module">
+<h1>dripline.core.node module<a class="headerlink" href="#dripline-core-node-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dripline.core.provider.html" class="btn btn-neutral float-right" title="dripline.core.provider module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dripline.core.message.html" class="btn btn-neutral" title="dripline.core.message module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -224,9 +230,10 @@ will also subclass Message.</p>
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -241,7 +248,7 @@ will also subclass Message.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.1-0-gca2106e',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

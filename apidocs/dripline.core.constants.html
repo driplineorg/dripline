@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.constants module &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.core.constants module &mdash; dripline v1.4.1-0-gca2106e documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,12 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.1-0-gca2106e documentation" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,23 +46,46 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#for-building-documentation">For Building Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#external">External</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#first-steps">First Steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
@@ -77,18 +102,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#start-node">start_node:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_all.html">Auto All</a></li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -113,13 +159,15 @@
     <li>dripline.core.constants module</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.core.constants.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/dripline.core.constants.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="module-dripline.core.constants">
 <span id="dripline-core-constants-module"></span><h1>dripline.core.constants module<a class="headerlink" href="#module-dripline.core.constants" title="Permalink to this headline">¶</a></h1>
@@ -138,9 +186,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -155,7 +204,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.1-0-gca2106e',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

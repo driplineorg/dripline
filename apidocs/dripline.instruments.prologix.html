@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.instruments.prologix module &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.instruments.prologix module &mdash; dripline v1.4.1-0-gca2106e documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,12 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.1-0-gca2106e documentation" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,23 +46,46 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#for-building-documentation">For Building Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#external">External</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#first-steps">First Steps</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
@@ -77,8 +102,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
@@ -89,7 +130,11 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auto_all.html">Auto All</a></li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -114,34 +159,26 @@
     <li>dripline.instruments.prologix module</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.instruments.prologix.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/dripline.instruments.prologix.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="module-dripline.instruments.prologix">
 <span id="dripline-instruments-prologix-module"></span><h1>dripline.instruments.prologix module<a class="headerlink" href="#module-dripline.instruments.prologix" title="Permalink to this headline">¶</a></h1>
 <p>&lt;this should say something useful&gt;</p>
 <dl class="class">
 <dt id="dripline.instruments.prologix.PrologixSpimescape">
-<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">PrologixSpimescape</code><span class="sig-paren">(</span><em>name</em>, <em>socket_timeout=1.0</em>, <em>socket_info=('localhost'</em>, <em>1234)</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">PrologixSpimescape</code><span class="sig-paren">(</span><em>socket_timeout=1.0</em>, <em>socket_info=('localhost'</em>, <em>1234)</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="dripline.core.provider.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
-<dl class="method">
-<dt id="dripline.instruments.prologix.PrologixSpimescape.add_endpoint">
-<code class="descname">add_endpoint</code><span class="sig-paren">(</span><em>spime</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape.add_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.add_endpoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="attribute">
 <dt id="dripline.instruments.prologix.PrologixSpimescape.devices">
 <code class="descname">devices</code><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.devices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="dripline.instruments.prologix.PrologixSpimescape.endpoints">
-<code class="descname">endpoints</code><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.endpoints" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -156,7 +193,7 @@
 
 <dl class="method">
 <dt id="dripline.instruments.prologix.PrologixSpimescape.send">
-<code class="descname">send</code><span class="sig-paren">(</span><em>command</em>, <em>from_spime=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.send" title="Permalink to this definition">¶</a></dt>
+<code class="descname">send</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#PrologixSpimescape.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.PrologixSpimescape.send" title="Permalink to this definition">¶</a></dt>
 <dd><p>that is, the call to the device blocks for a response</p>
 </dd></dl>
 
@@ -171,15 +208,11 @@
 <dt id="dripline.instruments.prologix.GPIBInstrument">
 <em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">GPIBInstrument</code><span class="sig-paren">(</span><em>name</em>, <em>addr</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#GPIBInstrument"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.GPIBInstrument" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="dripline.core.provider.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
-<p>A Provider class intended for GPIB devices.</p>
+<p>A Provider class intended for GPIB devices that implement the full
+IEEE 488.2 (488.1 or 488 need to use some other class).</p>
 <p>It expects to have a set of Simple*Spime endpoints which return SCPI commands.
 The _cmd_term attribute is appended to those commands before being passed up to
 the higher level provider which actually maintains a connection (eg PrologixSpimescape).</p>
-<dl class="method">
-<dt id="dripline.instruments.prologix.GPIBInstrument.add_endpoint">
-<code class="descname">add_endpoint</code><span class="sig-paren">(</span><em>spime</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#GPIBInstrument.add_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.GPIBInstrument.add_endpoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="dripline.instruments.prologix.GPIBInstrument.send">
 <code class="descname">send</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#GPIBInstrument.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.GPIBInstrument.send" title="Permalink to this definition">¶</a></dt>
@@ -189,8 +222,8 @@ the higher level provider which actually maintains a connection (eg PrologixSpim
 
 <dl class="class">
 <dt id="dripline.instruments.prologix.SimpleGetSpime">
-<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSpime</code><span class="sig-paren">(</span><em>name</em>, <em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSpime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dripline.core.data_logger.Spime</span></code></p>
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSpime</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.SimpleSCPIGetSpime</span></code></p>
 <p>A generic Spime for SCPI commands which take no arguments (ie queries).</p>
 <dl class="docutils">
 <dt>It is assumed that the command will:</dt>
@@ -210,19 +243,19 @@ the higher level provider which actually maintains a connection (eg PrologixSpim
 
 <dl class="class">
 <dt id="dripline.instruments.prologix.MuxerGetSpime">
-<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">MuxerGetSpime</code><span class="sig-paren">(</span><em>name</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">MuxerGetSpime</code><span class="sig-paren">(</span><em>ch_number</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#dripline.instruments.prologix.SimpleGetSpime" title="dripline.instruments.prologix.SimpleGetSpime"><code class="xref py py-class docutils literal"><span class="pre">dripline.instruments.prologix.SimpleGetSpime</span></code></a></p>
 <dl class="method">
-<dt id="dripline.instruments.prologix.MuxerGetSpime.get_parsed_value">
-<code class="descname">get_parsed_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime.get_parsed_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime.get_parsed_value" title="Permalink to this definition">¶</a></dt>
+<dt id="dripline.instruments.prologix.MuxerGetSpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#MuxerGetSpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.MuxerGetSpime.on_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="dripline.instruments.prologix.SimpleGetSetSpime">
-<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSetSpime</code><span class="sig-paren">(</span><em>name</em>, <em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSetSpime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dripline.core.data_logger.Spime</span></code></p>
+<em class="property">class </em><code class="descclassname">dripline.instruments.prologix.</code><code class="descname">SimpleGetSetSpime</code><span class="sig-paren">(</span><em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/prologix.html#SimpleGetSetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.prologix.SimpleGetSetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></p>
 <p>A generic Spime for SCPI commands using a standard pattern for query and assignment.</p>
 <dl class="docutils">
 <dt>The pattern looks like the following. Consider a command &#8220;CMD&#8221;</dt>
@@ -262,9 +295,10 @@ the higher level provider which actually maintains a connection (eg PrologixSpim
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -279,7 +313,7 @@ the higher level provider which actually maintains a connection (eg PrologixSpim
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.1-0-gca2106e',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

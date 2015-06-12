@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.connection &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.core.connection &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,11 +30,13 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../../../index.html"/>
+
+  
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,30 +47,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../../../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html#alert-messages">Alert Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../spec.html">Specifications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#abstractions">Abstractions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../spec.html#messages">Messages</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -78,19 +111,50 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli_tools.html">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#start-node">start_node:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../cli_tools.html#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../apidocs/modules.html">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../apidocs/dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../apidocs/dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../apidocs/dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -117,11 +181,13 @@
     <li>dripline.core.connection</li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <h1>Source code for dripline.core.connection</h1><div class="highlight"><pre>
 <span class="sd">&#39;&#39;&#39;</span>
@@ -131,83 +197,226 @@
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
-<span class="kn">import</span> <span class="nn">pika</span>
+<span class="c"># standard libs</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
 <span class="kn">import</span> <span class="nn">uuid</span>
-<span class="kn">from</span> <span class="nn">.endpoint</span> <span class="kn">import</span> <span class="n">Endpoint</span>
-<span class="kn">from</span> <span class="nn">.sensor</span> <span class="kn">import</span> <span class="n">Sensor</span>
-<span class="kn">from</span> <span class="nn">.message</span> <span class="kn">import</span> <span class="n">AlertMessage</span>
+
+<span class="c"># 3rd party libs</span>
+<span class="kn">import</span> <span class="nn">pika</span>
+
+<span class="c"># internal libs</span>
+<span class="kn">from</span> <span class="nn">.message</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">AlertMessage</span><span class="p">,</span> <span class="n">ReplyMessage</span>
+<span class="kn">from</span> <span class="nn">..core</span> <span class="kn">import</span> <span class="n">exceptions</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Connection&#39;</span><span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Connection"><a class="viewcode-back" href="../../../apidocs/dripline.core.connection.html#dripline.core.connection.Connection">[docs]</a><span class="k">class</span> <span class="nc">Connection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker_host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Connection"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.connection.Connection">[docs]</a><span class="k">class</span> <span class="nc">Connection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A simple API to the AMQP system</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker_host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">queue_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_make_request_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">queue_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">queue_name</span> <span class="o">=</span> <span class="s">&quot;reply_queue-{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">broker_host</span> <span class="o">=</span> <span class="n">broker_host</span>
         <span class="n">conn_params</span> <span class="o">=</span> <span class="n">pika</span><span class="o">.</span><span class="n">ConnectionParameters</span><span class="p">(</span><span class="n">broker_host</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">pika</span><span class="o">.</span><span class="n">BlockingConnection</span><span class="p">(</span><span class="n">conn_params</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">confirm_delivery</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="o">=</span> <span class="bp">None</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_amqp</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_amqp</span><span class="p">(</span><span class="n">queue_name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">is_open</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;conn&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">is_open</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_setup_amqp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_setup_amqp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queue_name</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        ensures all exchanges are present and creates a response queue.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">exchange_declare</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;requests&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;topic&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">queue_declare</span><span class="p">(</span><span class="n">exclusive</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">auto_delete</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">queue_declare</span><span class="p">(</span><span class="n">queue</span><span class="o">=</span><span class="n">queue_name</span><span class="p">,</span>
+                                                 <span class="n">exclusive</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                                 <span class="n">auto_delete</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                                <span class="p">)</span>
+        <span class="k">except</span> <span class="n">pika</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ChannelClosed</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;reply queue &quot;{}&quot;already exists. Config must use unique names&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">))</span>
+            <span class="kn">import</span> <span class="nn">sys</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">queue_bind</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;requests&#39;</span><span class="p">,</span>
                              <span class="n">queue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
-                             <span class="n">routing_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">exchange_declare</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;topic&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">all_alert_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">queue_declare</span><span class="p">(</span><span class="n">auto_delete</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">queue_bind</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span>
-                             <span class="n">queue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">all_alert_queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
-                             <span class="n">routing_key</span><span class="o">=</span><span class="s">&#39;#&#39;</span><span class="p">,</span>
+                             <span class="n">routing_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
                             <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_consume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_response</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">exchange_declare</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;topic&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_consume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_response</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span> <span class="n">no_ack</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_on_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">props</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a response: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">response</span><span class="p">)))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">corr_id</span> <span class="o">==</span> <span class="n">props</span><span class="o">.</span><span class="n">correlation_id</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="n">response</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="o">=</span> <span class="n">props</span><span class="o">.</span><span class="n">content_encoding</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_ack</span><span class="p">(</span><span class="n">delivery_tag</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">delivery_tag</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">stop_consuming</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;stopping consumption&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;corr id received does not match target:&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;target: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">corr_id</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;recv&#39;d: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">props</span><span class="o">.</span><span class="n">correlation_id</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Connection.start"><a class="viewcode-back" href="../../../apidocs/dripline.core.connection.html#dripline.core.connection.Connection.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">process_data_events</span><span class="p">()</span>
+<div class="viewcode-block" id="Connection.start"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.connection.Connection.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">start_consuming</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">pika</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionClosed</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;connection broken in process event loop&#39;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s">&quot;end of consume&quot;</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="Connection.send_request"><a class="viewcode-back" href="../../../apidocs/dripline.core.connection.html#dripline.core.connection.Connection.send_request">[docs]</a>    <span class="k">def</span> <span class="nf">send_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<div class="viewcode-block" id="Connection.send_request"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.connection.Connection.send_request">[docs]</a>    <span class="k">def</span> <span class="nf">send_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">result_queue</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_send_request</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;result_queue&#39;</span><span class="p">:</span><span class="n">result_queue</span><span class="p">,</span> <span class="s">&#39;target&#39;</span><span class="p">:</span><span class="n">target</span><span class="p">,</span> <span class="s">&#39;request&#39;</span><span class="p">:</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;decode&#39;</span><span class="p">:</span><span class="n">decode</span><span class="p">})</span>
+        <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">process</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">process</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+            <span class="n">process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">DriplineTimeoutError</span><span class="p">(</span><span class="s">&quot;sending request timed out&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span>
+        </div>
+    <span class="k">def</span> <span class="nf">_send_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        send a request to a specific consumer.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_make_request_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">Message</span><span class="p">):</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">to_msgpack</span><span class="p">()</span>
+            <span class="n">decode</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_send</span> <span class="o">=</span> <span class="n">request</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">corr_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_publish</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;requests&#39;</span><span class="p">,</span>
-                                <span class="n">routing_key</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
-                                <span class="n">mandatory</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                <span class="n">properties</span><span class="o">=</span><span class="n">pika</span><span class="o">.</span><span class="n">BasicProperties</span><span class="p">(</span>
-                                    <span class="n">reply_to</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
-                                    <span class="n">correlation_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corr_id</span><span class="p">),</span>
-                                <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">process_data_events</span><span class="p">()</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span>
-</div>
-<div class="viewcode-block" id="Connection.send_alert"><a class="viewcode-back" href="../../../apidocs/dripline.core.connection.html#dripline.core.connection.Connection.send_alert">[docs]</a>    <span class="k">def</span> <span class="nf">send_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alert</span><span class="p">,</span> <span class="n">severity</span><span class="p">):</span>
+        <span class="n">pr</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_publish</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;requests&#39;</span><span class="p">,</span>
+                                         <span class="n">routing_key</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+                                         <span class="n">body</span><span class="o">=</span><span class="n">to_send</span><span class="p">,</span>
+                                         <span class="n">properties</span><span class="o">=</span><span class="n">pika</span><span class="o">.</span><span class="n">BasicProperties</span><span class="p">(</span>
+                                           <span class="n">reply_to</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">queue</span><span class="p">,</span>
+                                           <span class="n">content_encoding</span><span class="o">=</span><span class="s">&#39;application/msgpack&#39;</span><span class="p">,</span>
+                                           <span class="n">correlation_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corr_id</span><span class="p">,</span>
+                                         <span class="p">),</span>
+                                         <span class="n">mandatory</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                        <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;publish success is: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pr</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s">&#39;Basic.Ack&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;pika screwed up...</span><span class="se">\n</span><span class="s">it&#39;s probably fine&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pr</span><span class="p">:</span>
+            <span class="c">#logger.warning(&#39;pr is: {}&#39;.format(pr))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="n">ReplyMessage</span><span class="p">(</span><span class="n">retcode</span><span class="o">=</span><span class="mi">102</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;ret_msg&#39;</span><span class="p">:</span><span class="s">&#39;key &lt;{}&gt; not matched&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">)})</span><span class="o">.</span><span class="n">to_msgpack</span><span class="p">()</span>
+            <span class="c">#logger.warning(&#39;return code is hard coded, should not be&#39;)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="o">=</span> <span class="s">&#39;application/msgpack&#39;</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">DriplineAMQPRoutingKeyError</span><span class="p">(</span><span class="s">&#39;key &lt;{}&gt; not matched&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+        
+        <span class="c"># consume until response</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">start_consuming</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">decode</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;json&#39;</span><span class="p">):</span>
+                <span class="n">to_return</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_response</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">&#39;msgpack&#39;</span><span class="p">):</span>
+                <span class="n">to_return</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="n">from_msgpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_response</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">to_return</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_return</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_response_encoding</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">to_return</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;to return is None&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_make_request_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">to_return</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">to_return</span>
+
+<div class="viewcode-block" id="Connection.send_alert"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.connection.Connection.send_alert">[docs]</a>    <span class="k">def</span> <span class="nf">send_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alert</span><span class="p">,</span> <span class="n">severity</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        send an alert</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="n">AlertMessage</span><span class="p">()</span>
-        <span class="n">message</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;target&#39;</span><span class="p">:</span><span class="n">severity</span><span class="p">,</span> <span class="s">&#39;payload&#39;</span><span class="p">:</span><span class="n">alert</span><span class="p">})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_publish</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span>
-                               <span class="n">routing_key</span><span class="o">=</span><span class="n">severity</span><span class="p">,</span>
-                               <span class="n">mandatory</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                               <span class="n">body</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">to_msgpack</span><span class="p">(),</span>
-                              <span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__alert_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_connection</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;sending an alert message: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">alert</span><span class="p">)))</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">AlertMessage</span><span class="p">()</span>
+            <span class="n">message</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;payload&#39;</span><span class="p">:</span><span class="n">alert</span><span class="p">})</span>
+            <span class="n">packed</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">to_msgpack</span><span class="p">()</span>
+            <span class="n">pr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chan</span><span class="o">.</span><span class="n">basic_publish</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span>
+                                         <span class="n">properties</span><span class="o">=</span><span class="n">pika</span><span class="o">.</span><span class="n">BasicProperties</span><span class="p">(</span>
+                                           <span class="n">content_encoding</span><span class="o">=</span><span class="s">&#39;application/msgpack&#39;</span><span class="p">,</span>
+                                         <span class="p">),</span>
+                                         <span class="n">routing_key</span><span class="o">=</span><span class="n">severity</span><span class="p">,</span>
+                                         <span class="n">body</span><span class="o">=</span><span class="n">packed</span><span class="p">,</span>
+                                        <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">pr</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;alert unable to send&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;pr is: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pr</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;alert sent, returned:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pr</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s">&#39;Basic.Ack&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;pika screwed up...</span><span class="se">\n</span><span class="s">it&#39;s probably fine&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;an error while sending alert&#39;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;traceback follows:</span><span class="se">\n</span><span class="s">{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()))</span>
+            <span class="k">raise</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__alert_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</div>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Connection.send_reply"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.connection.Connection.send_reply">[docs]</a>    <span class="k">def</span> <span class="nf">send_reply</span><span class="p">(</span><span class="n">chan</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">reply</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;sending reply&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="n">ReplyMessage</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&#39;send_reply expects a dripline.core.ReplyMessage, packing reply as payload of such, fix your code&#39;</span><span class="p">)</span>
+            <span class="n">reply</span> <span class="o">=</span> <span class="n">ReplyMessage</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="n">reply</span><span class="p">)</span>
+
+        <span class="n">body</span> <span class="o">=</span> <span class="n">reply</span><span class="o">.</span><span class="n">to_encoding</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">content_encoding</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;about to publish&#39;</span><span class="p">)</span>
+            <span class="n">pr</span> <span class="o">=</span> <span class="n">chan</span><span class="o">.</span><span class="n">basic_publish</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s">&#39;requests&#39;</span><span class="p">,</span>
+                                    <span class="n">immediate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                    <span class="n">mandatory</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                    <span class="n">routing_key</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">reply_to</span><span class="p">,</span>
+                                    <span class="n">properties</span><span class="o">=</span><span class="n">pika</span><span class="o">.</span><span class="n">BasicProperties</span><span class="p">(</span>
+                                       <span class="n">correlation_id</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">correlation_id</span><span class="p">,</span>
+                                       <span class="n">content_encoding</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">content_encoding</span><span class="p">,</span>
+                                    <span class="p">),</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+                                   <span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;pr is:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pr</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">err</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s">&#39;Basic.Ack&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;pika screwed up... maybe&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;reply sent&#39;</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>
@@ -221,9 +430,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -238,7 +448,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

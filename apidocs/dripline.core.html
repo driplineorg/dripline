@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline.core package &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,15 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../index.html"/>
+        <link rel="up" title="dripline package" href="dripline.html"/>
+        <link rel="next" title="dripline.instruments package" href="dripline.instruments.html"/>
+        <link rel="prev" title="dripline package" href="dripline.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,25 +49,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#alert-messages">Alert Messages</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#abstractions">Abstractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#messages">Messages</a></li>
@@ -77,8 +118,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
@@ -88,7 +145,23 @@
 </ul>
 </li>
 </ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">dripline</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="dripline.html">dripline package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dripline.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -110,39 +183,662 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>dripline.core</li>
+          <li><a href="modules.html">dripline</a> &raquo;</li>
+      
+          <li><a href="dripline.html">dripline package</a> &raquo;</li>
+      
+    <li>dripline.core package</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/dripline.core.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/dripline.core.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
-  <div class="section" id="module-dripline.core">
-<span id="dripline-core"></span><h1>dripline.core<a class="headerlink" href="#module-dripline.core" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dripline-core-package">
+<h1>dripline.core package<a class="headerlink" href="#dripline-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-dripline.core.alert_consumer">
+<span id="dripline-core-alert-consumer-module"></span><h2>dripline.core.alert_consumer module<a class="headerlink" href="#module-dripline.core.alert_consumer" title="Permalink to this headline">¶</a></h2>
+<p>Basic abstraction for binding to the alerts exchange</p>
+<dl class="class">
+<dt id="dripline.core.alert_consumer.AlertConsumer">
+<em class="property">class </em><code class="descclassname">dripline.core.alert_consumer.</code><code class="descname">AlertConsumer</code><span class="sig-paren">(</span><em>broker_host='localhost', exchange='alerts', keys=['#']</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/alert_consumer.html#AlertConsumer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.alert_consumer.AlertConsumer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="dripline.core.alert_consumer.AlertConsumer.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/alert_consumer.html#AlertConsumer.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.alert_consumer.AlertConsumer.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.alert_consumer.AlertConsumer.this_consume">
+<code class="descname">this_consume</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/alert_consumer.html#AlertConsumer.this_consume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.alert_consumer.AlertConsumer.this_consume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.arg_parser">
+<span id="dripline-core-arg-parser-module"></span><h2>dripline.core.arg_parser module<a class="headerlink" href="#module-dripline.core.arg_parser" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.core.arg_parser.DriplineParser">
+<em class="property">class </em><code class="descclassname">dripline.core.arg_parser.</code><code class="descname">DriplineParser</code><span class="sig-paren">(</span><em>extra_logger=None</em>, <em>amqp_broker=False</em>, <em>config_file=False</em>, <em>tmux_support=False</em>, <em>twitter_support=False</em>, <em>user_pass_support=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/arg_parser.html#DriplineParser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.arg_parser.DriplineParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">argparse.ArgumentParser</span></code></p>
+<p>A wrapper of the logger.ArgumentParser for dripline scripts</p>
+<dl class="method">
+<dt id="dripline.core.arg_parser.DriplineParser.parse_args">
+<code class="descname">parse_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/arg_parser.html#DriplineParser.parse_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.arg_parser.DriplineParser.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.connection">
+<span id="dripline-core-connection-module"></span><h2>dripline.core.connection module<a class="headerlink" href="#module-dripline.core.connection" title="Permalink to this headline">¶</a></h2>
+<p>A connection to the AMQP broker</p>
+<dl class="class">
+<dt id="dripline.core.connection.Connection">
+<em class="property">class </em><code class="descclassname">dripline.core.connection.</code><code class="descname">Connection</code><span class="sig-paren">(</span><em>broker_host='localhost'</em>, <em>queue_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A simple API to the AMQP system</p>
+<dl class="method">
+<dt id="dripline.core.connection.Connection.send_alert">
+<code class="descname">send_alert</code><span class="sig-paren">(</span><em>alert</em>, <em>severity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_alert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>send an alert</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.core.connection.Connection.send_reply">
+<em class="property">static </em><code class="descname">send_reply</code><span class="sig-paren">(</span><em>chan</em>, <em>properties</em>, <em>reply</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_reply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_reply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.connection.Connection.send_request">
+<code class="descname">send_request</code><span class="sig-paren">(</span><em>target</em>, <em>request</em>, <em>decode=False</em>, <em>timeout=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.send_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.send_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.connection.Connection.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/connection.html#Connection.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.connection.Connection.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.constants">
+<span id="dripline-core-constants-module"></span><h2>dripline.core.constants module<a class="headerlink" href="#module-dripline.core.constants" title="Permalink to this headline">¶</a></h2>
+<p>Constant mappings</p>
+</div>
+<div class="section" id="module-dripline.core.data_logger">
+<span id="dripline-core-data-logger-module"></span><h2>dripline.core.data_logger module<a class="headerlink" href="#module-dripline.core.data_logger" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.core.data_logger.DataLogger">
+<em class="property">class </em><code class="descclassname">dripline.core.data_logger.</code><code class="descname">DataLogger</code><span class="sig-paren">(</span><em>log_interval=0.0</em>, <em>max_interval=0</em>, <em>max_fractional_change=0</em>, <em>alert_routing_key='sensor_value'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/data_logger.html#DataLogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.data_logger.DataLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="dripline.core.data_logger.DataLogger.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/data_logger.html#DataLogger.get_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.data_logger.DataLogger.get_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.data_logger.DataLogger.log_interval">
+<code class="descname">log_interval</code><a class="headerlink" href="#dripline.core.data_logger.DataLogger.log_interval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.data_logger.DataLogger.logging_status">
+<code class="descname">logging_status</code><a class="headerlink" href="#dripline.core.data_logger.DataLogger.logging_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.data_logger.DataLogger.max_fractional_change">
+<code class="descname">max_fractional_change</code><a class="headerlink" href="#dripline.core.data_logger.DataLogger.max_fractional_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.data_logger.DataLogger.max_interval">
+<code class="descname">max_interval</code><a class="headerlink" href="#dripline.core.data_logger.DataLogger.max_interval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.data_logger.DataLogger.store_value">
+<code class="descname">store_value</code><span class="sig-paren">(</span><em>value</em>, <em>severity='sensor_value'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/data_logger.html#DataLogger.store_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.data_logger.DataLogger.store_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.endpoint">
+<span id="dripline-core-endpoint-module"></span><h2>dripline.core.endpoint module<a class="headerlink" href="#module-dripline.core.endpoint" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.core.endpoint.Endpoint">
+<em class="property">class </em><code class="descclassname">dripline.core.endpoint.</code><code class="descname">Endpoint</code><span class="sig-paren">(</span><em>name</em>, <em>cal_str=None</em>, <em>get_on_set=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="dripline.core.endpoint.Endpoint.handle_request">
+<code class="descname">handle_request</code><span class="sig-paren">(</span><em>channel</em>, <em>method</em>, <em>properties</em>, <em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.handle_request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.handle_request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.endpoint.Endpoint.on_cmd">
+<code class="descname">on_cmd</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_cmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_cmd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.endpoint.Endpoint.on_config">
+<code class="descname">on_config</code><span class="sig-paren">(</span><em>attribute</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#Endpoint.on_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.Endpoint.on_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>configure a property again</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="dripline.core.endpoint.calibrate">
+<code class="descclassname">dripline.core.endpoint.</code><code class="descname">calibrate</code><span class="sig-paren">(</span><em>fun</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#calibrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.calibrate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dripline.core.endpoint.fancy_init_doc">
+<code class="descclassname">dripline.core.endpoint.</code><code class="descname">fancy_init_doc</code><span class="sig-paren">(</span><em>cls</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/endpoint.html#fancy_init_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.endpoint.fancy_init_doc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.exceptions">
+<span id="dripline-core-exceptions-module"></span><h2>dripline.core.exceptions module<a class="headerlink" href="#module-dripline.core.exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Dripline&#8217;s exception and warning classes</p>
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineException">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineException</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineException.retcode">
+<code class="descname">retcode</code><em class="property"> = None</em><a class="headerlink" href="#dripline.core.exceptions.DriplineException.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineException" title="dripline.core.exceptions.DriplineException"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineException</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineError.retcode">
+<code class="descname">retcode</code><em class="property"> = None</em><a class="headerlink" href="#dripline.core.exceptions.DriplineError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineWarning">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineWarning</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineException" title="dripline.core.exceptions.DriplineException"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineException</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineWarning.retcode">
+<code class="descname">retcode</code><em class="property"> = 0</em><a class="headerlink" href="#dripline.core.exceptions.DriplineWarning.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineAMQPError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineAMQPError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineAMQPError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineAMQPError.retcode">
+<code class="descname">retcode</code><em class="property"> = 100</em><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineAMQPConnectionError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineAMQPConnectionError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineAMQPConnectionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPConnectionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineAMQPConnectionError.retcode">
+<code class="descname">retcode</code><em class="property"> = 101</em><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPConnectionError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineAMQPRoutingKeyError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineAMQPRoutingKeyError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineAMQPRoutingKeyError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPRoutingKeyError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineAMQPRoutingKeyError.retcode">
+<code class="descname">retcode</code><em class="property"> = 102</em><a class="headerlink" href="#dripline.core.exceptions.DriplineAMQPRoutingKeyError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineHardwareError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineHardwareError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineHardwareError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineHardwareError.retcode">
+<code class="descname">retcode</code><em class="property"> = 200</em><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineHardwareConnectionError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineHardwareConnectionError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineHardwareConnectionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareConnectionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineHardwareConnectionError.retcode">
+<code class="descname">retcode</code><em class="property"> = 201</em><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareConnectionError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineHardwareResponselessError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineHardwareResponselessError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineHardwareResponselessError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareResponselessError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineHardwareResponselessError.retcode">
+<code class="descname">retcode</code><em class="property"> = 202</em><a class="headerlink" href="#dripline.core.exceptions.DriplineHardwareResponselessError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineInternalError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineInternalError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineInternalError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineInternalError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineInternalError.retcode">
+<code class="descname">retcode</code><em class="property"> = 300</em><a class="headerlink" href="#dripline.core.exceptions.DriplineInternalError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineNoMessageEncodingError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineNoMessageEncodingError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineNoMessageEncodingError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineNoMessageEncodingError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineNoMessageEncodingError.retcode">
+<code class="descname">retcode</code><em class="property"> = 301</em><a class="headerlink" href="#dripline.core.exceptions.DriplineNoMessageEncodingError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineDecodingError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineDecodingError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineDecodingError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineDecodingError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineDecodingError.retcode">
+<code class="descname">retcode</code><em class="property"> = 302</em><a class="headerlink" href="#dripline.core.exceptions.DriplineDecodingError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplinePayloadError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplinePayloadError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplinePayloadError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplinePayloadError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplinePayloadError.retcode">
+<code class="descname">retcode</code><em class="property"> = 303</em><a class="headerlink" href="#dripline.core.exceptions.DriplinePayloadError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineValueError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineValueError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineValueError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineValueError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineValueError.retcode">
+<code class="descname">retcode</code><em class="property"> = 304</em><a class="headerlink" href="#dripline.core.exceptions.DriplineValueError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineTimeoutError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineTimeoutError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineTimeoutError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineTimeoutError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineTimeoutError.retcode">
+<code class="descname">retcode</code><em class="property"> = 305</em><a class="headerlink" href="#dripline.core.exceptions.DriplineTimeoutError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="dripline.core.exceptions.DriplineDatabaseError">
+<em class="property">exception </em><code class="descclassname">dripline.core.exceptions.</code><code class="descname">DriplineDatabaseError</code><a class="reference internal" href="../_modules/dripline/core/exceptions.html#DriplineDatabaseError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.exceptions.DriplineDatabaseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.exceptions.DriplineError" title="dripline.core.exceptions.DriplineError"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.exceptions.DriplineError</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.exceptions.DriplineDatabaseError.retcode">
+<code class="descname">retcode</code><em class="property"> = 400</em><a class="headerlink" href="#dripline.core.exceptions.DriplineDatabaseError.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.message">
+<span id="dripline-core-message-module"></span><h2>dripline.core.message module<a class="headerlink" href="#module-dripline.core.message" title="Permalink to this headline">¶</a></h2>
+<p>Meta and derived classes for dripline messages</p>
+<dl class="class">
+<dt id="dripline.core.message.ReplyMessage">
+<em class="property">class </em><code class="descclassname">dripline.core.message.</code><code class="descname">ReplyMessage</code><span class="sig-paren">(</span><em>retcode=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#ReplyMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.ReplyMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></code></a></p>
+<p>Derrived class for Reply type messages</p>
+<dl class="attribute">
+<dt id="dripline.core.message.ReplyMessage.msgtype">
+<code class="descname">msgtype</code><a class="headerlink" href="#dripline.core.message.ReplyMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.RequestMessage">
+<em class="property">class </em><code class="descclassname">dripline.core.message.</code><code class="descname">RequestMessage</code><span class="sig-paren">(</span><em>msgop=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>retcode=None</em>, <em>sender_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#RequestMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.RequestMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.RequestMessage.msgtype">
+<code class="descname">msgtype</code><a class="headerlink" href="#dripline.core.message.RequestMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.InfoMessage">
+<em class="property">class </em><code class="descclassname">dripline.core.message.</code><code class="descname">InfoMessage</code><span class="sig-paren">(</span><em>msgop=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>retcode=None</em>, <em>sender_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#InfoMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.InfoMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.InfoMessage.msgtype">
+<code class="descname">msgtype</code><a class="headerlink" href="#dripline.core.message.InfoMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.AlertMessage">
+<em class="property">class </em><code class="descclassname">dripline.core.message.</code><code class="descname">AlertMessage</code><span class="sig-paren">(</span><em>msgop=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>retcode=None</em>, <em>sender_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#AlertMessage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.AlertMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.message.Message" title="dripline.core.message.Message"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.message.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.message.AlertMessage.msgtype">
+<code class="descname">msgtype</code><a class="headerlink" href="#dripline.core.message.AlertMessage.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.message.Message">
+<em class="property">class </em><code class="descclassname">dripline.core.message.</code><code class="descname">Message</code><span class="sig-paren">(</span><em>msgop=None</em>, <em>timestamp=None</em>, <em>payload=None</em>, <em>retcode=None</em>, <em>sender_info=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code>, <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>metaclass for dripline messages</p>
+<dl class="classmethod">
+<dt id="dripline.core.message.Message.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>msg_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dripline.core.message.Message.from_encoded">
+<em class="property">classmethod </em><code class="descname">from_encoded</code><span class="sig-paren">(</span><em>msg</em>, <em>encoding</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_encoded"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_encoded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dripline.core.message.Message.from_json">
+<em class="property">classmethod </em><code class="descname">from_json</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="dripline.core.message.Message.from_msgpack">
+<em class="property">classmethod </em><code class="descname">from_msgpack</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.from_msgpack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.from_msgpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.msgop">
+<code class="descname">msgop</code><a class="headerlink" href="#dripline.core.message.Message.msgop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.msgtype">
+<code class="descname">msgtype</code><a class="headerlink" href="#dripline.core.message.Message.msgtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.payload">
+<code class="descname">payload</code><a class="headerlink" href="#dripline.core.message.Message.payload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.retcode">
+<code class="descname">retcode</code><a class="headerlink" href="#dripline.core.message.Message.retcode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.sender_info">
+<code class="descname">sender_info</code><a class="headerlink" href="#dripline.core.message.Message.sender_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.message.Message.timestamp">
+<code class="descname">timestamp</code><a class="headerlink" href="#dripline.core.message.Message.timestamp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.message.Message.to_encoding">
+<code class="descname">to_encoding</code><span class="sig-paren">(</span><em>encoding</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.to_encoding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.to_encoding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.message.Message.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.to_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.message.Message.to_msgpack">
+<code class="descname">to_msgpack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/message.html#Message.to_msgpack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.message.Message.to_msgpack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.portal">
+<span id="dripline-core-portal-module"></span><h2>dripline.core.portal module<a class="headerlink" href="#module-dripline.core.portal" title="Permalink to this headline">¶</a></h2>
+<p>this is funamentally a clone of node.py
+I don&#8217;t like the way it works and am going to try and make something that is cleaner</p>
+<dl class="class">
+<dt id="dripline.core.portal.Portal">
+<em class="property">class </em><code class="descclassname">dripline.core.portal.</code><code class="descname">Portal</code><span class="sig-paren">(</span><em>name</em>, <em>broker</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Like a node, but pythonic</p>
+<dl class="method">
+<dt id="dripline.core.portal.Portal.add_endpoint">
+<code class="descname">add_endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.add_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.add_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.config">
+<code class="descname">config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the YAML string representation of this dripline Node&#8217;s
+configuration.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.create_bindings">
+<code class="descname">create_bindings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.create_bindings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.create_bindings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.reconnect">
+<code class="descname">reconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.reconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.reconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.send_alert">
+<code class="descname">send_alert</code><span class="sig-paren">(</span><em>alert</em>, <em>severity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.send_alert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.send_alert" title="Permalink to this definition">¶</a></dt>
+<dd><p>send a notification to the alert exchange</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.send_reply">
+<code class="descname">send_reply</code><span class="sig-paren">(</span><em>properties</em>, <em>reply</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.send_reply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.send_reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>send a notification to the alert exchange</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.portal.Portal.start_event_loop">
+<code class="descname">start_event_loop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/portal.html#Portal.start_event_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.portal.Portal.start_event_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the event loop for processing messages.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.provider">
+<span id="dripline-core-provider-module"></span><h2>dripline.core.provider module<a class="headerlink" href="#module-dripline.core.provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.core.provider.Provider">
+<em class="property">class </em><code class="descclassname">dripline.core.provider.</code><code class="descname">Provider</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
+<dl class="method">
+<dt id="dripline.core.provider.Provider.add_endpoint">
+<code class="descname">add_endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/provider.html#Provider.add_endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.provider.Provider.add_endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.provider.Provider.endpoint">
+<code class="descname">endpoint</code><span class="sig-paren">(</span><em>endpoint</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/provider.html#Provider.endpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.provider.Provider.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.provider.Provider.endpoint_names">
+<code class="descname">endpoint_names</code><a class="headerlink" href="#dripline.core.provider.Provider.endpoint_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.provider.Provider.endpoints">
+<code class="descname">endpoints</code><a class="headerlink" href="#dripline.core.provider.Provider.endpoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.provider.Provider.list_endpoints">
+<code class="descname">list_endpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/provider.html#Provider.list_endpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.provider.Provider.list_endpoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="dripline.core.provider.Provider.logging_status">
+<code class="descname">logging_status</code><a class="headerlink" href="#dripline.core.provider.Provider.logging_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.spime">
+<span id="dripline-core-spime-module"></span><h2>dripline.core.spime module<a class="headerlink" href="#module-dripline.core.spime" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dripline.core.spime.Spime">
+<em class="property">class </em><code class="descclassname">dripline.core.spime.</code><code class="descname">Spime</code><span class="sig-paren">(</span><em>log_on_set=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#Spime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.Spime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a>, <a class="reference internal" href="#dripline.core.data_logger.DataLogger" title="dripline.core.data_logger.DataLogger"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.data_logger.DataLogger</span></code></a></p>
+<dl class="attribute">
+<dt id="dripline.core.spime.Spime.log_on_set">
+<code class="descname">log_on_set</code><a class="headerlink" href="#dripline.core.spime.Spime.log_on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="dripline.core.spime.Spime.report_log">
+<em class="property">static </em><code class="descname">report_log</code><span class="sig-paren">(</span><em>value</em>, <em>severity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#Spime.report_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.Spime.report_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.spime.SimpleSCPISpime">
+<em class="property">class </em><code class="descclassname">dripline.core.spime.</code><code class="descname">SimpleSCPISpime</code><span class="sig-paren">(</span><em>base_str</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPISpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPISpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<dl class="method">
+<dt id="dripline.core.spime.SimpleSCPISpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPISpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPISpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.spime.SimpleSCPISpime.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPISpime.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPISpime.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.spime.SimpleSCPIGetSpime">
+<em class="property">class </em><code class="descclassname">dripline.core.spime.</code><code class="descname">SimpleSCPIGetSpime</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPIGetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPIGetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.spime.SimpleSCPISpime" title="dripline.core.spime.SimpleSCPISpime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.SimpleSCPISpime</span></code></a></p>
+<p>Identical to SimpleSCPISpime, but with an explicit exception if on_set is attempted</p>
+<dl class="staticmethod">
+<dt id="dripline.core.spime.SimpleSCPIGetSpime.on_set">
+<em class="property">static </em><code class="descname">on_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPIGetSpime.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPIGetSpime.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.spime.SimpleSCPISetSpime">
+<em class="property">class </em><code class="descclassname">dripline.core.spime.</code><code class="descname">SimpleSCPISetSpime</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPISetSpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPISetSpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.spime.SimpleSCPISpime" title="dripline.core.spime.SimpleSCPISpime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.SimpleSCPISpime</span></code></a></p>
+<p>Identical to SimpleSCPISpime, but with an explicit exception if on_get is attempted</p>
+<dl class="staticmethod">
+<dt id="dripline.core.spime.SimpleSCPISetSpime.on_get">
+<em class="property">static </em><code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#SimpleSCPISetSpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.SimpleSCPISetSpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dripline.core.spime.FormatSCPISpime">
+<em class="property">class </em><code class="descclassname">dripline.core.spime.</code><code class="descname">FormatSCPISpime</code><span class="sig-paren">(</span><em>get_str=None</em>, <em>set_str=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#FormatSCPISpime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.FormatSCPISpime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#dripline.core.spime.Spime" title="dripline.core.spime.Spime"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.spime.Spime</span></code></a></p>
+<dl class="method">
+<dt id="dripline.core.spime.FormatSCPISpime.on_get">
+<code class="descname">on_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#FormatSCPISpime.on_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.FormatSCPISpime.on_get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dripline.core.spime.FormatSCPISpime.on_set">
+<code class="descname">on_set</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/core/spime.html#FormatSCPISpime.on_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.core.spime.FormatSCPISpime.on_set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-dripline.core.status_logger">
+<span id="dripline-core-status-logger-module"></span><h2>dripline.core.status_logger module<a class="headerlink" href="#module-dripline.core.status_logger" title="Permalink to this headline">¶</a></h2>
+<p>Log (application status, not sensor logs) master configuration</p>
+</div>
+<div class="section" id="module-dripline.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dripline.core" title="Permalink to this headline">¶</a></h2>
 <p>Dripline core functionality</p>
 <p>The core namespace contains the layers of abstraction over AMQP.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.binding.html">dripline.core.binding module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.config.html">dripline.core.config module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.connection.html">dripline.core.connection module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.constants.html">dripline.core.constants module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.endpoint.html">dripline.core.endpoint module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.message.html">dripline.core.message module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.node.html">dripline.core.node module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.provider.html">dripline.core.provider module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dripline.core.sensor.html">dripline.core.sensor module</a></li>
-</ul>
 </div>
 </div>
 
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dripline.instruments.html" class="btn btn-neutral float-right" title="dripline.instruments package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dripline.html" class="btn btn-neutral" title="dripline package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -152,9 +848,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -169,7 +866,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

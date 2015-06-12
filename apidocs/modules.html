@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline &mdash; dripline 0.0.2 documentation</title>
+  <title>dripline &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,10 +30,14 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="../index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../index.html"/>
+        <link rel="next" title="dripline package" href="dripline.html"/>
+        <link rel="prev" title="Glossary" href="../glossary.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -44,25 +48,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html#alert-messages">Alert Messages</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#abstractions">Abstractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spec.html#messages">Messages</a></li>
@@ -77,8 +117,24 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cli_tools.html">Command Line Tools</a><ul>
@@ -88,7 +144,23 @@
 </ul>
 </li>
 </ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -113,38 +185,59 @@
     <li>dripline</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/apidocs/modules.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../_sources/apidocs/modules.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="dripline">
 <h1>dripline<a class="headerlink" href="#dripline" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="dripline.html">dripline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dripline.core.html">dripline.core</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.binding.html">dripline.core.binding module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.config.html">dripline.core.config module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.connection.html">dripline.core.connection module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.constants.html">dripline.core.constants module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.endpoint.html">dripline.core.endpoint module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.message.html">dripline.core.message module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.node.html">dripline.core.node module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.provider.html">dripline.core.provider module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.core.sensor.html">dripline.core.sensor module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dripline.html">dripline package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dripline.core.html">dripline.core package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.alert_consumer">dripline.core.alert_consumer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.arg_parser">dripline.core.arg_parser module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.connection">dripline.core.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.constants">dripline.core.constants module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.data_logger">dripline.core.data_logger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.endpoint">dripline.core.endpoint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.exceptions">dripline.core.exceptions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.message">dripline.core.message module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.portal">dripline.core.portal module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.provider">dripline.core.provider module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.spime">dripline.core.spime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core.status_logger">dripline.core.status_logger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.core.html#module-dripline.core">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dripline.instruments.html">dripline.instruments</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.agilent34461a.html">dripline.instruments.agilent34461a module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.kv_store.html">dripline.instruments.kv_store module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.random_sensor.html">dripline.instruments.random_sensor module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.simple_scpi.html">dripline.instruments.simple_scpi module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dripline.instruments.html">dripline.instruments package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.agilent34461a">dripline.instruments.agilent34461a module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.daq_db_interface">dripline.instruments.daq_db_interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.daq_run_interface">dripline.instruments.daq_run_interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.dsp_lockin_7265">dripline.instruments.dsp_lockin_7265 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.ethernet_scpi">dripline.instruments.ethernet_scpi module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.kv_store">dripline.instruments.kv_store module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.prologix">dripline.instruments.prologix module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.random_sensor">dripline.instruments.random_sensor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.repeater_provider">dripline.instruments.repeater_provider module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.simple_scpi">dripline.instruments.simple_scpi module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.simple_shell">dripline.instruments.simple_shell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments.step_attenuator">dripline.instruments.step_attenuator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dripline.instruments.html#module-dripline.instruments">Module contents</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dripline.html#module-dripline">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -155,6 +248,15 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dripline.html" class="btn btn-neutral float-right" title="dripline package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../glossary.html" class="btn btn-neutral" title="Glossary" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
@@ -163,9 +265,10 @@
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -180,7 +283,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

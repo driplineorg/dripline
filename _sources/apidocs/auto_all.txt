@@ -1,0 +1,7 @@
+Auto All
+========
+
+.. audomodule:: dripline.core.endpoint
+    :members:
+    :undoc-members:
+    :inherited-members:

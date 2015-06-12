@@ -5,9 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Line Tools &mdash; dripline 0.0.2 documentation</title>
+  <title>Command Line Tools &mdash; dripline v1.4.7-67-g457f17d documentation</title>
   
 
   
@@ -16,7 +17,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,11 +30,14 @@
   
 
   
-    <link rel="top" title="dripline 0.0.2 documentation" href="index.html"/>
+
+  
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="index.html"/>
+        <link rel="next" title="Glossary" href="glossary.html"/>
         <link rel="prev" title="A Single GPIB Instrument with Prologix" href="tutorials/prologix.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -45,25 +48,61 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> dripline</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
-        
-            <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#libraries">Libraries!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#operating-system-python">Operating System &amp; Python</a></li>
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#alert-messages">Alert Messages</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="spec.html">Specifications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="spec.html#abstractions">Abstractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
@@ -78,19 +117,50 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/kv_store.html">A Dripline powered key-value store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/prologix.html">A Single GPIB Instrument with Prologix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Command Line Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dripline-agent">dripline_agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#start-node">start_node:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#open-spimescap-portal">open_spimescap_portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#message-monitor">message_monitor</a></li>
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidocs/modules.html">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+          
         
       </div>
       &nbsp;
@@ -115,70 +185,84 @@
     <li>Command Line Tools</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/cli_tools.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/cli_tools.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
+          <div role="main" class="document">
             
   <div class="section" id="command-line-tools">
 <h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="dripline-agent">
 <span id="id1"></span><h2>dripline_agent<a class="headerlink" href="#dripline-agent" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: dripline_agent [-h] [-v] [-l LOGFILE] [-b BROKER] [-c CONFIG]
-                      verb target [value [value ...]]
+<div class="highlight-text"><div class="highlight"><pre>warning sqlalchmy not found, database support will not be available
+usage: dripline_agent [-h] [-v] [-l LOGFILE] [-V] [-b BROKER] [-c CONFIG]
+                      [-t [TMUX]] [-T [TWITTER]]
+                      {cmd,config,get,run,send,set} target
+                      [values [values ...]]
 
 dripline_agent provides basic a CLI to the dripline system.
 
 positional arguments:
-  verb
+  {cmd,config,get,run,send,set}
   target
-  value
+  values
 
 optional arguments:
   -h, --help            show this help message and exit
   -v, --verbose         increases terminal output verbosity
   -l LOGFILE, --logfile LOGFILE
                         file to save logged output
+  -V, --version         display dripline version
   -b BROKER, --broker BROKER
                         network path for the AMQP broker
   -c CONFIG, --config CONFIG
                         path (absolute or relative) to configuration file
-</pre></div>
-</div>
-</div>
-<div class="section" id="start-node">
-<span id="id2"></span><h2>start_node:<a class="headerlink" href="#start-node" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: start_node [-h] [-c configuration file]
-
-Start a dripline node.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -c configuration file, --config configuration file
-                        full path to a dripline YAML configuration file.
+  -t [TMUX], --tmux [TMUX]
+                        enable running in, and optionally naming, a tmux
+                        session
+  -T [TWITTER], --twitter [TWITTER]
+                        enable sending critical messages as tweets
 </pre></div>
 </div>
 </div>
 <div class="section" id="open-spimescap-portal">
 <span id="open-spimescape-portal"></span><h2>open_spimescap_portal<a class="headerlink" href="#open-spimescap-portal" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: open_spimescape_portal [-h] [-v] [-l LOGFILE] [-c CONFIG]
+<div class="highlight-text"><div class="highlight"><pre>warning sqlalchmy not found, database support will not be available
+usage: open_spimescape_portal [-h] [-v] [-l LOGFILE] [-V] [-b BROKER]
+                              [-c CONFIG] [-t [TMUX]] [-T [TWITTER]] [-u USER]
+                              [-p PASSWORD]
 
 optional arguments:
   -h, --help            show this help message and exit
   -v, --verbose         increases terminal output verbosity
   -l LOGFILE, --logfile LOGFILE
                         file to save logged output
+  -V, --version         display dripline version
+  -b BROKER, --broker BROKER
+                        network path for the AMQP broker
   -c CONFIG, --config CONFIG
                         path (absolute or relative) to configuration file
+  -t [TMUX], --tmux [TMUX]
+                        enable running in, and optionally naming, a tmux
+                        session
+  -T [TWITTER], --twitter [TWITTER]
+                        enable sending critical messages as tweets
+  -u USER, --user USER  substitue user lines in config file
+  -p PASSWORD, --password PASSWORD
+                        substitue password lines in config file
 </pre></div>
 </div>
 </div>
 <div class="section" id="message-monitor">
-<span id="id3"></span><h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>usage: message_monitor [-h] [-v] [-l LOGFILE] [-b BROKER] [-e exchange name]
+<span id="id2"></span><h2>message_monitor<a class="headerlink" href="#message-monitor" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>warning sqlalchmy not found, database support will not be available
+usage: message_monitor [-h] [-v] [-l LOGFILE] [-V] [-b BROKER] [-c CONFIG]
+                       [-t [TMUX]] [-T [TWITTER]] [-e exchange name]
                        [-k [key [key ...]]]
 
 Print messages from an exchange
@@ -188,8 +272,16 @@ optional arguments:
   -v, --verbose         increases terminal output verbosity
   -l LOGFILE, --logfile LOGFILE
                         file to save logged output
+  -V, --version         display dripline version
   -b BROKER, --broker BROKER
                         network path for the AMQP broker
+  -c CONFIG, --config CONFIG
+                        path (absolute or relative) to configuration file
+  -t [TMUX], --tmux [TMUX]
+                        enable running in, and optionally naming, a tmux
+                        session
+  -T [TWITTER], --twitter [TWITTER]
+                        enable sending critical messages as tweets
   -e exchange name, --exchange exchange name
                         amqp name of the exchange to monitor
   -k [key [key ...]], --keys [key [key ...]]
@@ -205,8 +297,10 @@ optional arguments:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="tutorials/prologix.html" class="btn btn-neutral" title="A Single GPIB Instrument with Prologix"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="tutorials/prologix.html" class="btn btn-neutral" title="A Single GPIB Instrument with Prologix" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -218,9 +312,10 @@ optional arguments:
         &copy; Copyright 2014, The Project 8 Collaboration.
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 
-  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
 </footer>
+
         </div>
       </div>
 
@@ -235,7 +330,7 @@ optional arguments:
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.2',
+            VERSION:'v1.4.7-67-g457f17d',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction and Background Reading &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="index.html"/>
+        <link rel="next" title="Getting Started" href="getting_started.html"/>
+        <link rel="prev" title="Welcome to dripline’s documentation!" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> dripline
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction and Background Reading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-message-queuing-protocol-amqp">Advanced Message Queuing Protocol (AMQP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#message-wire-protocol">Message Wire Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dripline-payload-syntax">Dripline Payload Syntax</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#request-messages">Request Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reply-messages">Reply Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alert-messages">Alert Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#python-libraries">Python Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#required">Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#optional">Optional</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#databases-database">Databases [database]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#building-docs-doc">Building Docs [doc]</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#color-output">Color Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#helpful-python-packages">Helpful Python Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#prepare-an-environment">Prepare an Environment</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#abstractions">Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec.html#messages">Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#don-t-stop-there">Don&#8217;t stop there</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#adding-tests">Adding Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html#mocking">Mocking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/kv_store.html">A Dripline powered key-value store</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#a-quick-refresher">A quick refresher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#let-s-go">Let&#8217;s go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/kv_store.html#interacting-with-it">Interacting with it</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/prologix.html">A Single GPIB Instrument with Prologix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#a-hardware-review">A Hardware Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#configuring-a-service">Configuring a Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#the-service">The Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#prologix-controller">Prologix Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#pulser-instrument">Pulser Instrument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tutorials/prologix.html#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/prologix.html#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli_tools.html">Command Line Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#dripline-agent">dripline_agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#open-spimescap-portal">open_spimescap_portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_tools.html#message-monitor">message_monitor</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apidocs/modules.html">dripline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apidocs/dripline.html">dripline package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/dripline.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/dripline.core.html">dripline.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="apidocs/dripline.instruments.html">dripline.instruments package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="apidocs/dripline.html#module-dripline">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">dripline</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Introduction and Background Reading</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="introduction-and-background-reading">
+<h1>Introduction and Background Reading<a class="headerlink" href="#introduction-and-background-reading" title="Permalink to this headline">¶</a></h1>
+<p>Before delving into the details of dripline, there is some important context to discuss.
+These are generally beyond the scope of even this page, but I&#8217;ll try and point you in the right direction before assuming you know what&#8217;s going on.</p>
+<div class="section" id="advanced-message-queuing-protocol-amqp">
+<h2>Advanced Message Queuing Protocol (AMQP)<a class="headerlink" href="#advanced-message-queuing-protocol-amqp" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.amqp.org">AMQP</a> is a specification for a centralized message routing system, and it is important to note that it refers to the <em>specification</em> and not a particular <em>implementation</em>.
+All current use and development of dripline is currently being done with the <a class="reference external" href="http://www.rabbitmq.com">RabbitMQ</a> implementation of AMQP.
+We use a vanilla installation of version 2.8.4 of rabbit from the Debian Linux 7.7 (note that we plan to upgrade to Debian 8 &#8220;jessie&#8221; eminently).</p>
+<p>By using a centralized message routing service, it becomes easy for services to be run on as many different systems as we like.
+We can also add and remove services from the system without having to disrupt others, etc.</p>
+</div>
+<div class="section" id="message-wire-protocol">
+<span id="wire-protocol"></span><h2>Message Wire Protocol<a class="headerlink" href="#message-wire-protocol" title="Permalink to this headline">¶</a></h2>
+<p>If AMQP defines a protocol for message routing, the Project 8 wire protocol defines a protocol for the content of those messages.
+By having a standard that all messages follow, it is possible for any appropriately implemented application, regardless of host system, programming language, etc., to interact with any other successfully.
+That is, as long as your C++ application on Windows and my python application on Linux are both speaking the same version of the Project 8 Wire Protocol over the same AMQP broker, they will get along just fine.</p>
+<p>The <em>official</em> definition of the wire protocol can be found on the <a class="reference external" href="https://github.com/project8/hardware/wiki/Wire-Protocol">Project 8 wiki</a> (this page requires authentication to github and membership in the Project 8 organization).
+I will duplicate that information here now, but assume it will immediately be out of date; please request (via email or github issue) an update to this information if you suspect it is stale.</p>
+<div class="highlight-python"><div class="highlight"><pre>=======
+Purpose
+=======
+Our software packages generally communicate with one another, and interact with hardware components with messages sent using the AMQP protocol. This wire protocol was developed to standardize the format of those messages.
+
+Version: 1.2.0
+==============
+
+History
+=======
+
+| Version | Date | Release Notes |
+|:--------|:-----|:--------------|
+| 1.2.0   | June 1, 2015 | Added hostname and username to sender_info |
+| 1.1.0   | May, 2015 | Added `sender_info` |
+| 1.0.0   | c 2000 b.c.e. | Thought to originate during the Middle Kingdom of ancient Egypt |
+
+|:--------|:-----|:--------------|
+| 1.2.0   | June 1, 2015 | Added hostname and username to sender_info |
+| 1.1.0   | May, 2015 | Added `sender_info` |
+| 1.0.0   | c 2000 b.c.e. | Thought to originate during the Middle Kingdom of ancient Egypt |
+
+
+Message Standards
+=================
+
+Encoding
+--------
+
+The AMQP message body should be formatted in either [JSON](http://json.org) or [msgpack](http://msgpack.org).  The encoding (`application/json` or `application/msgpack`) should be specified in the `content_encoding` field of the AMQP message.
+
+Structure
+---------
+
+| Field | Type | Required | Values |
+|:------|:-----|:---------|:-------|
+| `msgtype` | integer | All | Reply (2), Request (3), Alert (4), Info (5) |
+| `msgop`   | integer | Requests | Set (0), Get (1), Config (6), Send (7), Run (8), Command (9) |
+| `timestamp` | string | All | Following the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format |
+| `sender_info.package` | string | All | Software package used to send the message |
+| `sender_info.exe` | string | All | Full path of the executable used to send the message |
+| `sender_info.version` | string | All | Sender package version |
+| `sender_info.commit` | string | All | Git commit of the sender package |
+| `sender_info.hostname` | string | All | Name of the host computer that sends the message |
+| `sender_info.username` | string | All | User responsible for sending the message |
+| `payload` | any | | The content of the message |  
+| `retcode` | integer | Reply | See [table below](#return-codes) |  
+
+Return Codes
+------------
+
+The following table is direct from the current error codes as defined in dripline. I think I&#39;d like to make some changes, but I haven&#39;t thought them through very much. Just brainstorming, I&#39;m thinking 0-99 for success and warnings; 100-199 for errors related to AMQP (ex, errors caught from library); 200-299 for hardware related errors (interaction problems, driver exceptions, etc.); 300-399 shouldn&#39;t be &#39;dripline&#39; but &#39;consumer&#39;, the several encoding/decoding related exceptions could probably be combined. I should discuss this with Noah w.r.t. hornet and mantis.
+
+| Code | Description |  
+|:----:|:------------|  
+| 0    | Success     |  
+| 1-99 | Unassigned, non-error warnings|  
+| 100  | Generic AMQP Related Error |  
+| 101  | AMQP Connection Error |  
+| 102  | AMQP Routing Key Error |  
+|103-199| Unallocated AMQP Errors |  
+| 200  | Generic Hardware Related Error |  
+| 201  | Hardware Connection Error |  
+| 202  | Hardware no Response Error |  
+|203-299| Unallocated Hardware Errors|  
+| 300  | Generic Dripline Error |  
+| 301  | No message encoding error |  
+| 302  | Decoding Failed Error |  
+| 303  | Payload related error |  
+| 304  | Value Error |  
+| 305  | Timeout |  
+|306-399| Unallocated Dripline errors|  
+| 400  | Generic Database Error |  
+| &gt;=401 | Unallocated |  
+
+Software Implementations
+========================
+
+Compatibility
+-------------
+
+| Package  | Version | Commit  | Comments |
+|:---------|:--------|:--------|:---------|
+| dripline | 1.4.4   | 4c0fceb | Complies with v1.1.0 |
+| hornet   |         |         | |
+| mantis   | 3.0.0   | b830fed | Complies with v1.1.0 |
+
+Notes
+=====
+
+dripline
+--------
+
+* Constants are defined in [constants.py](https://github.com/project8/dripline/blob/master/python/dripline/core/constants.py).
+
+hornet
+------
+
+mantis
+------
+
+* Missing information in the `sender_info` field: `hostname` and `username`; `exe` does not necessarily contain the absolute path.
+* Constants are defined in [mt_constants.hh](https://github.com/project8/mantis/blob/master/Common/mt_constants.hh).
+</pre></div>
+</div>
+</div>
+<div class="section" id="dripline-payload-syntax">
+<h2>Dripline Payload Syntax<a class="headerlink" href="#dripline-payload-syntax" title="Permalink to this headline">¶</a></h2>
+<p>While the wire protocol allows for the payload field to be of any type, meaningful interactions must constrain this field.
+Here I&#8217;ll describe the standards expected by dripline for various message types.</p>
+<div class="section" id="request-messages">
+<h3>Request Messages<a class="headerlink" href="#request-messages" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">add request message standard</p>
+</div>
+</div>
+<div class="section" id="reply-messages">
+<h3>Reply Messages<a class="headerlink" href="#reply-messages" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">add reply message standard</p>
+</div>
+</div>
+<div class="section" id="alert-messages">
+<h3>Alert Messages<a class="headerlink" href="#alert-messages" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">add alert message standard</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to dripline’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, The Project 8 Collaboration.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'v1.4.7-67-g457f17d',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
