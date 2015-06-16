@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.message &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.message &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -191,14 +191,17 @@
             
   <h1>Source code for dripline.core.message</h1><div class="highlight"><pre>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Meta and derived classes for dripline messages</span>
+<span class="sd">Base and derived classes for implementing the Project 8 wire protocol.</span>
+
+<span class="sd">The Message class should implement the protocol generally, and the types of emssage represent types of messages that dripline expects to send, possibly with extra restrictions.</span>
+
+<span class="sd">These classes are responsible both for enforcing compliance with the protocol, and with encoding and decoding support formats for AMQP payloads (currently json and yaml).</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
 <span class="c"># standard libs</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -226,12 +229,23 @@
 
 
 <div class="viewcode-block" id="Message"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.message.Message">[docs]</a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    metaclass for dripline messages</span>
+    <span class="sd">&#39;&#39;&#39;Base message/wire protocol class</span>
+
+<span class="sd">    Base class for enforcing the Project 8 wire protocol and responsible for encoding and decoding.</span>
+
+<span class="sd">    Any actual instance should be a subclass of this class.</span>
+
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgop</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">retcode</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">sender_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        ~Params</span>
+<span class="sd">            msgop (int): only meaningful for Request messages, indicates the operation being requested</span>
+<span class="sd">            timestamp (str): string representation of datetime object, reflecting the creation time of this message. Note that if the default value of None is provided, the current time will be used.</span>
+<span class="sd">            payload (any): actual message content, usually a dict</span>
+<span class="sd">            retcode (int): only meaningful in Reply messages, indicates return value and/or error code (see constants)</span>
+<span class="sd">            sender_info (dict): several fields providing information about the system which originally generated a message.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">if</span> <span class="n">msgop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">msgop</span> <span class="o">=</span> <span class="n">msgop</span>
         <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -424,7 +438,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

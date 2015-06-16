@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.arg_parser &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.arg_parser &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -190,6 +190,11 @@
           <div role="main" class="document">
             
   <h1>Source code for dripline.core.arg_parser</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">A wrapper for argparse.ArgumentParser with some standardized arguments and behaviors</span>
+
+<span class="sd">.. todo:: does arg_parse belong in core?</span>
+<span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
@@ -209,7 +214,7 @@
 
 <span class="k">class</span> <span class="nc">TwitterHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    A custom handler for sending tweets</span>
+<span class="sd">    A custom message handler for redirecting text to twitter</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -243,6 +248,14 @@
                  <span class="n">user_pass_support</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Keyword Args:</span>
+<span class="sd">            extra_logger (logging.Logger): reference to a Logger instance, (handlers created will be connected to it)</span>
+<span class="sd">            amqp_broker (bool): enable a &#39;-b&#39; option for specifying the broker&#39;s network address</span>
+<span class="sd">            config_file (bool): enable a &#39;-c&#39; option for specifying an input configuration file</span>
+<span class="sd">            tmux_support (bool): enable a &#39;-t&#39; option to start the process in a tmux session rather than on the active shell</span>
+<span class="sd">            twitter_support (bool): enable a &#39;-T&#39; option to send a logger messages of critical or higher severity as tweets</span>
+<span class="sd">            user_pass_support (bool): enable &#39;-u&#39; and &#39;-p&#39; for user and password specification. **Note:** these options should be replaced with either reading the standard file ~/.project8_authentication.json, and/or prompting the user for values interactively</span>
+
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extra_logger</span> <span class="o">=</span> <span class="n">extra_logger</span>
         <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -465,7 +478,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.alert_consumer &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.alert_consumer &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -214,7 +214,14 @@
 
 
 <div class="viewcode-block" id="AlertConsumer"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.alert_consumer.AlertConsumer">[docs]</a><span class="k">class</span> <span class="nc">AlertConsumer</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker_host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#&#39;</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker_host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s">&#39;alerts&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;#&#39;</span><span class="p">]):</span> 
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Keyword Args:</span>
+<span class="sd">            broker_host (str): network address of the amqp broker to connect to</span>
+<span class="sd">            exchange (str): AMQP exchange on the broker to which we will be binding</span>
+<span class="sd">            keys (list): list of strings, each string will be a routing key bound to the provided exchange.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;AlertConsumer initializing&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dripline_connection</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="n">broker_host</span><span class="o">=</span><span class="n">broker_host</span><span class="p">)</span>
@@ -307,7 +314,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.endpoint &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.endpoint &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -298,6 +298,11 @@
     <span class="k">return</span> <span class="n">wrapper</span>
 </div>
 <div class="viewcode-block" id="fancy_init_doc"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.endpoint.fancy_init_doc">[docs]</a><span class="k">def</span> <span class="nf">fancy_init_doc</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    note that this was a hack and I&#39;m pulling it back out</span>
+
+<span class="sd">    The idea isn&#39;t bad, but it doesn&#39;t work well with Google&#39;s style doc strings, which sphinx renders well</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">a_cls</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">a_cls</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
@@ -337,12 +342,11 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cal_str</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">get_on_set</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        ~Params</span>
-<span class="sd">            name (str): unique identifier across all dripline services</span>
-<span class="sd">                        (used to determine routing key)</span>
+<span class="sd">        Keyword Args:</span>
+<span class="sd">            name (str): unique identifier across all dripline services (used to determine routing key)</span>
 <span class="sd">            cal_str (str): string use to process raw get result</span>
 <span class="sd">            get_on_set (bool): flag to toggle running &#39;on_get&#39; after each &#39;on_set&#39;</span>
-<span class="sd">        ~Params</span>
+
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">None</span>
@@ -363,8 +367,6 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">on_set</span> <span class="o">=</span> <span class="n">_get_on_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_set</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Endpoint.handle_request"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.endpoint.Endpoint.handle_request">[docs]</a>    <span class="k">def</span> <span class="nf">handle_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;handling requst:{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request</span><span class="p">))</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="n">from_msgpack</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;got a {} request: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">msgop</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="p">))</span>
@@ -416,8 +418,6 @@
         <span class="k">return</span> <span class="n">result</span>
 </div>
 <div class="viewcode-block" id="Endpoint.on_cmd"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.endpoint.Endpoint.on_cmd">[docs]</a>    <span class="k">def</span> <span class="nf">on_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;args are: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;kwargs are: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
         <span class="k">try</span><span class="p">:</span>
@@ -460,7 +460,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

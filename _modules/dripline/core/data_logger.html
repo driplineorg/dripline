@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.data_logger &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.data_logger &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -194,10 +194,11 @@
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">__docformat__</span> <span class="o">=</span> <span class="s">&#39;reStructuredText&#39;</span>
 
 <span class="kn">import</span> <span class="nn">abc</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
 <span class="kn">import</span> <span class="nn">uuid</span>
@@ -210,6 +211,9 @@
 
 
 <div class="viewcode-block" id="DataLogger"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.data_logger.DataLogger">[docs]</a><span class="k">class</span> <span class="nc">DataLogger</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Base class for objects which need to call their own methods periodically.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -218,6 +222,14 @@
                  <span class="n">max_fractional_change</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                  <span class="n">alert_routing_key</span><span class="o">=</span><span class="s">&#39;sensor_value&#39;</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Keyword Args:</span>
+<span class="sd">            log_interval (float): minimum time in seconds between sequential log events (note that this may or may not produce an actual log broadcast)</span>
+<span class="sd">            max_interval (float): If &gt; 0, any log event exceding this number of seconds since the last broadcast will trigger a broadcast.</span>
+<span class="sd">            max_fractional_change (float): If &gt; 0, any log event which produces a value which differs from the previous value by more than this amount (expressed as a fraction, ie 10% change is 0.1) will trigger a broadcast</span>
+<span class="sd">            alert_routing_key (str): routing key for the alert message send when broadcasting a logging event result. The default value of &#39;sensor_value&#39; is valid for DataLoggers which represent physical quantities being stored to the slow controls database tables</span>
+<span class="sd">        </span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alert_routing_key</span><span class="o">=</span><span class="n">alert_routing_key</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data_logger_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_log_interval</span> <span class="o">=</span> <span class="n">log_interval</span>
@@ -254,7 +266,7 @@
         <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;max log interval cannot be &lt; 0&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_interval</span> <span class="o">=</span> <span class="n">value</span>
-    
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">max_fractional_change</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_fractional_change</span>
@@ -394,7 +406,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.instruments package &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.instruments package &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../index.html"/>
         <link rel="up" title="dripline package" href="dripline.html"/>
         <link rel="prev" title="dripline.core package" href="dripline.core.html"/> 
 
@@ -103,11 +103,6 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../spec.html">Specifications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../spec.html#abstractions">Abstractions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../spec.html#messages">Messages</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contribute</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contribute.html#tdd-with-dripline">TDD with Dripline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contribute.html#contributing-with-tdd">Contributing with TDD</a></li>
@@ -284,6 +279,15 @@
 <em class="property">class </em><code class="descclassname">dripline.instruments.daq_db_interface.</code><code class="descname">RunDBInterface</code><span class="sig-paren">(</span><em>user</em>, <em>password</em>, <em>database_name</em>, <em>database_server</em>, <em>tables</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#RunDBInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.RunDBInterface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.provider.Provider" title="dripline.core.provider.Provider"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.provider.Provider</span></code></a></p>
 <p>A not-so-flexible provider for getting run_id values.</p>
+<dl class="docutils">
+<dt>~Params</dt>
+<dd>user (str): user name for connecting to database
+password (str): password for connecting to database
+database_name (str): name of the database to connect to
+database_server (str): network resolvable hostname of database server
+tables (list): list of names (str) of tables in the database</dd>
+</dl>
+<p>~Params</p>
 <dl class="method">
 <dt id="dripline.instruments.daq_db_interface.RunDBInterface.connect_to_db">
 <code class="descname">connect_to_db</code><span class="sig-paren">(</span><em>user</em>, <em>password</em>, <em>database_server</em>, <em>database_name</em>, <em>table_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#RunDBInterface.connect_to_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.RunDBInterface.connect_to_db" title="Permalink to this definition">¶</a></dt>
@@ -296,6 +300,15 @@
 <em class="property">class </em><code class="descclassname">dripline.instruments.daq_db_interface.</code><code class="descname">InsertDBEndpoint</code><span class="sig-paren">(</span><em>table_name</em>, <em>required_insert_names</em>, <em>return_col_names=[]</em>, <em>optional_insert_names=[]</em>, <em>default_insert_values={}</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#InsertDBEndpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.InsertDBEndpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="dripline.core.html#dripline.core.endpoint.Endpoint" title="dripline.core.endpoint.Endpoint"><code class="xref py py-class docutils literal"><span class="pre">dripline.core.endpoint.Endpoint</span></code></a></p>
 <p>A class for making calls to _insert_with_return</p>
+<dl class="docutils">
+<dt>~Params</dt>
+<dd>table_name (str): name of the table to insert to
+required_insert_names (list): list of names (str) of the table columns which must be included on every requested insert
+return_col_names (list): list of names (str) of columns whose values should be returned on completion of the insert
+optional_insert_names (list): list of names (str) of columns which the user may specify on an insert request, but which may be omitted
+default_insert_values (dict): dictionary of {column_names: values} to serve as defaults when inserting, any values provided explicitly on the insert request will override these values</dd>
+</dl>
+<p>~Params</p>
 <dl class="method">
 <dt id="dripline.instruments.daq_db_interface.InsertDBEndpoint.do_insert">
 <code class="descname">do_insert</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/dripline/instruments/daq_db_interface.html#InsertDBEndpoint.do_insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dripline.instruments.daq_db_interface.InsertDBEndpoint.do_insert" title="Permalink to this definition">¶</a></dt>
@@ -931,7 +944,7 @@ the higher level provider which actually maintains a connection (eg PrologixSpim
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

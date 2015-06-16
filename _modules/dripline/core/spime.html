@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.spime &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.spime &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -200,7 +200,7 @@
 <span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">types</span>
 
-<span class="kn">from</span> <span class="nn">.endpoint</span> <span class="kn">import</span> <span class="n">Endpoint</span><span class="p">,</span> <span class="n">calibrate</span><span class="p">,</span> <span class="n">fancy_init_doc</span>
+<span class="kn">from</span> <span class="nn">.endpoint</span> <span class="kn">import</span> <span class="n">Endpoint</span><span class="p">,</span> <span class="n">calibrate</span>
 <span class="kn">from</span> <span class="nn">.data_logger</span> <span class="kn">import</span> <span class="n">DataLogger</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Spime&#39;</span><span class="p">,</span>
@@ -237,19 +237,23 @@
     <span class="k">return</span> <span class="n">wrapper</span>
 
 
-<span class="nd">@fancy_init_doc</span>
 <div class="viewcode-block" id="Spime"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.Spime">[docs]</a><span class="k">class</span> <span class="nc">Spime</span><span class="p">(</span><span class="n">Endpoint</span><span class="p">,</span> <span class="n">DataLogger</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    From wikipedia (paraphrased): ``**Spime** is a neologism for a futuristic object, characteristic to the Internet of Things, that can be tracked through space and time throughout its lifetime. A Spime is essentially virtual master objects that can, at various times, have physical incarnations of itself.``</span>
+
+<span class="sd">    In the context of Dripline, a Spime is an object with which one interacts (Endpoint) and which is able to regularly report on its own state (DataLogger). Examples include obvious sensor readings such as the coldhead_temperature or bore_pressure and instrument settings such as heater_current or lo_ch1_cw_frequency.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">log_on_set</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span>
                 <span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        ~Params</span>
+<span class="sd">        Keyword Args:</span>
 <span class="sd">            log_on_set (bool): flag to enable logging the new value whenever a new one is set</span>
-<span class="sd">        ~Params</span>
+
+<span class="sd">        See :class:`Endpoint &lt;dripline.core.endpoint.Endpoint&gt;` and :class:`DataLogger &lt;dripline.core.data_logger.DataLogger&gt;` for additional parameters</span>
+
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="c"># DataLogger stuff</span>
         <span class="n">DataLogger</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -280,20 +284,18 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Should be logging (value,severity): ({},{})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">severity</span><span class="p">))</span>
 
 </div></div>
-<span class="nd">@fancy_init_doc</span>
 <div class="viewcode-block" id="SimpleSCPISpime"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.SimpleSCPISpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleSCPISpime</span><span class="p">(</span><span class="n">Spime</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">base_str</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        ~Params</span>
+<span class="sd">        Keyword ARgs:</span>
 <span class="sd">            base_str (str): string used to generate SCPI commands</span>
 <span class="sd">                            get will be of the form &quot;base_str?&quot;</span>
 <span class="sd">                            set will be of the form &quot;base_str &lt;value&gt;;*OPC?&quot;</span>
-<span class="sd">        ~Params</span>
+
+
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">=</span> <span class="n">base_str</span>
         <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -308,7 +310,6 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_base</span> <span class="o">+</span> <span class="s">&#39; {};*OPC?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
 </div></div>
-<span class="nd">@fancy_init_doc</span>
 <div class="viewcode-block" id="SimpleSCPIGetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.SimpleSCPIGetSpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleSCPIGetSpime</span><span class="p">(</span><span class="n">SimpleSCPISpime</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Identical to SimpleSCPISpime, but with an explicit exception if on_set is attempted</span>
@@ -322,7 +323,6 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;setting not available for {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 
 </div></div>
-<span class="nd">@fancy_init_doc</span>
 <div class="viewcode-block" id="SimpleSCPISetSpime"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.SimpleSCPISetSpime">[docs]</a><span class="k">class</span> <span class="nc">SimpleSCPISetSpime</span><span class="p">(</span><span class="n">SimpleSCPISpime</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Identical to SimpleSCPISpime, but with an explicit exception if on_get is attempted</span>
@@ -334,17 +334,16 @@
     <span class="nd">@staticmethod</span>
 <div class="viewcode-block" id="SimpleSCPISetSpime.on_get"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.SimpleSCPISetSpime.on_get">[docs]</a>    <span class="k">def</span> <span class="nf">on_get</span><span class="p">():</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&#39;getting not available for {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
 </div></div>
-<span class="nd">@fancy_init_doc</span>
 <div class="viewcode-block" id="FormatSCPISpime"><a class="viewcode-back" href="../../../apidocs/dripline.core.html#dripline.core.spime.FormatSCPISpime">[docs]</a><span class="k">class</span> <span class="nc">FormatSCPISpime</span><span class="p">(</span><span class="n">Spime</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">get_str</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">set_str</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        ~Params</span>
+<span class="sd">        Keyword Args:</span>
 <span class="sd">            get_str (str): if not None, sent verbatim in the event of on_get</span>
 <span class="sd">            set_str (str): if not None, sent as set_str.format(value) in the event of on_set</span>
-<span class="sd">        ~Params</span>
+<span class="sd">        </span>
+
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">Spime</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_str</span> <span class="o">=</span> <span class="n">get_str</span>
@@ -393,7 +392,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

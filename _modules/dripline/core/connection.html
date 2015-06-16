@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dripline.core.connection &mdash; dripline v1.4.7-67-g457f17d documentation</title>
+  <title>dripline.core.connection &mdash; dripline v1.4.7-63-g4713482 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
 
   
-    <link rel="top" title="dripline v1.4.7-67-g457f17d documentation" href="../../../index.html"/>
+    <link rel="top" title="dripline v1.4.7-63-g4713482 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
   
@@ -191,7 +191,13 @@
             
   <h1>Source code for dripline.core.connection</h1><div class="highlight"><pre>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">A connection to the AMQP broker</span>
+<span class="sd">A connection to the AMQP broker.</span>
+
+<span class="sd">This code violates DRY programming with the Portal class. A resolution would be</span>
+<span class="sd">very desirable, but is probably best achieved by having a version of this class</span>
+<span class="sd">which provides the existing interface of those to, to the AsynchronousConnection</span>
+<span class="sd">in pika. Portal could then have an instance of this class to interact with. That</span>
+<span class="sd">constitutes a non-trivial reworking of some of this code for future me (or someone).</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
 
@@ -220,6 +226,11 @@
 <span class="sd">    A simple API to the AMQP system</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">broker_host</span><span class="o">=</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">queue_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Keyword Args:</span>
+<span class="sd">            broker_host (str): network path for the amqp broker to connect to</span>
+<span class="sd">            queue_name (str|None): name of the queue to bind to for receiving replies</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_make_request_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">queue_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">queue_name</span> <span class="o">=</span> <span class="s">&quot;reply_queue-{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid1</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">12</span><span class="p">])</span>
@@ -448,7 +459,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'v1.4.7-67-g457f17d',
+            VERSION:'v1.4.7-63-g4713482',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
