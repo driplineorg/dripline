@@ -10,9 +10,9 @@ Dripline is developed and tested primarily using RabbitMQ 3.3.x on Debian 8.1
 
 ###Implementations
 
-Python: [dripline-python](https://github.com/project8/dripline-python)
-Go: [dripline-go](https://github.com/project8/dripline-go)
-C++: [dripline-cpp](https://github.com/project8/dripline-cpp)
+Python: [dripline-python](https://github.com/project8/dripline-python)    
+Go: [dripline-go](https://github.com/project8/dripline-go)    
+C++: [dripline-cpp](https://github.com/project8/dripline-cpp)    
 
 
 ###Getting help
