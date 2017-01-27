@@ -57,7 +57,10 @@ Code    Description
 309     Deprecated Feature
 310-399 Unallocated Dripline errors
 400     Generic Database Error
-401-998 Unallocated
+500     Generic DAQ Error
+501     DAQ Not Enabled
+502     DAQ Running
+600-998 Unallocated
 999     Unhandled core-language or dependency exceptions
 ======= ===========
 
