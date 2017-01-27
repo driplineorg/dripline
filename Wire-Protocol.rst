@@ -60,7 +60,7 @@ Code    Description
 500     Generic DAQ Error
 501     DAQ Not Enabled
 502     DAQ Running
-600-998 Unallocated
+503-998 Unallocated
 999     Unhandled core-language or dependency exceptions
 ======= ===========
 
