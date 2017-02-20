@@ -10,7 +10,7 @@ Structure
 Field                    Type    Required Values
 ======================== ======= ======== ===========================================
 ``msgtype``              integer All      Reply (2), Request (3), Alert (4)
-``msgop``                integer Requests Set (0), Get (1), Config (6), Send (7), Run (8), Command (9)
+``msgop``                integer Requests Set (0), Get (1), Send (7), Run (8), Command (9)
 ``timestamp``            string  All      Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format
 ``lockout_key``          string  Requests 16 hexidecimal digits (see :ref:`lockout`)
 ``sender_info.package``  string  All      Software package used to send the message
