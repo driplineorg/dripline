@@ -7,7 +7,9 @@ mesh
     General term which refers to a particular AMQP broker and all of the services bound to it.
 
 message
-    An object conforming to the [[wire protocol|wire-protocol]]
+    An object conforming to the `wire_protocol`_
+
+.. _wire_protocol: Wire-Protocol.rst
 
 service
     A continuously running program which is part of a dripline mesh. A service is itself an endpoint since, for example, it must respond to a ping, but may contain any number of additional endpoints which are not services. _(is this too specific?) The service is responsible for establishing queues and bindings and for processing messages which are ultimately delivered to and fulfilled by those endpoints which are part of the service.
