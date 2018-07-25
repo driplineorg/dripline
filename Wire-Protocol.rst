@@ -11,6 +11,7 @@ Field                    Type    Required Values
 ======================== ======= ======== ===========================================
 ``msgtype``              integer All      Reply (2), Request (3), Alert (4)
 ``msgop``                integer Requests Set (0), Get (1), Send (7), Run (8), Command (9)
+``specifier``            string           Provides additional information about how the consumer should process the message
 ``timestamp``            string  All      Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00Z`)
 ``lockout_key``          string  Requests 16 hexidecimal digits (see :ref:`lockout`)
 ``sender_info.package``  string  All      Software package used to send the message
@@ -29,7 +30,16 @@ Field                    Type    Required Values
 Return Codes
 ============
 
-The following table is direct from the current error codes as defined in dripline. I think I'd like to make some changes, but I haven't thought them through very much. Just brainstorming, I'm thinking 0-99 for success and warnings; 100-199 for errors related to AMQP (ex, errors caught from library); 200-299 for hardware related errors (interaction problems, driver exceptions, etc.); 300-399 shouldn't be 'dripline' but 'consumer', the several encoding/decoding related exceptions could probably be combined. I should discuss this with Noah w.r.t. hornet and mantis.
+The following table lists return codes. It is worth stressing that all codes fall into one of the following categories:
+- <0: not defined
+- 0: success
+- 1-99: warnings (request fulfilled but with some caveat)
+- >=100: error
+
+The errors are further subdivided, with each multiple of 100 naming a category and other values falling within that category.
+Any value not specified here may be defined within an individual mesh (client libraries are expected to be able to handle new retcode values, though obviously they may not know the description for them).
+Users are encouraged to define a new category if needed and to either leave a gap within the category or start from the upper end (from x99) to avoid conflicts with values which may be defined in future dripline versions.
+
 
 ======= ===========
 Code    Description
@@ -45,7 +55,7 @@ Code    Description
 201     Hardware Connection Error
 202     Hardware no Response Error
 203-299 Unallocated Hardware Errors
-300     Generic Dripline Error
+300     Generic Dripline Client Error
 301     No message encoding error
 302     Decoding Failed Error
 303     Payload related error
@@ -56,11 +66,9 @@ Code    Description
 308     Invalid key
 309     Deprecated Feature
 310-399 Unallocated Dripline errors
-400     Generic Database Error
+400     Generic System Resource Error
 500     Generic DAQ Error
-501     DAQ Not Enabled
-502     DAQ Running
-503-998 Unallocated
+501-998 Unallocated
 999     Unhandled core-language or dependency exceptions
 ======= ===========
 
