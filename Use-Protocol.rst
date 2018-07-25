@@ -1,9 +1,11 @@
 The following sections summarize various convention which all dripline-compliant implementations should strive to follow.
 
-[Exchanges](#amqp-exchanges)  
-[Broadcast Requests](#broadcast-requests)  
-[Alert Routing keys](#alert-routing-keys)  
-[Resource Lockout](#lockout)  
+* amqp-exchanges_
+* broadcast-requests_
+* lockout_
+
+
+.. _amqp-exchanges:
 
 AMQP Exchanges
 ==============
@@ -19,6 +21,8 @@ The alerts exchange is used for one directional information transfer, always in 
 Requests
 --------
 The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.
+
+.. _broadcast-requests:
 
 Broadcast Requests
 ==================
