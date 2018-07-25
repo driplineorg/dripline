@@ -31,10 +31,11 @@ Return Codes
 ============
 
 The following table lists return codes. It is worth stressing that all codes fall into one of the following categories:
-- <0: not defined
-- 0: success
-- 1-99: warnings (request fulfilled but with some caveat)
-- >=100: error
+
+* <0: not defined
+* 0: success
+* 1-99: warnings (request fulfilled but with some caveat)
+* >=100: error
 
 The errors are further subdivided, with each multiple of 100 naming a category and other values falling within that category.
 Any value not specified here may be defined within an individual mesh (client libraries are expected to be able to handle new retcode values, though obviously they may not know the description for them).
