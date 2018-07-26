@@ -12,14 +12,20 @@ This description will hopefully help in learning to use the libraries, and the c
 Navigation
 ==========
 
-* `Command Line Interface & Configuration Files <cli-and-config>`_  
+* `User Interface & Configuration <cli-and-config>`_  
+
+  * `Command Line Interface <ui-cli>`_  
+  * `Configuration Files <config-files>`_  
+
 * `AMQP Bindings and Consuming Messages <amqp-bindings>`_  
 
 
 .. _cli-and-config:
 
-Command Line Interface and Configuration Files
-==============================================
+User Interface & Configuration
+==============================
+
+.. _ui-cli
 
 Command Line Interface (CLI)
 ++++++++++++++++++++++++++++
@@ -54,6 +60,8 @@ Several options are generically useful and therefore always available:
   Gives a configuration file describing the desired action.
   Config files are discussed in more detail in the next section.
   The content of the config file are collected in a map-like object and any non-option arguments (see above) provided will be added to it or override values if they already exist.
+
+.. _config-files:
 
 Configuration Files
 +++++++++++++++++++
