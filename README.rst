@@ -12,9 +12,10 @@ This repo serves only to document the standard itself, with specific implementat
 Navigation
 ++++++++++
 
-implementations_  
-getting-help_  
-notes_  
+* implementations_  
+* getting-help_  
+* other-notes_  
+
 
 .. _implementations:
 
@@ -45,7 +46,7 @@ Getting help
 Code documentation is produced using sphinx via reStructuredText which is distributed with the source. A [rendered](http://www.project8.org/dripline) version is hosted using github pages and the project8.org domain.
 Questions related to a particular implementation may be posted to the associated issue tracker; generic questions in the issue tracker for this repo.
 
-.. _notes:
+.. _other-notes:
 
 Other Notes
 +++++++++++
