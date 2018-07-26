@@ -12,10 +12,16 @@ This description will hopefully help in learning to use the libraries, and the c
 Navigation
 ==========
 
-| `Command Line Interface & Configuration Files<cli-and-config``
+| `Command Line Interface & Configuration Files<cli-and-config>`  
+| `AMQP Bindings and Consuming Messages<amqp-bindings>`  
 
 
 .. _cli-and-config:
 
 Command Line Interface and Configuration Files
+==============================================
 
+.. _amqp-binding:
+
+AMQP Bindings & Consuming Messages
+==================================
