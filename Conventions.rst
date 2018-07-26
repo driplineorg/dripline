@@ -68,7 +68,7 @@ Configuration Files
 Configuration files are a convenient way to specify configuration information in a saved way, which can be reused and/or version controlled.
 It can also be useful simply to save keystrokes for commands which are otherwise long.
 In general, the content a dripline config file is expected to translate to a map-like object at the top level, with values equivalent to those which could be passed as non-option arguments.
-For dripline-cpp and dripline-python, the supported file formats are `YAML <https://yaml.org>`_ and `JSON <https://www.json.org>`_ (the former being a superset of the latter).
+For dripline-cpp and dripline-python, the supported file formats are `YAML <http://yaml.org>`_ and `JSON <https://www.json.org>`_ (the former being a superset of the latter).
 
 .. _amqp-binding:
 
