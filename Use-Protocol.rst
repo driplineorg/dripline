@@ -31,6 +31,8 @@ In addition to binding against the name of the endpoint (or endpoints) which com
 
 Note that it is only ever appropriate to use broadcasts when a command is expected to apply to every running service regardless of what that set includes. It is not acceptable to use this to as a shorthand for interacting with a known subset of endpoints (in the hopes that all others will ignore it). In that use-case, one should create a single endpoint which applies the desired logic to contact the intended set of endpoints.
 
+The following commands describe behaviors as part of the protocol. Because they are (or at least may) be sent as a broadcast, any implementation is expected to implement them so that the entire mesh behaves in a consistent and predictable way.
+
 lock
 ----
 See [below](#lockout). Note that a service receiving this will attempt to lock all of its endpoints.
