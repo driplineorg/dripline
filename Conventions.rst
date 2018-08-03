@@ -74,3 +74,15 @@ For dripline-cpp and dripline-python, the supported file formats are `YAML <http
 
 AMQP Bindings & Consuming Messages
 ==================================
+
+Alerts Exchange Messages
+++++++++++++++++++++++++
+
+On the alerts exchange, messages may be sent with various routing keys, per the requirements of the alerts exchange.
+The message content follows predictable payload formats which allow the data to be sensibly processed and used. Messages with the following first words in their routing key are described in further detail.
+
+sensor_value.\<from\>
+  These messages include status information related to a particular endpoint. The payload will have the key `memo` or the key `value_raw` (or may have both). If it has the key `value_raw`, it may also have the key `value_cal`. The expectation is that `memo` is a human-parsible annotation about the state of the endpoint at a particular time. The `value_raw` is the raw data rececieved by the dripline service from the relevant hardware or other service, and the `value_cal` processes the `value_raw` into something sensible. A typical use case would be a temperature sensor, read out as a resistance, but calibrated to units of Kelvins.
+  
+status_message.\<from\>.\<severity\>
+  These messages have two variable routing key terms. The `from` word indicates what service the message is produced by, and `severity` indicates how git of a concern the message is expected to be. Typical values of severity are the set \{notice, alert, critical\}, though others may be defined. The payload is expected to be a human-understandable string. These are typically consumed and printed to a terminal, logging, or messaging service (email, sms, twitter, slack, etc.).
