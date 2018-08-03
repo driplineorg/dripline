@@ -15,8 +15,8 @@ Alerts
 ------
 The alerts exchange is used for one directional information transfer, always in the form of a T_ALERT message type. These messages are not delivered to any particular consumer, and may well be of interest to zero, one, or many consumers. All messages have a routing key which begins with an indication of the type of content, and may have further details. The accepted forms are as follows:
 
-* sensor_value.\<sensor_name\>: For values to be stored into the slow controls database tables for numeric_data and/or string_data. Currently the payload needs to include "value_raw" or "memo" and optionally "value_cal" to be inserted.  
-* status_message.\<slack_channel\>.\<origin_name\>: (where \<\> indicate values which will usually be bound with a '#' and which encode particular information), a system status message from a process which does not communicate directly with slack (or other messaging service) itself. Dripline will provide a slack_relay which posts a message which is "from" <origin_name> to a channel in the project 8 slack named "#<slack_channel>" (note that '#' is reserved in routing keys in AMQP and always the start of a channel name so it is assumed) and with text == the python's str() of the message.payload.
+* sensor_value.\<sensor_name\>: The messages indicate the current state of a particular system (such as a measurement of a sensor). Typical usages of this information includes triggering alarms (such as value out of safe interval), logging values to a database, or as input to a PID or similar feedback system. The `sensor_name` indicates where the data came from, and allows consumers to consume only messages with values of interest.
+* status_message.\<origin_name\>.\<severity\>: The message contains a human-understandable description of the status of \<origin\>. The \<severity\> follows the logging levels of typical logging libraries, and allows consumers determine how verbose their behavior will be.
 
 Requests
 --------
