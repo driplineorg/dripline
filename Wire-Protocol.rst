@@ -98,7 +98,7 @@ AMQP Field               Type    Dripline Use
 ``correlation-id``       string  UUID for message correlation
 ``reply-to``             string  Routing key for reply
 ``expiration``           string  Unused
-``message-id``           string  Unused
+``message-id``           string  UUID or UUID/[chunk number]/[total chunks]
 ``timestamp``            uint64  Unused (string timestamp field in headers)
 ``type``                 string  Unused
 ``user-id``              string  Unused
