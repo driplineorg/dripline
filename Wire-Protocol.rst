@@ -4,7 +4,17 @@ Structure
 Header
 ------
 
-The header fields are specified as `headers` in the AMQP message properties.
+A few of the header fields are specified as AMQP message properties.
+
+======================== ======= ======== ===========================================
+Field                    Type    Required Values
+======================== ======= ======== ===========================================
+``content-encoding``     string  All      ``application/json``
+``correlation-id``       string  All      UUID for request/reply correlation
+``reply-to``             string  Requests Routing key for replies
+======================== ======= ======== ===========================================
+
+The remaining fields are specified as `headers` in the AMQP message properties.
 
 ======================== ======= ======== ===========================================
 Field                    Type    Required Values
