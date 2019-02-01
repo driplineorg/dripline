@@ -81,3 +81,29 @@ Code    Description
 999     Unhandled core-language or dependency exceptions
 ======= ===========
 
+
+AMQP Message Use
+================
+
+This section lists how the different parts of an AMQP message are used in the dripline wire protocol.  It duplicates the information above, but referenced in a different way.
+
+======================== ======= ===========================================
+AMQP Field               Type    Dripline Use
+======================== ======= ===========================================
+``content-type``         string  Unused
+``content-encoding``     string  Always ``application/json``
+``headers``              table   Header fields
+``delivery-mode``        string  Unused
+``priority``             uint8   Unused
+``correlation-id``       string  UUID for message correlation
+``reply-to``             string  Routing key for reply
+``expiration``           string  Unused
+``message-id``           string  Unused
+``timestamp``            uint64  Unused (string timestamp field in headers)
+``type``                 string  Unused
+``user-id``              string  Unused
+``app-id``               string  Unused
+``cluster-id``           string  Unused
+Body                     string  Payload
+======================== ======= ===========================================
+
