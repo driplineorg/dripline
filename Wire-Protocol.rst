@@ -1,10 +1,10 @@
-Encoding
-========
-
-The AMQP message body should be formatted in `JSON <http://json.org>`_.  The encoding (``application/json``) should be specified in the ``content_encoding`` field of the AMQP message.
-
 Structure
 =========
+
+Header
+------
+
+The header fields are specified as `headers` in the AMQP message properties.
 
 ======================== ======= ======== ===========================================
 Field                    Type    Required Values
@@ -20,10 +20,18 @@ Field                    Type    Required Values
 ``sender_info.commit``   string  All      Git commit of the sender package
 ``sender_info.hostname`` string  All      Name of the host computer that sends the message
 ``sender_info.username`` string  All      User responsible for sending the message
-``payload``              any              The content of the message
 ``retcode``              integer Reply    Machine-interpretable status; see :ref:`retcodes`
 ``return_msg``           string  Reply    Human-readable explanation of the return code
 ======================== ======= ======== ===========================================
+
+
+Payload
+-------
+
+The payload is the contents of the message, and it comprises the AMQP message body.  It is optional in all types of dripline messages.
+
+The payload should be formatted in `JSON <http://json.org>`_.  The encoding (``application/json``) should be specified in the ``content_encoding`` field of the AMQP message.
+
 
 .. _retcodes:
 
