@@ -1,9 +1,11 @@
 The following sections summarize various convention which all dripline-compliant implementations should strive to follow.
 
-[Exchanges](#amqp-exchanges)  
-[Broadcast Requests](#broadcast-requests)  
-[Alert Routing keys](#alert-routing-keys)  
-[Resource Lockout](#lockout)  
+* amqp-exchanges_
+* broadcast-requests_
+* lockout_
+
+
+.. _amqp-exchanges:
 
 AMQP Exchanges
 ==============
@@ -20,12 +22,16 @@ Requests
 --------
 The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.
 
+.. _broadcast-requests:
+
 Broadcast Requests
 ==================
 
 In addition to binding against the name of the endpoint (or endpoints) which compose a service, all services shall also bind against the `broadcast.#` routing key. All services must respond to requests sent to matching binding keys (currently only ever an OP_CMD) and must not generate additional errors if the Reply is undeliverable. Since every running service is expected to respond, and there is no guaranteed order or timing, any process sending such a request should deal with this properly (ie, accept multiple replies, wait "long enough" for replies to come, cope with inconsistent reply order) if it cares. The following subsections cover the commands which must be supported.
 
 Note that it is only ever appropriate to use broadcasts when a command is expected to apply to every running service regardless of what that set includes. It is not acceptable to use this to as a shorthand for interacting with a known subset of endpoints (in the hopes that all others will ignore it). In that use-case, one should create a single endpoint which applies the desired logic to contact the intended set of endpoints.
+
+The following commands describe behaviors as part of the protocol. Because they are (or at least may) be sent as a broadcast, any implementation is expected to implement them so that the entire mesh behaves in a consistent and predictable way.
 
 lock
 ----
