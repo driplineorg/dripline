@@ -12,7 +12,7 @@ Field                    Type    Required Values
 ``msgtype``              integer All      Reply (2), Request (3), Alert (4)
 ``msgop``                integer Requests Set (0), Get (1), Send (7), Run (8), Command (9)
 ``specifier``            string           Provides additional information about how the consumer should process the message
-``timestamp``            string  All      Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00Z`)
+``timestamp``            string  All      Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00.00Z`)
 ``lockout_key``          string  Requests 16 hexidecimal digits (see :ref:`lockout`)
 ``sender_info.package``  string  All      Software package used to send the message
 ``sender_info.exe``      string  All      Full path of the executable used to send the message
