@@ -28,7 +28,7 @@ The remaining fields are specified as `headers` in the AMQP message properties.
 Field                    Type    Message Type Values
 ======================== ======= ============ ===========================================
 ``msgtype``              integer All          Reply (2), Request (3), Alert (4)
-``msgop``                integer Requests     Set (0), Get (1), Run (8), Command (9)
+``msgop``                integer Requests     Set (0), Get (1), Command (9)
 ``specifier``            string               Provides additional information about how the consumer should process the message
 ``timestamp``            string  All          Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00.000Z`) with sub-second precision
 ``lockout_key``          string  Requests     16 hexidecimal digits (see :ref:`lockout`)
@@ -91,10 +91,9 @@ Request messages have four possible operations:
 
 :Set: set a value
 :Get: get a value
-:Run: commence running
 :Command: perform a command
 
-The exact meaning of an operation will depend on the application.
+The exact meaning of an operation will depend on the application.  Generally `get` and `set` will get and set a value, and a command will request some application-specific command.
 
 
 .. _retcodes:
@@ -124,9 +123,9 @@ Code    Description
 101     AMQP Connection Error
 102     AMQP Routing Key Error
 103-199 *Unallocated AMQP Errors*
-200     **Generic Hardware Related Error**
-201     Hardware Connection Error
-202     Hardware No Response Error
+200     **Generic Application Error**
+201     Application Connection Error
+202     Application No Response Error
 203-299 *Unallocated Hardware Errors*
 300     **Generic Dripline Client Error**
 301     No message encoding error
@@ -136,7 +135,7 @@ Code    Description
 305     Timeout
 306     Method Not Supported
 307     Access Denied
-308     Invalid Key
+308     Invalid Lockout Key
 309     Deprecated Feature
 310-399 *Unallocated Dripline errors*
 400     **Generic Client Error**
