@@ -28,7 +28,7 @@ The remaining fields are specified as `headers` in the AMQP message properties.
 Field                    Type    Message Type Values
 ======================== ======= ============ ===========================================
 ``msgtype``              integer All          Reply (2), Request (3), Alert (4)
-``msgop``                integer Requests     Set (0), Get (1), Run (8), Command (9)
+``msgop``                integer Requests     Set (0), Get (1), Command (9)
 ``specifier``            string               Provides additional information about how the consumer should process the message
 ``timestamp``            string  All          Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00.000Z`) with sub-second precision
 ``lockout_key``          string  Requests     16 hexidecimal digits (see :ref:`lockout`)
@@ -91,10 +91,9 @@ Request messages have four possible operations:
 
 :Set: set a value
 :Get: get a value
-:Run: commence running
 :Command: perform a command
 
-The exact meaning of an operation will depend on the application.
+The exact meaning of an operation will depend on the application.  Generally `get` and `set` will get and set a value, and a command will request some application-specific command.
 
 
 .. _retcodes:
