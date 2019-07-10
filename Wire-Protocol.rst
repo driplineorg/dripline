@@ -135,7 +135,7 @@ Code    Description
 305     Timeout
 306     Method Not Supported
 307     Access Denied
-308     Invalid Key
+308     Invalid Lockout Key
 309     Deprecated Feature
 310-399 *Unallocated Dripline errors*
 400     **Generic Client Error**
