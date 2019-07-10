@@ -123,9 +123,9 @@ Code    Description
 101     AMQP Connection Error
 102     AMQP Routing Key Error
 103-199 *Unallocated AMQP Errors*
-200     **Generic Hardware Related Error**
-201     Hardware Connection Error
-202     Hardware No Response Error
+200     **Generic Application Error**
+201     Application Connection Error
+202     Application No Response Error
 203-299 *Unallocated Hardware Errors*
 300     **Generic Dripline Client Error**
 301     No message encoding error
