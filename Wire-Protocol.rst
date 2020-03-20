@@ -1,5 +1,12 @@
 This document specifies the makeup of a dripline message and how it is expressed as an AMQP message. 
 
+.. _foundation
+
+Foundation
+==========
+
+Dripline messages are built on the `AMQP 0.9.1 <https://www.rabbitmq.com/protocol.html>`_ messaging protocol as implemented in `RabbitMQ <https://www.rabbitmq.com>`_
+
 
 .. _structure:
 
