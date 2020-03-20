@@ -24,24 +24,33 @@ Field                    Type    Message Type Values
 
 The remaining fields are specified as `headers` in the AMQP message properties.
 
-======================== ======= ============ ===========================================
-Field                    Type    Message Type Values
-======================== ======= ============ ===========================================
-``message_type``         integer All          Reply (2), Request (3), Alert (4)
-``message_operation``    integer Requests     Set (0), Get (1), Command (9)
-``specifier``            string               Provides additional information about how the consumer should process the message
-``timestamp``            string  All          Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00.000Z`) with sub-second precision
-``lockout_key``          string  Requests     16 hexidecimal digits (see :ref:`lockout`)
-``sender_info.package``  string  All          Software package used to send the message
-``sender_info.exe``      string  All          Full path of the executable used to send the message
-``sender_info.version``  string  All          Sender package version
-``sender_info.commit``   string  All          Git commit of the sender package
-``sender_info.hostname`` string  All          Name of the host computer that sends the message
-``sender_info.username`` string  All          User responsible for sending the message
-``return_code``          integer Replies      Machine-interpretable status; see :ref:`return_codes`
-``return_message``       string  Replies      Human-readable explanation of the return code
-======================== ======= ============ ===========================================
+============================ ======= ============ ===========================================
+Field                        Type    Message Type Values
+============================ ======= ============ ===========================================
+``message_type``             integer All          Reply (2), Request (3), Alert (4)
+``message_operation``        integer Requests     Set (0), Get (1), Command (9)
+``specifier``                string               Provides additional information about how the consumer should process the message
+``timestamp``                string  All          Following the `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`_ format (example: `2017-12-31T15:00:00.000Z`) with sub-second precision
+``lockout_key``              string  Requests     16 hexidecimal digits (see :ref:`lockout`)
+``sender_info.exe``          string  All          Full path of the executable used to send the message
+``sender_info.hostname``     string  All          Name of the host computer that sends the message
+``sender_info.username``     string  All          User responsible for sending the message
+``sender_info.service_name`` string  All          Name of the service that sent the message
+``sender_info.versions``     [below] All          Package version information for the components of the sender
+``return_code``              integer Replies      Machine-interpretable status; see :ref:`return_codes`
+``return_message``           string  Replies      Human-readable explanation of the return code
+============================ ======= ============ ===========================================
 
+The ``sender_info.versions`` field consists of the package version information for the components 
+of the sending software.  It is a sequence of the following pieces of information for each component:
+
+============ ======= ==================================================
+Field        Type    Values
+============ ======= ==================================================
+``version``  string  Software version for this component of the sender
+``package``  string  Software package name for this component of the sender
+``commit``   string  Git commit for this component of the sender
+============ ======= ==================================================
 
 Payload
 -------

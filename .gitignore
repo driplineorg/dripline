@@ -21,4 +21,7 @@ python/dripline.sublime-workspace
 .project
 .cproject
 
+# vscode
+.vscode
+
 *.pyo
