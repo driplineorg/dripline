@@ -137,15 +137,17 @@ Code    Description
 2       Deprecated Feature Warning
 3       Dry Run Warning
 4       Offline Warning
-5-99    *Unassigned, Non-Error Warnings*
+5       Sub-Service Warning
+6-99    *Unassigned, Non-Error Warnings*
 100     **Generic AMQP Related Error**
 101     AMQP Connection Error
 102     Invalid AMQP Routing Key
 103-199 *Unallocated AMQP Errors*
-200     **Generic Device Error**
-201     Device Connection Error
+200     **Generic Resource Error**
+201     Resource Connection Error
 202     No Response
-203-299 *Unallocated Device Errors*
+203     Sub-Service Error
+204-299 *Unallocated Resource Errors*
 300     **Generic Service Error**
 301     Invalid Message Encoding
 302     Decoding Failed
