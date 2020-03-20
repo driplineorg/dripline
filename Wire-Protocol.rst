@@ -154,7 +154,7 @@ Code    Description
 303     Invalid Payload
 304     Invalid Value
 305     Timeout
-306     Method Not Supported
+306     Invalid Command
 307     Access Denied
 308     Invalid Lockout Key
 309     [removed]
@@ -164,7 +164,7 @@ Code    Description
 401     Invalid Request
 402     Error Handling Reply
 403     Unable to Send
-404     Timeout
+404     Client Timeout
 405-499 *Unallocated Client Error*
 500-998 *Unallocated*
 999     **Unhandled dripline or application error**
