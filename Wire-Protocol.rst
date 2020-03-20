@@ -145,7 +145,7 @@ Code    Description
 200     **Generic Device Error**
 201     Device Connection Error
 202     No Response
-203-299 *Unallocated Application Errors*
+203-299 *Unallocated Device Errors*
 300     **Generic Service Error**
 301     Invalid Message Encoding
 302     Decoding Failed
