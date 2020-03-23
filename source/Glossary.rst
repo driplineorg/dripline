@@ -1,3 +1,6 @@
+Glossary
+========
+
 The following terms are often used intuitively, but are given the following definitions in the context of the dripline standard. This is done to facilitate precise communication.
 
 endpoint
