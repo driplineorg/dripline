@@ -19,8 +19,8 @@ These provide some basic functionality (such as a CLI client), core classes to i
 The expectation is that these may be sufficient for getting started, or may serve as dependency libraries when building more sophisticated projects.
 Available primary implementations are:
 
-* Python: `dripline-python <https://github.com/project8/dripline-python>`_
-* C++: `dripline-cpp <https://github.com/project8/dripline-cpp>`_
+* Python: `dripline-python <https://github.com/driplineorg/dripline-python>`_
+* C++: `dripline-cpp <https://github.com/driplineorg/dripline-cpp>`_
 
 Other implementations are either not actively kept up to the lastest standard, or are incomplete implementations.
 These repos are available for reference, but do not have a primary developer with the time and/or inclination to keep maintained at the level of a primary implementation.
@@ -29,10 +29,14 @@ The other known implementations are:
 * Go: `dripline-go <https://github.com/project8/dripline-go>`_
 * LabView: `dripline-labview <https://github.com/project8/dripline-labview>`_
 
+
 Getting help
 ++++++++++++
-Code documentation is produced using sphinx via reStructuredText which is distributed with the source. A [rendered](http://www.project8.org/dripline) version is hosted using github pages and the project8.org domain.
-Questions related to a particular implementation may be posted to the associated issue tracker; generic questions in the issue tracker for this repo.
+
+Dripline documentation can be [here](https://driplineorg.github.io).
+
+The [dripline](https://github.com/driplineorg/dripline) repo has an issue tracker for questions about or problems with the dripline standard.  The [dripline-cpp](https://github.com/driplineorg/dripline-cpp) and [dripline-python](https://github.com/driplineorg/dripline-python) repositories eachhave their own issue trackers for questions about or problems with those implementations.
+
 
 Other Notes
 +++++++++++
