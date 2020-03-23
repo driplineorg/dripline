@@ -16,4 +16,4 @@ Welcome to the Dripline Protocol specification and documentation!
    Upcoming-changes
    Change-Log
 
-.. include:: README.rst
+.. include:: ../README.rst
