@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>REST inspired &#8212; Dripline 3.0.0 documentation</title>
+    <title>Design &#8212; Dripline 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="_static/dripline_favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Structure" href="Wire-Protocol.html" />
+    <link rel="next" title="Wire Protocol" href="Wire-Protocol.html" />
     <link rel="prev" title="Welcome to the Dripline Protocol specification and documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -43,25 +43,14 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">REST inspired</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#forward-compatibility">Forward Compatibility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#split-messages">Split Messages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#message-types">Message Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#message-operations">Message Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#return-codes">Return Codes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#amqp-message-use">AMQP Message Use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">AMQP Exchanges</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#message-splitting">Message Splitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#broadcast-requests">Broadcast Requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#lockout">Lockout</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Version.html">History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Additions to the spec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#additions-changes-to-glossary">Additions/changes to glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#deprecations">Deprecations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Release: Upcoming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Upcoming Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Change Log</a></li>
 </ul>
 
 <div class="relations">
@@ -69,7 +58,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to the Dripline Protocol specification and documentation!</a></li>
-      <li>Next: <a href="Wire-Protocol.html" title="next chapter">Structure</a></li>
+      <li>Next: <a href="Wire-Protocol.html" title="next chapter">Wire Protocol</a></li>
   </ul></li>
 </ul>
 </div>
@@ -99,9 +88,11 @@
 
           <div class="body" role="main">
             
-  <p>There are several design principles which guide development. The descriptions here should convey our design intent and should guide future design decisions.</p>
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<p>There are several design principles which guide development. The descriptions here should convey our design intent and should guide future design decisions.</p>
 <div class="section" id="rest-inspired">
-<h1>REST inspired<a class="headerlink" href="#rest-inspired" title="Permalink to this headline">¶</a></h1>
+<h2>REST inspired<a class="headerlink" href="#rest-inspired" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Representational_state_transfer">description on wikipedia</a> does a great job describing the REST standard.
 In particular, dripline stresses:</p>
 <ol class="arabic simple">
@@ -112,8 +103,9 @@ In particular, dripline stresses:</p>
 </ol>
 </div>
 <div class="section" id="forward-compatibility">
-<h1>Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Permalink to this headline">¶</a></h1>
+<h2>Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Permalink to this headline">¶</a></h2>
 <p>While the value of backward compatibility is generally considered self-evident, dripline also strives to achieve forward compatibility. The main way that this is achieved is by requiring that if a message contains unexpected fields, they be ignored if possible. This allows us to add new fields (such as <code class="docutils literal notranslate"><span class="pre">sender_info</span></code> or <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code>) and expect running services fitting the older standard to still respond to requests. Obviously use of those new fields requires an update, but having heterogeneous versions running in parallel allows rolling updates of resources with reduced down time.</p>
+</div>
 </div>
 
 
