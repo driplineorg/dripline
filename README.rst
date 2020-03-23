@@ -1,6 +1,6 @@
-########
-dripline
-########
+Welcome to Dripline
+===================
+
 Slow controls for medium scale physics experiments
 --------------------------------------------------
 
