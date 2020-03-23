@@ -1,5 +1,6 @@
-History
-=======
+===============
+Version History
+===============
 
 ======= ============== =============
 Version Date           Release Notes
