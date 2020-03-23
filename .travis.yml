@@ -9,6 +9,8 @@ branches:
   only:
   - master
   - develop
+  - dl3/develop
+  - dl3/master
   - "/^v\\d+\\.\\d+\\.\\d+(-S*)?$/"
   - "/.*\\.(?i:build)$/"
 before_install:
