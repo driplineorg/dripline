@@ -1,0 +1,41 @@
+language: python
+git:
+  depth: false
+addons:
+  apt:
+    packages:
+    - tree
+branches:
+  only:
+  - master
+  - develop
+  - "/^v\\d+\\.\\d+\\.\\d+(-S*)?$/"
+  - "/.*\\/(?i:build)$/"
+before_install:
+- openssl aes-256-cbc -K $encrypted_189e52c2c347_key -iv $encrypted_189e52c2c347_iv
+  -in deploy_key.enc -out deploy_key -d
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_key
+- ssh-add ./deploy_key
+jobs:
+  include:
+  - stage: build docs
+    script:
+    - echo $(if [[ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master" ]];
+      then echo "$TRAVIS_BRANCH"; elif [[ ! -z "$TRAVIS_TAG" ]]; then echo "tags/$TRAVIS_TAG";
+      else echo "branches/$(echo $TRAVIS_BRANCH | tr / _ | tr - .)"; fi) | tee /tmp/output_location
+    - make html
+    - ls ./build/html
+    - mv ./build/html /tmp/build.html
+    - git checkout gh-pages
+    - git clean -d -f -x
+    - ls
+    - rsync -av --delete /tmp/build.html/ ./$(cat /tmp/output_location)
+    - tree -L 3
+    - git add $(cat /tmp/output_location)
+    - git status
+    - git commit -m "built docs for ${TRAVIS_BRANCH}"
+    - git remote -v
+    - git remote set-url origin "git@github.com:${TRAVIS_REPO_SLUG}"
+    - git remote -v
+    - git push
