@@ -9,16 +9,6 @@ The design is largely inspired by `REST <https://ics.uci.edu/~fielding/pubs/diss
 This repo serves only to document the standard itself, with specific implementations in language-specific repositories within the driplineorg Github organization.
 
 
-Navigation
-++++++++++
-
-* implementations_  
-* getting-help_  
-* other-notes_  
-
-
-.. _implementations:
-
 Implementations
 +++++++++++++++
 
@@ -39,14 +29,10 @@ The other known implementations are:
 * Go: `dripline-go <https://github.com/project8/dripline-go>`_
 * LabView: `dripline-labview <https://github.com/project8/dripline-labview>`_
 
-.. _getting-help:
-
 Getting help
 ++++++++++++
 Code documentation is produced using sphinx via reStructuredText which is distributed with the source. A [rendered](http://www.project8.org/dripline) version is hosted using github pages and the project8.org domain.
 Questions related to a particular implementation may be posted to the associated issue tracker; generic questions in the issue tracker for this repo.
-
-.. _other-notes:
 
 Other Notes
 +++++++++++
