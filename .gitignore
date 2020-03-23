@@ -1,3 +1,5 @@
+build/*
+
 *~
 *#
 *.swp
@@ -16,6 +18,10 @@ python/build/*
 python/doc/_build/*
 *.egg
 python/dripline.sublime-workspace
+
+# Travis-CI setup
+deploy_key
+deploy_key.pub
 
 # Eclipse
 .project

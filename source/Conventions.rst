@@ -25,7 +25,7 @@ Navigation
 User Interface & Configuration
 ==============================
 
-.. _ui-cli
+.. _ui-cli:
 
 Command Line Interface (CLI)
 ++++++++++++++++++++++++++++
