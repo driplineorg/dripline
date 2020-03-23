@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Wire Protocol &#8212; Dripline 3.0.0 documentation</title>
+    <title>Foundation &#8212; Dripline 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <link rel="shortcut icon" href="_static/dripline_favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Use Protocol" href="Use-Protocol.html" />
-    <link rel="prev" title="Design" href="Design.html" />
+    <link rel="next" title="AMQP Exchanges" href="Use-Protocol.html" />
+    <link rel="prev" title="REST inspired" href="Design.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -43,22 +43,34 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Wire Protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Design.html">REST inspired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Design.html#forward-compatibility">Forward Compatibility</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#split-messages">Split Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#message-types">Message Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#message-operations">Message Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#return-codes">Return Codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#amqp-message-use">AMQP Message Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">AMQP Exchanges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#amqp-queues">AMQP Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#broadcast-requests">Broadcast Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html#lockout">Lockout</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Upcoming Changes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Additions to the spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#additions-changes-to-glossary">Additions/changes to glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#deprecations">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Release: Upcoming</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Design.html" title="previous chapter">Design</a></li>
-      <li>Next: <a href="Use-Protocol.html" title="next chapter">Use Protocol</a></li>
+      <li>Previous: <a href="Design.html" title="previous chapter">REST inspired</a></li>
+      <li>Next: <a href="Use-Protocol.html" title="next chapter">AMQP Exchanges</a></li>
   </ul></li>
 </ul>
 </div>
@@ -88,14 +100,16 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="wire-protocol">
-<h1>Wire Protocol<a class="headerlink" href="#wire-protocol" title="Permalink to this headline">¶</a></h1>
-<p>This document specifies the makeup of a dripline message and how it is expressed as an AMQP message.</p>
+  <p>This document specifies the makeup of a dripline message and how it is expressed as an AMQP message.</p>
+<div class="section" id="foundation">
+<h1>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline">¶</a></h1>
+<p>Dripline messages are built on the <a class="reference external" href="https://www.rabbitmq.com/protocol.html">AMQP 0.9.1</a> messaging protocol as implemented in <a class="reference external" href="https://www.rabbitmq.com">RabbitMQ</a></p>
+</div>
 <div class="section" id="structure">
-<span id="id1"></span><h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
 <p>A dripline message comprises header information that describes the message and the payload that is the message contents.</p>
 <div class="section" id="header">
-<h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
 <p>A subset of the header fields are specified as AMQP message properties.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -243,13 +257,13 @@ of the sending software.  It is a sequence of the following pieces of informatio
 </table>
 </div>
 <div class="section" id="payload">
-<h3>Payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<h2>Payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h2>
 <p>The payload is the content of the message, and it comprises the AMQP message body.  It is optional in all types of dripline messages.</p>
 <p>The payload should be formatted in <a class="reference external" href="http://json.org">JSON</a>.  The encoding (<code class="docutils literal notranslate"><span class="pre">application/json</span></code>) should be specified in the <code class="docutils literal notranslate"><span class="pre">content_encoding</span></code> field of the AMQP message.</p>
 </div>
 </div>
 <div class="section" id="split-messages">
-<span id="splitmsg"></span><h2>Split Messages<a class="headerlink" href="#split-messages" title="Permalink to this headline">¶</a></h2>
+<span id="splitmsg"></span><h1>Split Messages<a class="headerlink" href="#split-messages" title="Permalink to this headline">¶</a></h1>
 <p>A dripline message can be split across multiple AMQP messages to accommodate large payloads.
 The AMQP messages that comprise a single dripline message are called “chunks.”
 The headers for all chunks comprising a single dripline message are identical, with the exception of <code class="docutils literal notranslate"><span class="pre">message-id</span></code>.
@@ -262,7 +276,7 @@ The <cite>total chunks`</cite> is the number of chunks into which the message wa
 <p>For unsplit messages the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field may either be <code class="docutils literal notranslate"><span class="pre">UUID</span></code> or <code class="docutils literal notranslate"><span class="pre">UUID/0/1</span></code>.</p>
 </div>
 <div class="section" id="message-types">
-<span id="id2"></span><h2>Message Types<a class="headerlink" href="#message-types" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h1>Message Types<a class="headerlink" href="#message-types" title="Permalink to this headline">¶</a></h1>
 <p>There are three types of dripline messages:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Request</dt>
@@ -277,8 +291,8 @@ The <cite>total chunks`</cite> is the number of chunks into which the message wa
 </dl>
 </div>
 <div class="section" id="message-operations">
-<span id="message-operation"></span><h2>Message Operations<a class="headerlink" href="#message-operations" title="Permalink to this headline">¶</a></h2>
-<p>Request messages have four possible operations:</p>
+<span id="message-operation"></span><h1>Message Operations<a class="headerlink" href="#message-operations" title="Permalink to this headline">¶</a></h1>
+<p>Request messages have three possible operations:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Set</dt>
 <dd class="field-odd"><p>set a value</p>
@@ -293,7 +307,7 @@ The <cite>total chunks`</cite> is the number of chunks into which the message wa
 <p>The exact meaning of an operation will depend on the application.  Generally <cite>get</cite> and <cite>set</cite> will get and set a value, and a command will request some application-specific command.</p>
 </div>
 <div class="section" id="return-codes">
-<span id="id3"></span><h2>Return Codes<a class="headerlink" href="#return-codes" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h1>Return Codes<a class="headerlink" href="#return-codes" title="Permalink to this headline">¶</a></h1>
 <p>The following table lists return codes. It is worth stressing that all codes fall into one of the following categories:</p>
 <ul class="simple">
 <li><p>&lt;0: not defined</p></li>
@@ -322,7 +336,19 @@ Additional errors may be specified for a particular application of dripline.  Th
 <tr class="row-odd"><td><p>1</p></td>
 <td><p><strong>Generic Warning; No Action Taken</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>2-99</p></td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Deprecated Feature Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Dry Run Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Offline Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Sub-Service Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>6-99</p></td>
 <td><p><em>Unassigned, Non-Error Warnings</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>100</p></td>
@@ -332,55 +358,61 @@ Additional errors may be specified for a particular application of dripline.  Th
 <td><p>AMQP Connection Error</p></td>
 </tr>
 <tr class="row-odd"><td><p>102</p></td>
-<td><p>AMQP Routing Key Error</p></td>
+<td><p>Invalid AMQP Routing Key</p></td>
 </tr>
 <tr class="row-even"><td><p>103-199</p></td>
 <td><p><em>Unallocated AMQP Errors</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>200</p></td>
-<td><p><strong>Generic Application Error</strong></p></td>
+<td><p><strong>Generic Resource Error</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>201</p></td>
-<td><p>Application Connection Error</p></td>
+<td><p>Resource Connection Error</p></td>
 </tr>
 <tr class="row-odd"><td><p>202</p></td>
-<td><p>Application No Response Error</p></td>
+<td><p>No Response</p></td>
 </tr>
-<tr class="row-even"><td><p>203-299</p></td>
-<td><p><em>Unallocated Hardware Errors</em></p></td>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>Sub-Service Error</p></td>
 </tr>
-<tr class="row-odd"><td><p>300</p></td>
-<td><p><strong>Generic Dripline Client Error</strong></p></td>
+<tr class="row-odd"><td><p>204-299</p></td>
+<td><p><em>Unallocated Resource Errors</em></p></td>
 </tr>
-<tr class="row-even"><td><p>301</p></td>
-<td><p>No message encoding error</p></td>
+<tr class="row-even"><td><p>300</p></td>
+<td><p><strong>Generic Service Error</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>302</p></td>
-<td><p>Decoding Failed Error</p></td>
+<tr class="row-odd"><td><p>301</p></td>
+<td><p>Invalid Message Encoding</p></td>
 </tr>
-<tr class="row-even"><td><p>303</p></td>
-<td><p>Payload Related Error</p></td>
+<tr class="row-even"><td><p>302</p></td>
+<td><p>Decoding Failed</p></td>
 </tr>
-<tr class="row-odd"><td><p>304</p></td>
-<td><p>Value Error</p></td>
+<tr class="row-odd"><td><p>303</p></td>
+<td><p>Invalid Payload</p></td>
 </tr>
-<tr class="row-even"><td><p>305</p></td>
+<tr class="row-even"><td><p>304</p></td>
+<td><p>Invalid Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>305</p></td>
 <td><p>Timeout</p></td>
 </tr>
-<tr class="row-odd"><td><p>306</p></td>
-<td><p>Method Not Supported</p></td>
+<tr class="row-even"><td><p>306</p></td>
+<td><p>Invalid Command</p></td>
 </tr>
-<tr class="row-even"><td><p>307</p></td>
+<tr class="row-odd"><td><p>307</p></td>
 <td><p>Access Denied</p></td>
 </tr>
-<tr class="row-odd"><td><p>308</p></td>
+<tr class="row-even"><td><p>308</p></td>
 <td><p>Invalid Lockout Key</p></td>
 </tr>
-<tr class="row-even"><td><p>309</p></td>
-<td><p>Deprecated Feature</p></td>
+<tr class="row-odd"><td><p>309</p></td>
+<td><p>[removed]</p></td>
+</tr>
+<tr class="row-even"><td><p>310</p></td>
+<td><p>Invalid Specifier</p></td>
 </tr>
 <tr class="row-odd"><td><p>310-399</p></td>
-<td><p><em>Unallocated Dripline errors</em></p></td>
+<td><p><em>Unallocated Service errors</em></p></td>
 </tr>
 <tr class="row-even"><td><p>400</p></td>
 <td><p><strong>Generic Client Error</strong></p></td>
@@ -395,7 +427,7 @@ Additional errors may be specified for a particular application of dripline.  Th
 <td><p>Unable to Send</p></td>
 </tr>
 <tr class="row-even"><td><p>404</p></td>
-<td><p>Timeout</p></td>
+<td><p>Client Timeout</p></td>
 </tr>
 <tr class="row-odd"><td><p>405-499</p></td>
 <td><p><em>Unallocated Client Error</em></p></td>
@@ -406,11 +438,14 @@ Additional errors may be specified for a particular application of dripline.  Th
 <tr class="row-odd"><td><p>999</p></td>
 <td><p><strong>Unhandled dripline or application error</strong></p></td>
 </tr>
+<tr class="row-even"><td><p>1000+</p></td>
+<td><p><strong>Application-specified errors</strong></p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="amqp-message-use">
-<span id="id4"></span><h2>AMQP Message Use<a class="headerlink" href="#amqp-message-use" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h1>AMQP Message Use<a class="headerlink" href="#amqp-message-use" title="Permalink to this headline">¶</a></h1>
 <p>This section lists how the different parts of an AMQP message are used in the dripline wire protocol.  It duplicates the information above, but referenced in a different way.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -487,7 +522,6 @@ Additional errors may be specified for a particular application of dripline.  Th
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 
 

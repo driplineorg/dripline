@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Use Protocol &#8212; Dripline 3.0.0 documentation</title>
+    <title>AMQP Exchanges &#8212; Dripline 3.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Conventions" href="Conventions.html" />
-    <link rel="prev" title="Wire Protocol" href="Wire-Protocol.html" />
+    <link rel="prev" title="Foundation" href="Wire-Protocol.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -43,21 +43,33 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Design.html">REST inspired</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Design.html#forward-compatibility">Forward Compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#structure">Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#split-messages">Split Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#message-types">Message Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#message-operations">Message Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#return-codes">Return Codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html#amqp-message-use">AMQP Message Use</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AMQP Exchanges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#amqp-queues">AMQP Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#broadcast-requests">Broadcast Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#lockout">Lockout</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Upcoming Changes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Additions to the spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#additions-changes-to-glossary">Additions/changes to glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html#deprecations">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Release: Upcoming</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Wire-Protocol.html" title="previous chapter">Wire Protocol</a></li>
+      <li>Previous: <a href="Wire-Protocol.html" title="previous chapter">Foundation</a></li>
       <li>Next: <a href="Conventions.html" title="next chapter">Conventions</a></li>
   </ul></li>
 </ul>
@@ -88,20 +100,18 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="use-protocol">
-<h1>Use Protocol<a class="headerlink" href="#use-protocol" title="Permalink to this headline">¶</a></h1>
-<p>The following sections summarize various convention which all dripline-compliant implementations should strive to follow.</p>
+  <p>The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#amqp-exchanges">amqp-exchanges</a></p></li>
-<li><p><a class="reference internal" href="#message-splitting">message-splitting</a></p></li>
+<li><p><a href="#id5"><span class="problematic" id="id6">message-splitting_</span></a></p></li>
 <li><p><a class="reference internal" href="#broadcast-requests">broadcast-requests</a></p></li>
 <li><p><a class="reference internal" href="#lockout">lockout</a></p></li>
 </ul>
 <div class="section" id="amqp-exchanges">
-<span id="id1"></span><h2>AMQP Exchanges<a class="headerlink" href="#amqp-exchanges" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h1>AMQP Exchanges<a class="headerlink" href="#amqp-exchanges" title="Permalink to this headline">¶</a></h1>
 <p>All dripline messages are sent using one of two exchanges, <cite>alerts</cite> and <cite>requests</cite>. They differ both in the types of messages they handle and the types of bindings made.</p>
 <div class="section" id="alerts">
-<h3>Alerts<a class="headerlink" href="#alerts" title="Permalink to this headline">¶</a></h3>
+<h2>Alerts<a class="headerlink" href="#alerts" title="Permalink to this headline">¶</a></h2>
 <p>The alerts exchange is used for one directional information transfer, always in the form of a T_ALERT message type. These messages are not delivered to any particular consumer, and may well be of interest to zero, one, or many consumers. All messages have a routing key which begins with an indication of the type of content, and may have further details. The accepted forms are as follows:</p>
 <ul class="simple">
 <li><p>sensor_value.&lt;sensor_name&gt;: The messages indicate the current state of a particular system (such as a measurement of a sensor). Typical usages of this information includes triggering alarms (such as value out of safe interval), logging values to a database, or as input to a PID or similar feedback system. The <cite>sensor_name</cite> indicates where the data came from, and allows consumers to consume only messages with values of interest.</p></li>
@@ -109,51 +119,66 @@
 </ul>
 </div>
 <div class="section" id="requests">
-<h3>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h3>
+<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h2>
 <p>The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.</p>
 </div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Type: <code class="docutils literal notranslate"><span class="pre">EXCHANGE_TYPE_DIRECT</span></code></p></li>
+<li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Durable: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Auto Delete: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ul>
 </div>
-<div class="section" id="message-splitting">
-<span id="id2"></span><h2>Message Splitting<a class="headerlink" href="#message-splitting" title="Permalink to this headline">¶</a></h2>
-<p>To accomodate large messages, dripline payloads can be split into multiple chunks after they’ve been encoded in JSON format.  Splitting should be done so that no payloads are above some given maximum size.  Each payload chunk is sent as its own AMQP message.  All AMQP messages that are part of the same dripline message should have identical header fields and AMQP properties with the exception of the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field.</p>
-<p>For an un-split message, the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field is a UUID string.  When splitting a message, two pieces of information should be added:  <code class="docutils literal notranslate"><span class="pre">[UUID]/[chunk</span> <span class="pre">number]/[total</span> <span class="pre">chunks]</span></code>.  The <code class="docutils literal notranslate"><span class="pre">chunk</span> <span class="pre">number</span></code> is the index of that chunk within the reconstructed message, and the <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">chunks</span></code> is the number of chunks into which the message has been split.</p>
+</div>
+<div class="section" id="amqp-queues">
+<h1>AMQP Queues<a class="headerlink" href="#amqp-queues" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Durable: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Exclusive: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>Auto Delete: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="broadcast-requests">
-<span id="id3"></span><h2>Broadcast Requests<a class="headerlink" href="#broadcast-requests" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h1>Broadcast Requests<a class="headerlink" href="#broadcast-requests" title="Permalink to this headline">¶</a></h1>
 <p>In addition to binding against the name of the endpoint (or endpoints) which compose a service, all services shall also bind against the <cite>broadcast.#</cite> routing key. All services must respond to requests sent to matching binding keys (currently only ever an OP_CMD) and must not generate additional errors if the Reply is undeliverable. Since every running service is expected to respond, and there is no guaranteed order or timing, any process sending such a request should deal with this properly (ie, accept multiple replies, wait “long enough” for replies to come, cope with inconsistent reply order) if it cares. The following subsections cover the commands which must be supported.</p>
 <p>Note that it is only ever appropriate to use broadcasts when a command is expected to apply to every running service regardless of what that set includes. It is not acceptable to use this to as a shorthand for interacting with a known subset of endpoints (in the hopes that all others will ignore it). In that use-case, one should create a single endpoint which applies the desired logic to contact the intended set of endpoints.</p>
 <p>The following commands describe behaviors as part of the protocol. Because they are (or at least may) be sent as a broadcast, any implementation is expected to implement them so that the entire mesh behaves in a consistent and predictable way.</p>
 <div class="section" id="lock">
-<h3>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h3>
+<h2>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h2>
 <p>See [below](#lockout). Note that a service receiving this will attempt to lock all of its endpoints.</p>
 </div>
 <div class="section" id="unlock">
-<h3>unlock<a class="headerlink" href="#unlock" title="Permalink to this headline">¶</a></h3>
+<h2>unlock<a class="headerlink" href="#unlock" title="Permalink to this headline">¶</a></h2>
 <p>See [below](#lockout). Note that a service receiving this will attempt to unlock all of its endpoints.</p>
 </div>
 <div class="section" id="ping">
-<h3>ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h3>
+<h2>ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h2>
 <p>No arguments. Send a Reply message with empty payload. This is meant as a useful means of discovering the full set of running/responsive services. It may not be used to trigger any other behavior.</p>
 </div>
 <div class="section" id="set-condition">
-<h3>set_condition<a class="headerlink" href="#set-condition" title="Permalink to this headline">¶</a></h3>
+<h2>set_condition<a class="headerlink" href="#set-condition" title="Permalink to this headline">¶</a></h2>
 <p>Single integer argument. Any unexpected value should result in return code 304 (Value Error). A particular dripline deployment can define a set of conditions as needed. It is encouraged to use large values with reasonable spacing, a la HTML or dripline error values, to facilitate intermediate values being defined later.</p>
 <p>It is important to note that set_condition is a bit of a panic button, the order in which services receive/respond to set_condition is not well defined and every service is expected to respond immediately (without trying to coordinate with other services). It is designed to support notions such as “abort data taking” or “danger! make everything as safe as possible” and is not suited to situations where coordination is desired or when one wants to carefully check that each service succeeded in getting to the desired state before taking further action.</p>
 </div>
 </div>
 <div class="section" id="lockout">
-<span id="id4"></span><h2>Lockout<a class="headerlink" href="#lockout" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h1>Lockout<a class="headerlink" href="#lockout" title="Permalink to this headline">¶</a></h1>
 <p>A service may implement a lockout system to restrict access for certain types of request messages.  The lockout is intended to avoid stupid things happening (i.e. multiple people sending commands to the same service), and not as a security feature.  When a service is “locked,” lockable messages will only be accepted if they have the right key in the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field of the message header.  Services not implementing a lockout system will ignore the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field entirely.</p>
 <p>The following request types are lockable:</p>
 <ul class="simple">
 <li><p>OP_SET</p></li>
 <li><p>OP_CMD*</p></li>
 <li><p>OP_SEND</p></li>
-<li><p>OP_RUN</p></li>
 </ul>
 <p>Unlock is a cmd but can bypass the lock with a force argument (see below). Broadcast commands <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">set_condition</span></code> ignore lockout.</p>
 <div class="section" id="keys">
-<h3>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h3>
+<h2>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
 <p>The lockout key is 16-bytes long. When represented as a string, it will be formatted as 16 hexidecimal characters, in one of these ways:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">0123456789abcdef0123456789abcdef</span></code></p></li>
@@ -161,7 +186,7 @@
 </ul>
 </div>
 <div class="section" id="rules">
-<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h3>
+<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
 <p>A lockout system follows the following rules:</p>
 <ul class="simple">
 <li><p>Enabling the lock</p>
@@ -190,7 +215,6 @@
 </ul>
 </li>
 </ul>
-</div>
 </div>
 </div>
 
