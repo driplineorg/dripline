@@ -4,6 +4,13 @@ Wire Protocol
 
 This document specifies the makeup of a dripline message and how it is expressed as an AMQP message. 
 
+.. _foundation
+
+Foundation
+==========
+
+Dripline messages are built on the `AMQP 0.9.1 <https://www.rabbitmq.com/protocol.html>`_ messaging protocol as implemented in `RabbitMQ <https://www.rabbitmq.com>`_
+
 
 .. _structure:
 
@@ -100,7 +107,7 @@ There are three types of dripline messages:
 Message Operations
 ==================
 
-Request messages have four possible operations:
+Request messages have three possible operations:
 
 :Set: set a value
 :Get: get a value
@@ -131,34 +138,41 @@ Code    Description
 ======= ===========
 0       **Success**
 1       **Generic Warning; No Action Taken**
-2-99    *Unassigned, Non-Error Warnings*
+2       Deprecated Feature Warning
+3       Dry Run Warning
+4       Offline Warning
+5       Sub-Service Warning
+6-99    *Unassigned, Non-Error Warnings*
 100     **Generic AMQP Related Error**
 101     AMQP Connection Error
-102     AMQP Routing Key Error
+102     Invalid AMQP Routing Key
 103-199 *Unallocated AMQP Errors*
-200     **Generic Application Error**
-201     Application Connection Error
-202     Application No Response Error
-203-299 *Unallocated Hardware Errors*
-300     **Generic Dripline Client Error**
-301     No message encoding error
-302     Decoding Failed Error
-303     Payload Related Error
-304     Value Error
+200     **Generic Resource Error**
+201     Resource Connection Error
+202     No Response
+203     Sub-Service Error
+204-299 *Unallocated Resource Errors*
+300     **Generic Service Error**
+301     Invalid Message Encoding
+302     Decoding Failed
+303     Invalid Payload
+304     Invalid Value
 305     Timeout
-306     Method Not Supported
+306     Invalid Command
 307     Access Denied
 308     Invalid Lockout Key
-309     Deprecated Feature
-310-399 *Unallocated Dripline errors*
+309     [removed]
+310     Invalid Specifier
+310-399 *Unallocated Service errors*
 400     **Generic Client Error**
 401     Invalid Request
 402     Error Handling Reply
 403     Unable to Send
-404     Timeout
+404     Client Timeout
 405-499 *Unallocated Client Error*
 500-998 *Unallocated*
 999     **Unhandled dripline or application error**
+1000+   **Application-specified errors**
 ======= ===========
 
 

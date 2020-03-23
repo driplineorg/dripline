@@ -90,10 +90,9 @@
             
   <div class="section" id="use-protocol">
 <h1>Use Protocol<a class="headerlink" href="#use-protocol" title="Permalink to this headline">¶</a></h1>
-<p>The following sections summarize various convention which all dripline-compliant implementations should strive to follow.</p>
+<p>The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#amqp-exchanges">amqp-exchanges</a></p></li>
-<li><p><a class="reference internal" href="#message-splitting">message-splitting</a></p></li>
 <li><p><a class="reference internal" href="#broadcast-requests">broadcast-requests</a></p></li>
 <li><p><a class="reference internal" href="#lockout">lockout</a></p></li>
 </ul>
@@ -112,11 +111,27 @@
 <h3>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h3>
 <p>The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.</p>
 </div>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Type: <code class="docutils literal notranslate"><span class="pre">EXCHANGE_TYPE_DIRECT</span></code></p></li>
+<li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Durable: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Auto Delete: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ul>
 </div>
-<div class="section" id="message-splitting">
-<span id="id2"></span><h2>Message Splitting<a class="headerlink" href="#message-splitting" title="Permalink to this headline">¶</a></h2>
-<p>To accomodate large messages, dripline payloads can be split into multiple chunks after they’ve been encoded in JSON format.  Splitting should be done so that no payloads are above some given maximum size.  Each payload chunk is sent as its own AMQP message.  All AMQP messages that are part of the same dripline message should have identical header fields and AMQP properties with the exception of the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field.</p>
-<p>For an un-split message, the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field is a UUID string.  When splitting a message, two pieces of information should be added:  <code class="docutils literal notranslate"><span class="pre">[UUID]/[chunk</span> <span class="pre">number]/[total</span> <span class="pre">chunks]</span></code>.  The <code class="docutils literal notranslate"><span class="pre">chunk</span> <span class="pre">number</span></code> is the index of that chunk within the reconstructed message, and the <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">chunks</span></code> is the number of chunks into which the message has been split.</p>
+</div>
+<div class="section" id="amqp-queues">
+<h2>AMQP Queues<a class="headerlink" href="#amqp-queues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Durable: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p>Exclusive: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>Auto Delete: <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="broadcast-requests">
 <span id="id3"></span><h2>Broadcast Requests<a class="headerlink" href="#broadcast-requests" title="Permalink to this headline">¶</a></h2>
@@ -149,7 +164,6 @@
 <li><p>OP_SET</p></li>
 <li><p>OP_CMD*</p></li>
 <li><p>OP_SEND</p></li>
-<li><p>OP_RUN</p></li>
 </ul>
 <p>Unlock is a cmd but can bypass the lock with a force argument (see below). Broadcast commands <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">set_condition</span></code> ignore lockout.</p>
 <div class="section" id="keys">

@@ -91,6 +91,10 @@
   <div class="section" id="wire-protocol">
 <h1>Wire Protocol<a class="headerlink" href="#wire-protocol" title="Permalink to this headline">¶</a></h1>
 <p>This document specifies the makeup of a dripline message and how it is expressed as an AMQP message.</p>
+<div class="section" id="foundation">
+<h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline">¶</a></h2>
+<p>Dripline messages are built on the <a class="reference external" href="https://www.rabbitmq.com/protocol.html">AMQP 0.9.1</a> messaging protocol as implemented in <a class="reference external" href="https://www.rabbitmq.com">RabbitMQ</a></p>
+</div>
 <div class="section" id="structure">
 <span id="id1"></span><h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
 <p>A dripline message comprises header information that describes the message and the payload that is the message contents.</p>
@@ -278,7 +282,7 @@ The <cite>total chunks`</cite> is the number of chunks into which the message wa
 </div>
 <div class="section" id="message-operations">
 <span id="message-operation"></span><h2>Message Operations<a class="headerlink" href="#message-operations" title="Permalink to this headline">¶</a></h2>
-<p>Request messages have four possible operations:</p>
+<p>Request messages have three possible operations:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Set</dt>
 <dd class="field-odd"><p>set a value</p>
@@ -322,7 +326,19 @@ Additional errors may be specified for a particular application of dripline.  Th
 <tr class="row-odd"><td><p>1</p></td>
 <td><p><strong>Generic Warning; No Action Taken</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>2-99</p></td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Deprecated Feature Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Dry Run Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Offline Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Sub-Service Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>6-99</p></td>
 <td><p><em>Unassigned, Non-Error Warnings</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>100</p></td>
@@ -332,55 +348,61 @@ Additional errors may be specified for a particular application of dripline.  Th
 <td><p>AMQP Connection Error</p></td>
 </tr>
 <tr class="row-odd"><td><p>102</p></td>
-<td><p>AMQP Routing Key Error</p></td>
+<td><p>Invalid AMQP Routing Key</p></td>
 </tr>
 <tr class="row-even"><td><p>103-199</p></td>
 <td><p><em>Unallocated AMQP Errors</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>200</p></td>
-<td><p><strong>Generic Application Error</strong></p></td>
+<td><p><strong>Generic Resource Error</strong></p></td>
 </tr>
 <tr class="row-even"><td><p>201</p></td>
-<td><p>Application Connection Error</p></td>
+<td><p>Resource Connection Error</p></td>
 </tr>
 <tr class="row-odd"><td><p>202</p></td>
-<td><p>Application No Response Error</p></td>
+<td><p>No Response</p></td>
 </tr>
-<tr class="row-even"><td><p>203-299</p></td>
-<td><p><em>Unallocated Hardware Errors</em></p></td>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>Sub-Service Error</p></td>
 </tr>
-<tr class="row-odd"><td><p>300</p></td>
-<td><p><strong>Generic Dripline Client Error</strong></p></td>
+<tr class="row-odd"><td><p>204-299</p></td>
+<td><p><em>Unallocated Resource Errors</em></p></td>
 </tr>
-<tr class="row-even"><td><p>301</p></td>
-<td><p>No message encoding error</p></td>
+<tr class="row-even"><td><p>300</p></td>
+<td><p><strong>Generic Service Error</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>302</p></td>
-<td><p>Decoding Failed Error</p></td>
+<tr class="row-odd"><td><p>301</p></td>
+<td><p>Invalid Message Encoding</p></td>
 </tr>
-<tr class="row-even"><td><p>303</p></td>
-<td><p>Payload Related Error</p></td>
+<tr class="row-even"><td><p>302</p></td>
+<td><p>Decoding Failed</p></td>
 </tr>
-<tr class="row-odd"><td><p>304</p></td>
-<td><p>Value Error</p></td>
+<tr class="row-odd"><td><p>303</p></td>
+<td><p>Invalid Payload</p></td>
 </tr>
-<tr class="row-even"><td><p>305</p></td>
+<tr class="row-even"><td><p>304</p></td>
+<td><p>Invalid Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>305</p></td>
 <td><p>Timeout</p></td>
 </tr>
-<tr class="row-odd"><td><p>306</p></td>
-<td><p>Method Not Supported</p></td>
+<tr class="row-even"><td><p>306</p></td>
+<td><p>Invalid Command</p></td>
 </tr>
-<tr class="row-even"><td><p>307</p></td>
+<tr class="row-odd"><td><p>307</p></td>
 <td><p>Access Denied</p></td>
 </tr>
-<tr class="row-odd"><td><p>308</p></td>
+<tr class="row-even"><td><p>308</p></td>
 <td><p>Invalid Lockout Key</p></td>
 </tr>
-<tr class="row-even"><td><p>309</p></td>
-<td><p>Deprecated Feature</p></td>
+<tr class="row-odd"><td><p>309</p></td>
+<td><p>[removed]</p></td>
+</tr>
+<tr class="row-even"><td><p>310</p></td>
+<td><p>Invalid Specifier</p></td>
 </tr>
 <tr class="row-odd"><td><p>310-399</p></td>
-<td><p><em>Unallocated Dripline errors</em></p></td>
+<td><p><em>Unallocated Service errors</em></p></td>
 </tr>
 <tr class="row-even"><td><p>400</p></td>
 <td><p><strong>Generic Client Error</strong></p></td>
@@ -395,7 +417,7 @@ Additional errors may be specified for a particular application of dripline.  Th
 <td><p>Unable to Send</p></td>
 </tr>
 <tr class="row-even"><td><p>404</p></td>
-<td><p>Timeout</p></td>
+<td><p>Client Timeout</p></td>
 </tr>
 <tr class="row-odd"><td><p>405-499</p></td>
 <td><p><em>Unallocated Client Error</em></p></td>
@@ -405,6 +427,9 @@ Additional errors may be specified for a particular application of dripline.  Th
 </tr>
 <tr class="row-odd"><td><p>999</p></td>
 <td><p><strong>Unhandled dripline or application error</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1000+</p></td>
+<td><p><strong>Application-specified errors</strong></p></td>
 </tr>
 </tbody>
 </table>
