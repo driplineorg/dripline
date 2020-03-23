@@ -2,10 +2,9 @@
 Use Protocol
 ============
 
-The following sections summarize various convention which all dripline-compliant implementations should strive to follow.
+The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.
 
 * amqp-exchanges_
-* message-splitting_
 * broadcast-requests_
 * lockout_
 
@@ -27,15 +26,25 @@ Requests
 --------
 The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.
 
+Properties
+----------
 
-.. _message-splitting:
+* Type: ``EXCHANGE_TYPE_DIRECT``
+* Passive: ``false``
+* Durable: ``false``
+* Auto Delete: ``false``
 
-Message Splitting
-=================
 
-To accomodate large messages, dripline payloads can be split into multiple chunks after they've been encoded in JSON format.  Splitting should be done so that no payloads are above some given maximum size.  Each payload chunk is sent as its own AMQP message.  All AMQP messages that are part of the same dripline message should have identical header fields and AMQP properties with the exception of the ``message-id`` field.
+AMQP Queues
+===========
 
-For an un-split message, the ``message-id`` field is a UUID string.  When splitting a message, two pieces of information should be added:  ``[UUID]/[chunk number]/[total chunks]``.  The ``chunk number`` is the index of that chunk within the reconstructed message, and the ``total chunks`` is the number of chunks into which the message has been split.
+Properties
+----------
+
+* Passive: ``false``
+* Durable: ``false``
+* Exclusive: ``true``
+* Auto Delete: ``true``
 
 
 .. _broadcast-requests:
@@ -80,7 +89,6 @@ The following request types are lockable:
 - OP_SET
 - OP_CMD*
 - OP_SEND
-- OP_RUN
 
 Unlock is a cmd but can bypass the lock with a force argument (see below). Broadcast commands ``ping`` and ``set_condition`` ignore lockout.
 
