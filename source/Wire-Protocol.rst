@@ -1,3 +1,7 @@
+=============
+Wire Protocol
+=============
+
 This document specifies the makeup of a dripline message and how it is expressed as an AMQP message. 
 
 .. _foundation
