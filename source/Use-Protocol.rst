@@ -1,7 +1,6 @@
 The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.
 
 * amqp-exchanges_
-* message-splitting_
 * broadcast-requests_
 * lockout_
 
