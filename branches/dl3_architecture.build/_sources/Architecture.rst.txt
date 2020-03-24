@@ -10,7 +10,7 @@ The Mesh
 
 A full Dripline system is called a "mesh."  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.
 
-..image:: images/mesh.png
+.. image:: images/mesh.png
 
 The instruments and pieces of software that are part of the controls system are represented by "endpoints" and "services."  Endpoints and services give the instruments and software the interface they need to communicate using a common communications protocol.  They can receive requests from users, and send replies back (and they can make requests to each other).  They can also send alert-message broadcasts to the entire mesh.
 
