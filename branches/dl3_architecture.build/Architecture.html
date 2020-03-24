@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Architecture &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/dripline_favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wire Protocol" href="Wire-Protocol.html" />
+    <link rel="prev" title="Design" href="Design.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/dripline_favicon.ico" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upcoming-changes.html">Upcoming Changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Change-Log.html">Change Log</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Design.html" title="previous chapter">Design</a></li>
+      <li>Next: <a href="Wire-Protocol.html" title="next chapter">Wire Protocol</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<p>Dripline is a protocol for a controls framework aimed at medium-sized experiments, where one wants a distributed and flexible controls system.  A full Dripline-based system is called a “mesh,” and it comprises a number of different types of components, including the broker, endpoints, and services.  A user typically interacts with the mesh via an agent.  Each part of the system will be described in its own section below.</p>
+<div class="section" id="the-mesh">
+<h2>The Mesh<a class="headerlink" href="#the-mesh" title="Permalink to this headline">¶</a></h2>
+<p>A full Dripline system is called a “mesh.”  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.</p>
+<p>..image:: images/mesh.png</p>
+<p>The instruments and pieces of software that are part of the controls system are represented by “endpoints” and “services.”  Endpoints and services give the instruments and software the interface they need to communicate using a common communications protocol.  They can receive requests from users, and send replies back (and they can make requests to each other).  They can also send alert-message broadcasts to the entire mesh.</p>
+<p>Users are represented by an “agent,” which can send messages to anything on the mesh, and receive replies to requests.</p>
+</div>
+<div class="section" id="amqp-broker">
+<h2>AMQP Broker<a class="headerlink" href="#amqp-broker" title="Permalink to this headline">¶</a></h2>
+<p>The central element of a Dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.</p>
+<p>While the Dripline standard does not require a particular implementation of AMQP, the official Dripline implementation uses Rabbitmq.</p>
+</div>
+<div class="section" id="endpoint">
+<h2>Endpoint<a class="headerlink" href="#endpoint" title="Permalink to this headline">¶</a></h2>
+<p>An endpoint is the basic message receiver in a mesh.  The endpoint will take the appropriate action in reponse to a request, and send a reply back.</p>
+</div>
+<div class="section" id="agent">
+<h2>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h2>
+<p>An agent is the primary way in which users interact with a mesh.  A user can send a message to any component of the mesh, and receive replies.</p>
+</div>
+<div class="section" id="service">
+<h2>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
+<p>The primary unit of software that connects with the broker is the “service.”  A service will typically correspond to a single instrument (e.g. power supply) or piece of software, and it might have one or more child endpoints.  The service is responsible for maintaining its connection with the AMQP broker, and organizing and operating its child endpoints.</p>
+</div>
+<div class="section" id="operating-a-mesh">
+<h2>Operating a Mesh<a class="headerlink" href="#operating-a-mesh" title="Permalink to this headline">¶</a></h2>
+<p>While the Dripline standard specifies <em>what</em> can go in a mesh, it does not specify <em>how</em> a mesh is deployed.  The Dripline developers recommend the use of containers and a deployment menthod like <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> or Kubernetes.</p>
+<p>The first thing to be deployed should be the broker.</p>
+<p>Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionlity as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.</p>
+<p>Finally, the user can use the agent (<code class="docutils literal notranslate"><span class="pre">dl-agent</span></code> in the official implementation) to send messages.  The official implementation also includes <code class="docutils literal notranslate"><span class="pre">dl-mon</span></code> to allow users to monitor the messages being passed back and forth in the mesh.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Architecture.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
