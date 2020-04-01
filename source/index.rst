@@ -14,7 +14,5 @@ Welcome to the Dripline Protocol specification and documentation!
    Conventions
    Glossary
    Version
-   Upcoming-changes
-   Change-Log
 
 .. include:: ../README.rst
