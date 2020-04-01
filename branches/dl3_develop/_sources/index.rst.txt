@@ -1,7 +1,7 @@
 .. Dripline Protocol specification and documentation
 
-Welcome to the Dripline Protocol specification and documentation!
-=================================================================
+Dripline Protocol Specification and Documentation
+=================================================
 
 .. toctree::
    :maxdepth: 1
