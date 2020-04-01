@@ -28,6 +28,7 @@ The other known implementations are:
 
 * Go: `dripline-go <https://github.com/project8/dripline-go>`_
 * LabView: `dripline-labview <https://github.com/project8/dripline-labview>`_
+* Web: `dripline-web <https://github.com/project8/dripline-web>`_
 
 
 Getting help
