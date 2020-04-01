@@ -118,7 +118,7 @@
 <h2>Operating a Mesh<a class="headerlink" href="#operating-a-mesh" title="Permalink to this headline">¶</a></h2>
 <p>While the Dripline standard specifies <em>what</em> can go in a mesh, it does not specify <em>how</em> a mesh is deployed.  The Dripline developers recommend the use of containers and a deployment menthod like <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> or Kubernetes.</p>
 <p>The first thing to be deployed should be the broker.</p>
-<p>Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionlity as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.</p>
+<p>Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionality as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.</p>
 <p>Finally, the user can use the agent (<code class="docutils literal notranslate"><span class="pre">dl-agent</span></code> in the official implementation) to send messages.  The official implementation also includes <code class="docutils literal notranslate"><span class="pre">dl-mon</span></code> to allow users to monitor the messages being passed back and forth in the mesh.</p>
 </div>
 </div>

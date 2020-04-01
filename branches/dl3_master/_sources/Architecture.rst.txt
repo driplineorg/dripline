@@ -50,7 +50,7 @@ While the Dripline standard specifies *what* can go in a mesh, it does not speci
 
 The first thing to be deployed should be the broker.  
 
-Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionlity as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.
+Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionality as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.
 
 Finally, the user can use the agent (``dl-agent`` in the official implementation) to send messages.  The official implementation also includes ``dl-mon`` to allow users to monitor the messages being passed back and forth in the mesh.
 
