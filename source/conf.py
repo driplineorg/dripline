@@ -103,8 +103,8 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
-html_logo = 'dripline_favicon.ico'
-html_favicon = 'dripline_favicon.ico'
+html_logo = '../images/DL3Logo.png'
+html_favicon = '../images/DL3Logo.ico'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
