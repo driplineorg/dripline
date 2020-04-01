@@ -41,5 +41,12 @@ The `dripline <https://github.com/driplineorg/dripline>`_ repo has an issue trac
 
 Other Notes
 +++++++++++
+
 Dripline is developed and tested primarily using RabbitMQ 3.3.x on Debian 9 and run in docker containers.
 Other workflows are certainly valid, but a managed-container framework is recommended for most cases.
+
+
+Name
+++++
+
+The origin of the name "dripline" is lost to history, but it is *always* written lowercase (except when it's not).

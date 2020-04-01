@@ -2,7 +2,7 @@
 Use Protocol
 ============
 
-The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.
+The following sections summarize various conventions that all dripline-compliant implementations should strive to follow.
 
 * amqp-exchanges_
 * broadcast-requests_

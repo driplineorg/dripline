@@ -2,13 +2,13 @@
 Architecture
 ============
 
-Dripline is a protocol for a controls framework aimed at medium-sized experiments, where one wants a distributed and flexible controls system.  A full Dripline-based system is called a "mesh," and it comprises a number of different types of components, including the broker, endpoints, and services.  A user typically interacts with the mesh via an agent.  Each part of the system will be described in its own section below.
+Dripline is a protocol for a controls framework aimed at medium-sized experiments, where one wants a distributed and flexible controls system.  A full dripline-based system is called a "mesh," and it comprises a number of different types of components, including the broker, endpoints, and services.  A user typically interacts with the mesh via an agent.  Each part of the system will be described in its own section below.
 
 
 The Mesh
 ========
 
-A full Dripline system is called a "mesh."  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.
+A full dripline system is called a "mesh."  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.
 
 .. image:: images/mesh.png
 
@@ -20,9 +20,9 @@ Users are represented by an "agent," which can send messages to anything on the 
 AMQP Broker
 ===========
 
-The central element of a Dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.  
+The central element of a dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.  
 
-While the Dripline standard does not require a particular implementation of AMQP, the official Dripline implementation uses RabbitMQ.
+While the dripline standard does not require a particular implementation of AMQP, the official dripline implementation uses RabbitMQ.
 
 
 Endpoint
@@ -46,7 +46,7 @@ The primary unit of software that connects with the broker is the "service."  A 
 Operating a Mesh
 ================
 
-While the Dripline standard specifies *what* can go in a mesh, it does not specify *how* a mesh is deployed.  The Dripline developers recommend the use of containers and a deployment menthod like ``docker-compose`` or Kubernetes.
+While the dripline standard specifies *what* can go in a mesh, it does not specify *how* a mesh is deployed.  The dripline developers recommend the use of containers and a deployment menthod like ``docker-compose`` or Kubernetes.
 
 The first thing to be deployed should be the broker.  
 
