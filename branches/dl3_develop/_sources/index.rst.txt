@@ -8,6 +8,7 @@ Welcome to the Dripline Protocol specification and documentation!
    :caption: Contents:
 
    Design
+   Architecture
    Wire-Protocol
    Use-Protocol
    Conventions
