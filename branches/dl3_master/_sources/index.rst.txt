@@ -12,7 +12,6 @@ Dripline Protocol Specification and Documentation
    Wire-Protocol
    Use-Protocol
    Conventions
-   Glossary
    Version
 
 .. include:: ../README.rst
