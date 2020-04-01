@@ -33,9 +33,9 @@ The other known implementations are:
 Getting help
 ++++++++++++
 
-Dripline documentation can be [here](https://driplineorg.github.io).
+Dripline documentation can be `here <https://driplineorg.github.io>`_.
 
-The [dripline](https://github.com/driplineorg/dripline) repo has an issue tracker for questions about or problems with the dripline standard.  The [dripline-cpp](https://github.com/driplineorg/dripline-cpp) and [dripline-python](https://github.com/driplineorg/dripline-python) repositories eachhave their own issue trackers for questions about or problems with those implementations.
+The `dripline <https://github.com/driplineorg/dripline>`_ repo has an issue tracker for questions about or problems with the dripline standard.  The `dripline-cpp <https://github.com/driplineorg/dripline-cpp>`_ and `dripline-python <https://github.com/driplineorg/dripline-python>`_ repositories each have their own issue trackers for questions about or problems with those implementations.
 
 
 Other Notes
