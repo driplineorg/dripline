@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dripline Protocol Specification and Documentation &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/DL3Logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Design" href="Design.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/DL3Logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="#">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="Design.html" title="next chapter">Design</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dripline-protocol-specification-and-documentation">
+<h1>Dripline Protocol Specification and Documentation<a class="headerlink" href="#dripline-protocol-specification-and-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="welcome-to-dripline">
+<h1>Welcome to Dripline<a class="headerlink" href="#welcome-to-dripline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="slow-controls-for-medium-scale-physics-experiments">
+<h2>Slow controls for medium scale physics experiments<a class="headerlink" href="#slow-controls-for-medium-scale-physics-experiments" title="Permalink to this headline">¶</a></h2>
+<p>Fundamentally, dripline defines a messaging wireprotocol, as well as conventions for using that protocol including standard behavoirs and reserved names/values.
+The design is largely inspired by <a class="reference external" href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">REST</a> and is originally developed by the <a class="reference external" href="https://www.project8.org">Project 8 Collaboration</a>, though with the move to this Github organization, others are now invited to contribute.
+This repo serves only to document the standard itself, with specific implementations in language-specific repositories within the driplineorg Github organization.</p>
+<div class="section" id="implementations">
+<h3>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to implement dripline in whatever language or environment is most convenient.
+There are a number of implementations available here, categorized by how complete and maintained the are.
+The following primary implementations should be feature complete with the most recent version of the dripline standard.
+These provide some basic functionality (such as a CLI client), core classes to implement the standard, and semi-generic implementation classes which provide examples or generally useful patterns.
+The expectation is that these may be sufficient for getting started, or may serve as dependency libraries when building more sophisticated projects.
+Available primary implementations are:</p>
+<ul class="simple">
+<li><p>Python: <a class="reference external" href="https://github.com/driplineorg/dripline-python">dripline-python</a></p></li>
+<li><p>C++: <a class="reference external" href="https://github.com/driplineorg/dripline-cpp">dripline-cpp</a></p></li>
+</ul>
+<p>Other implementations are either not actively kept up to the lastest standard, or are incomplete implementations.
+These repos are available for reference, but do not have a primary developer with the time and/or inclination to keep maintained at the level of a primary implementation.
+The other known implementations are:</p>
+<ul class="simple">
+<li><p>Go: <a class="reference external" href="https://github.com/project8/dripline-go">dripline-go</a></p></li>
+<li><p>LabView: <a class="reference external" href="https://github.com/project8/dripline-labview">dripline-labview</a></p></li>
+</ul>
+</div>
+<div class="section" id="getting-help">
+<h3>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h3>
+<p>Dripline documentation can be <a class="reference external" href="https://driplineorg.github.io">here</a>.</p>
+<p>The <a class="reference external" href="https://github.com/driplineorg/dripline">dripline</a> repo has an issue tracker for questions about or problems with the dripline standard.  The <a class="reference external" href="https://github.com/driplineorg/dripline-cpp">dripline-cpp</a> and <a class="reference external" href="https://github.com/driplineorg/dripline-python">dripline-python</a> repositories eachhave their own issue trackers for questions about or problems with those implementations.</p>
+</div>
+<div class="section" id="other-notes">
+<h3>Other Notes<a class="headerlink" href="#other-notes" title="Permalink to this headline">¶</a></h3>
+<p>Dripline is developed and tested primarily using RabbitMQ 3.3.x on Debian 9 and run in docker containers.
+Other workflows are certainly valid, but a managed-container framework is recommended for most cases.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

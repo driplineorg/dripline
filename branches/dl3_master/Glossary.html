@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glossary &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/DL3Logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Version History" href="Version.html" />
+    <link rel="prev" title="Conventions" href="Conventions.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/DL3Logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Conventions.html" title="previous chapter">Conventions</a></li>
+      <li>Next: <a href="Version.html" title="next chapter">Version History</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<p>The following terms are often used intuitively, but are given the following definitions in the context of the dripline standard. This is done to facilitate precise communication.</p>
+<dl class="simple">
+<dt>endpoint</dt><dd><p>Any object to which a T_REQUEST may be sent and/or from which a T_ALERT may be sent. An endpoint has a name and its service will always be bound against that name with any or no routing key specifier (ie <cite>&lt;name&gt;.#</cite>).</p>
+</dd>
+<dt>mesh</dt><dd><p>General term which refers to a particular AMQP broker and all of the services bound to it.</p>
+</dd>
+<dt>message</dt><dd><p>An object conforming to the <a class="reference external" href="Wire-Protocol.rst">wire_protocol</a></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>service</dt><dd><p>A continuously running program which is part of a dripline mesh. A service is itself an endpoint since, for example, it must respond to a ping, but may contain any number of additional endpoints which are not services. _(is this too specific?) The service is responsible for establishing queues and bindings and for processing messages which are ultimately delivered to and fulfilled by those endpoints which are part of the service.</p>
+</dd>
+</dl>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Glossary.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
