@@ -22,7 +22,7 @@ AMQP Broker
 
 The central element of a Dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.  
 
-While the Dripline standard does not require a particular implementation of AMQP, the official Dripline implementation uses Rabbitmq.
+While the Dripline standard does not require a particular implementation of AMQP, the official Dripline implementation uses RabbitMQ.
 
 
 Endpoint
