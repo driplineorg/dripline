@@ -33,7 +33,7 @@ Field                    Type    Message Type Values
 ``message-id``           string  All          UUID or UUID/[chunk number]/[total chunks]
 ======================== ======= ============ ===========================================
 
-The remaining fields are specified as `headers` in the AMQP message properties.
+The remaining fields are specified as ``headers`` in the AMQP message properties.
 
 ============================ ======= ============ ===========================================
 Field                        Type    Message Type Values
@@ -113,7 +113,7 @@ Request messages have three possible operations:
 :Get: get a value
 :Command: perform a command
 
-The exact meaning of an operation will depend on the application.  Generally `get` and `set` will get and set a value, and a command will request some application-specific command.
+The exact meaning of an operation will depend on the application.  Generally `get` and `set` will get and set a value, respectively, and a command will request some application-specific command.
 
 
 .. _return_codes:
@@ -178,10 +178,10 @@ Code    Description
 
 .. _amqp_message_use:
 
-AMQP Message Use
-================
+AMQP Message Properties
+=======================
 
-This section lists how the different parts of an AMQP message are used in the dripline wire protocol.  It duplicates the information above, but referenced in a different way.
+This section lists how the different properties of an AMQP message are used in the dripline wire protocol.  It duplicates the information above, but referenced in a different way.
 
 ======================== ======= ===========================================
 AMQP Field               Type    Dripline Use
