@@ -53,7 +53,8 @@ Field                        Type    Message Type Values
 ============================ ======= ============ ===========================================
 
 The ``sender_info.versions`` field consists of the package version information for the components 
-of the sending software.  It is a sequence of the following pieces of information for each component:
+of the sending software.  It is a dictionary of dictionaries.  
+For each package it contains the following pieces of information:
 
 ============ ======= ==================================================
 Field        Type    Values
