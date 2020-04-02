@@ -91,14 +91,14 @@
 <p>The following sections summarize various conventions that all dripline-compliant implementations should strive to follow.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#amqp-exchanges">amqp-exchanges</a></p></li>
-<li><p><a href="#id10"><span class="problematic" id="id11">amqp-queues_</span></a></p></li>
+<li><p><a class="reference internal" href="#amqp-queues">amqp-queues</a></p></li>
 <li><p><a class="reference internal" href="#broadcast-requests">broadcast-requests</a></p></li>
 <li><p><a class="reference internal" href="#lockout">lockout</a></p></li>
 </ul>
 <p>For information on the AMQP concepts such as exchanges, queues, and routing keys, please consult <a class="reference external" href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">this explanation</a> of AMQP concepts.  It’s useful to recall that in the AMQP model:</p>
 <ul class="simple">
 <li><p>messages are published to a particular exchange,</p></li>
-<li><p>the routing key binds an exchange to a queue and indicates which messages on a particular exchange to to which queue,</p></li>
+<li><p>the routing key binds an exchange to a queue and indicates which messages on a particular exchange go to which queue,</p></li>
 <li><p>and messages are consumed from the queue.</p></li>
 </ul>
 <p>Services and asynchronous child endpoints consume messages from queues; in the former case the service distributes messages to its synchronous child endpoints according to the routing key.</p>

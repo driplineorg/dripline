@@ -12,7 +12,7 @@ The following sections summarize various conventions that all dripline-compliant
 For information on the AMQP concepts such as exchanges, queues, and routing keys, please consult `this explanation <https://www.rabbitmq.com/tutorials/amqp-concepts.html>`_ of AMQP concepts.  It's useful to recall that in the AMQP model:
 
 - messages are published to a particular exchange, 
-- the routing key binds an exchange to a queue and indicates which messages on a particular exchange to to which queue,
+- the routing key binds an exchange to a queue and indicates which messages on a particular exchange go to which queue,
 - and messages are consumed from the queue.
 
 Services and asynchronous child endpoints consume messages from queues; in the former case the service distributes messages to its synchronous child endpoints according to the routing key.
@@ -46,7 +46,7 @@ AMQP exchanges can be configured in a number of ways, and in the official dripli
 * Auto Delete: ``false``
 
 
-.. _amqp_queues:
+.. _amqp-queues:
 
 AMQP Queues
 ===========
