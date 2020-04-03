@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wire Protocol &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/DL3Logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use Protocol" href="Use-Protocol.html" />
+    <link rel="prev" title="Architecture" href="Architecture.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/DL3Logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Architecture.html" title="previous chapter">Architecture</a></li>
+      <li>Next: <a href="Use-Protocol.html" title="next chapter">Use Protocol</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="wire-protocol">
+<h1>Wire Protocol<a class="headerlink" href="#wire-protocol" title="Permalink to this headline">¶</a></h1>
+<p>This document specifies the makeup of a dripline message and how it is expressed as an AMQP message.</p>
+<div class="section" id="foundation">
+<h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline">¶</a></h2>
+<p>Dripline messages are built on the <a class="reference external" href="https://www.rabbitmq.com/protocol.html">AMQP 0.9.1</a> messaging protocol as implemented in <a class="reference external" href="https://www.rabbitmq.com">RabbitMQ</a></p>
+</div>
+<div class="section" id="structure">
+<span id="id1"></span><h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>A dripline message comprises header information that describes the message and the payload that is the message contents.</p>
+<div class="section" id="header">
+<h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>A subset of the header fields are specified as AMQP message properties.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 8%" />
+<col style="width: 14%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Message Type</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">content-encoding</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">correlation-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>UUID for request/reply correlation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reply-to</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Requests</p></td>
+<td><p>Routing key for replies</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>UUID or UUID/[chunk number]/[total chunks]</p></td>
+</tr>
+</tbody>
+</table>
+<p>The remaining fields are specified as <code class="docutils literal notranslate"><span class="pre">headers</span></code> in the AMQP message properties.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Message Type</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message_type</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>All</p></td>
+<td><p>Reply (2), Request (3), Alert (4)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message_operation</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Requests</p></td>
+<td><p>Set (0), Get (1), Command (9)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">specifier</span></code></p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>Provides additional information about how the consumer should process the message</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>Following the <a class="reference external" href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format (example: <cite>2017-12-31T15:00:00.000Z</cite>) with sub-second precision</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lockout_key</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Requests</p></td>
+<td><p>16 hexidecimal digits (see <a class="reference internal" href="Use-Protocol.html#lockout"><span class="std std-ref">Lockout</span></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sender_info.exe</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>Full path of the executable used to send the message</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sender_info.hostname</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>Name of the host computer that sends the message</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sender_info.username</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>User responsible for sending the message</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sender_info.service_name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>All</p></td>
+<td><p>Name of the service that sent the message</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sender_info.versions</span></code></p></td>
+<td><p>[below]</p></td>
+<td><p>All</p></td>
+<td><p>Package version information for the components of the sender</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">return_code</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Replies</p></td>
+<td><p>Machine-interpretable status; see <a class="reference internal" href="#return-codes"><span class="std std-ref">Return Codes</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">return_message</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Replies</p></td>
+<td><p>Human-readable explanation of the return code</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">sender_info.versions</span></code> field consists of the package version information for the components
+of the sending software.  It is a dictionary of dictionaries.
+For each package it contains the following pieces of information:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Software version for this component of the sender</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">package</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Software package name for this component of the sender</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">commit</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Git commit for this component of the sender</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="payload">
+<h3>Payload<a class="headerlink" href="#payload" title="Permalink to this headline">¶</a></h3>
+<p>The payload is the content of the message, and it comprises the AMQP message body.  It is optional in all types of dripline messages.</p>
+<p>The payload should be formatted in <a class="reference external" href="http://json.org">JSON</a>.  The encoding (<code class="docutils literal notranslate"><span class="pre">application/json</span></code>) should be specified in the <code class="docutils literal notranslate"><span class="pre">content_encoding</span></code> field of the AMQP message.</p>
+</div>
+</div>
+<div class="section" id="split-messages">
+<span id="splitmsg"></span><h2>Split Messages<a class="headerlink" href="#split-messages" title="Permalink to this headline">¶</a></h2>
+<p>A dripline message can be split across multiple AMQP messages to accommodate large payloads.
+The AMQP messages that comprise a single dripline message are called “chunks.”
+The headers for all chunks comprising a single dripline message are identical, with the exception of <code class="docutils literal notranslate"><span class="pre">message-id</span></code>.
+The payload, encoded as a JSON string, is split into substrings based on a maximum size, and each substring is assigned as the payload for a single chunk in order of position in the original string.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">message-id</span></code> header field is used to properly reconstruct the full message.
+The structure of the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> for a split message is <code class="docutils literal notranslate"><span class="pre">UUID/[chunk</span> <span class="pre">number]/[total</span> <span class="pre">chunks]</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">UUID</span></code> is a single unique identifier for the dripline message, and is duplicated in each chunk.
+The <code class="docutils literal notranslate"><span class="pre">chunk</span> <span class="pre">number</span></code> describes the position of the chunk in the full message.
+The <cite>total chunks`</cite> is the number of chunks into which the message was divided.</p>
+<p>For unsplit messages the <code class="docutils literal notranslate"><span class="pre">message-id</span></code> field may either be <code class="docutils literal notranslate"><span class="pre">UUID</span></code> or <code class="docutils literal notranslate"><span class="pre">UUID/0/1</span></code>.</p>
+</div>
+<div class="section" id="message-types">
+<span id="id2"></span><h2>Message Types<a class="headerlink" href="#message-types" title="Permalink to this headline">¶</a></h2>
+<p>There are three types of dripline messages:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Request</dt>
+<dd class="field-odd"><p>messages sent from one node to another in a dripline mesh to perform a specific action.</p>
+</dd>
+<dt class="field-even">Reply</dt>
+<dd class="field-even"><p>messages sent in reply to a request.</p>
+</dd>
+<dt class="field-odd">Alert</dt>
+<dd class="field-odd"><p>messages broadcast from a node without regard to whether other nodes are listening.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="message-operations">
+<span id="message-operation"></span><h2>Message Operations<a class="headerlink" href="#message-operations" title="Permalink to this headline">¶</a></h2>
+<p>Request messages have three possible operations:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Set</dt>
+<dd class="field-odd"><p>set a value</p>
+</dd>
+<dt class="field-even">Get</dt>
+<dd class="field-even"><p>get a value</p>
+</dd>
+<dt class="field-odd">Command</dt>
+<dd class="field-odd"><p>perform a command</p>
+</dd>
+</dl>
+<p>The exact meaning of an operation will depend on the application.  Generally <cite>get</cite> and <cite>set</cite> will get and set a value, respectively, and a command will request some application-specific command.</p>
+</div>
+<div class="section" id="return-codes">
+<span id="id3"></span><h2>Return Codes<a class="headerlink" href="#return-codes" title="Permalink to this headline">¶</a></h2>
+<p>The following table lists return codes. It is worth stressing that all codes fall into one of the following categories:</p>
+<ul class="simple">
+<li><p>&lt;0: not defined</p></li>
+<li><p>0: success</p></li>
+<li><p>1-99: warnings (request fulfilled but with some caveat)</p></li>
+<li><p>100-999: dripline error</p></li>
+<li><p>&gt;=1000: application errors</p></li>
+</ul>
+<p>Errors are subdivided into categories, with each multiple of 100 representing a category and values falling within that category.
+Dripline errors are covered by codes in the 100-999 range.
+Additional errors may be specified for a particular application of dripline.  These errors are covered by codes 1000 and above.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><strong>Success</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><strong>Generic Warning; No Action Taken</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Deprecated Feature Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Dry Run Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Offline Warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Sub-Service Warning</p></td>
+</tr>
+<tr class="row-even"><td><p>6-99</p></td>
+<td><p><em>Unassigned, Non-Error Warnings</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p><strong>Generic AMQP Related Error</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>AMQP Connection Error</p></td>
+</tr>
+<tr class="row-odd"><td><p>102</p></td>
+<td><p>Invalid AMQP Routing Key</p></td>
+</tr>
+<tr class="row-even"><td><p>103-199</p></td>
+<td><p><em>Unallocated AMQP Errors</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>200</p></td>
+<td><p><strong>Generic Resource Error</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>201</p></td>
+<td><p>Resource Connection Error</p></td>
+</tr>
+<tr class="row-odd"><td><p>202</p></td>
+<td><p>No Response</p></td>
+</tr>
+<tr class="row-even"><td><p>203</p></td>
+<td><p>Sub-Service Error</p></td>
+</tr>
+<tr class="row-odd"><td><p>204-299</p></td>
+<td><p><em>Unallocated Resource Errors</em></p></td>
+</tr>
+<tr class="row-even"><td><p>300</p></td>
+<td><p><strong>Generic Service Error</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>301</p></td>
+<td><p>Invalid Message Encoding</p></td>
+</tr>
+<tr class="row-even"><td><p>302</p></td>
+<td><p>Decoding Failed</p></td>
+</tr>
+<tr class="row-odd"><td><p>303</p></td>
+<td><p>Invalid Payload</p></td>
+</tr>
+<tr class="row-even"><td><p>304</p></td>
+<td><p>Invalid Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>305</p></td>
+<td><p>Timeout</p></td>
+</tr>
+<tr class="row-even"><td><p>306</p></td>
+<td><p>Invalid Command</p></td>
+</tr>
+<tr class="row-odd"><td><p>307</p></td>
+<td><p>Access Denied</p></td>
+</tr>
+<tr class="row-even"><td><p>308</p></td>
+<td><p>Invalid Lockout Key</p></td>
+</tr>
+<tr class="row-odd"><td><p>309</p></td>
+<td><p>[removed]</p></td>
+</tr>
+<tr class="row-even"><td><p>310</p></td>
+<td><p>Invalid Specifier</p></td>
+</tr>
+<tr class="row-odd"><td><p>310-399</p></td>
+<td><p><em>Unallocated Service errors</em></p></td>
+</tr>
+<tr class="row-even"><td><p>400</p></td>
+<td><p><strong>Generic Client Error</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>Invalid Request</p></td>
+</tr>
+<tr class="row-even"><td><p>402</p></td>
+<td><p>Error Handling Reply</p></td>
+</tr>
+<tr class="row-odd"><td><p>403</p></td>
+<td><p>Unable to Send</p></td>
+</tr>
+<tr class="row-even"><td><p>404</p></td>
+<td><p>Client Timeout</p></td>
+</tr>
+<tr class="row-odd"><td><p>405-499</p></td>
+<td><p><em>Unallocated Client Error</em></p></td>
+</tr>
+<tr class="row-even"><td><p>500-998</p></td>
+<td><p><em>Unallocated</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>999</p></td>
+<td><p><strong>Unhandled dripline or application error</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1000+</p></td>
+<td><p><strong>Application-specified errors</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="amqp-message-properties">
+<span id="amqp-message-use"></span><h2>AMQP Message Properties<a class="headerlink" href="#amqp-message-properties" title="Permalink to this headline">¶</a></h2>
+<p>This section lists how the different properties of an AMQP message are used in the dripline wire protocol.  It duplicates the information above, but referenced in a different way.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 9%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AMQP Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Dripline Use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">content-type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">content-encoding</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">application/json</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">headers</span></code></p></td>
+<td><p>table</p></td>
+<td><p>Other header fields</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delivery-mode</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">priority</span></code></p></td>
+<td><p>uint8</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">correlation-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>UUID for message correlation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reply-to</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Routing key for reply</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">expiration</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Message UUID or UUID/[chunk number]/[total chunks]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timestamp</span></code></p></td>
+<td><p>uint64</p></td>
+<td><p>Unused (string timestamp field in headers)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">app-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cluster-id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Unused</p></td>
+</tr>
+<tr class="row-even"><td><p>Body</p></td>
+<td><p>string</p></td>
+<td><p>Payload</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Wire-Protocol.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
