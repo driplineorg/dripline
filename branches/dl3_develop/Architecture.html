@@ -48,7 +48,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
 </ul>
 
@@ -89,36 +88,39 @@
             
   <div class="section" id="architecture">
 <h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
-<p>Dripline is a protocol for a controls framework aimed at medium-sized experiments, where one wants a distributed and flexible controls system.  A full Dripline-based system is called a “mesh,” and it comprises a number of different types of components, including the broker, endpoints, and services.  A user typically interacts with the mesh via an agent.  Each part of the system will be described in its own section below.</p>
+<p>Dripline is a protocol for a controls framework aimed at medium-sized experiments, where one wants a distributed and flexible controls system.  A full dripline-based system is called a “mesh,” and it comprises a number of different types of components, including the broker, endpoints, and services.  A user typically interacts with the mesh via an agent.  Each part of the system will be described in its own section below.</p>
+<p>Since the mesh is built on an AMQP network, it may be useful to review the <a class="reference external" href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">AMQP model</a>.</p>
 <div class="section" id="the-mesh">
-<h2>The Mesh<a class="headerlink" href="#the-mesh" title="Permalink to this headline">¶</a></h2>
-<p>A full Dripline system is called a “mesh.”  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.</p>
+<span id="mesh"></span><h2>The Mesh<a class="headerlink" href="#the-mesh" title="Permalink to this headline">¶</a></h2>
+<p>A full dripline system is called a “mesh.”  The main components of a mesh are a AMQP broker and any number of producers and consumers of messages.  At the most basic level, agents send requests to endpoints, which can send back replies, and messages are directed to their destination via a broker.</p>
 <img alt="_images/mesh.png" src="_images/mesh.png" />
 <p>The instruments and pieces of software that are part of the controls system are represented by “endpoints” and “services.”  Endpoints and services give the instruments and software the interface they need to communicate using a common communications protocol.  They can receive requests from users, and send replies back (and they can make requests to each other).  They can also send alert-message broadcasts to the entire mesh.</p>
 <p>Users are represented by an “agent,” which can send messages to anything on the mesh, and receive replies to requests.</p>
 </div>
 <div class="section" id="amqp-broker">
-<h2>AMQP Broker<a class="headerlink" href="#amqp-broker" title="Permalink to this headline">¶</a></h2>
-<p>The central element of a Dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.</p>
-<p>While the Dripline standard does not require a particular implementation of AMQP, the official Dripline implementation uses Rabbitmq.</p>
+<span id="broker"></span><h2>AMQP Broker<a class="headerlink" href="#amqp-broker" title="Permalink to this headline">¶</a></h2>
+<p>The central element of a dripline mesh is the AMQP broker.  The broker is responsible for directing messages from sender to receiver.  Specifically the broker has a set of exchanges for receiving messages and a set of queues for distributing messages.  Message consumers–in the dripline case these are endpoints and services–are responsible for binding a particular exchange to a particular queue using a routing key.</p>
+<p>While the dripline standard does not require a particular implementation of AMQP, the official dripline implementation uses RabbitMQ.</p>
 </div>
 <div class="section" id="endpoint">
-<h2>Endpoint<a class="headerlink" href="#endpoint" title="Permalink to this headline">¶</a></h2>
-<p>An endpoint is the basic message receiver in a mesh.  The endpoint will take the appropriate action in reponse to a request, and send a reply back.</p>
+<span id="id1"></span><h2>Endpoint<a class="headerlink" href="#endpoint" title="Permalink to this headline">¶</a></h2>
+<p>An <em>endpoint</em> is the basic message receiver in a mesh.  The endpoint will take the appropriate action in reponse to a request, and send a reply back.</p>
+<p>Endpoints are typically owned by a <a class="reference internal" href="#service"><span class="std std-ref">service</span></a>.  They may operate <em>syncronously</em> with the service, in which case they receive messages from the service, or <em>asynchronously</em>, in which case they directly consume messages from their own AMQP queue.  A synchronous endpoint responds to requests using its service’s thread.  An asynchronous endpoint has its own threads that it uses to consume and respond to requests.</p>
 </div>
 <div class="section" id="agent">
-<h2>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h2>
-<p>An agent is the primary way in which users interact with a mesh.  A user can send a message to any component of the mesh, and receive replies.</p>
+<span id="id2"></span><h2>Agent<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h2>
+<p>An <em>agent</em> is the primary way in which users interact with a mesh.  A user can send a message to any component of the mesh, and receive replies.</p>
 </div>
 <div class="section" id="service">
-<h2>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
-<p>The primary unit of software that connects with the broker is the “service.”  A service will typically correspond to a single instrument (e.g. power supply) or piece of software, and it might have one or more child endpoints.  The service is responsible for maintaining its connection with the AMQP broker, and organizing and operating its child endpoints.</p>
+<span id="id3"></span><h2>Service<a class="headerlink" href="#service" title="Permalink to this headline">¶</a></h2>
+<p>The primary unit of software that connects with the broker is the <em>service</em>.  A service will typically correspond to a single instrument (e.g. power supply) or piece of software, and it might have one or more child endpoints.  The service is responsible for maintaining its connection with the AMQP broker, and organizing and operating its child endpoints.</p>
+<p>The service, which is itself an endpoint, has an AMQP queue from which it consumes messages.  The routing key used is the service’s <em>name</em>.  The service has <em>synchronous</em> child endpoints that recieve messages on the service’s queue.  The service is reponsible for distributing messages to the synchronous endpoints according to their routing keys.  The service also has <em>asynchronous</em> child endoints that receive messages on their own queues.</p>
 </div>
 <div class="section" id="operating-a-mesh">
-<h2>Operating a Mesh<a class="headerlink" href="#operating-a-mesh" title="Permalink to this headline">¶</a></h2>
-<p>While the Dripline standard specifies <em>what</em> can go in a mesh, it does not specify <em>how</em> a mesh is deployed.  The Dripline developers recommend the use of containers and a deployment menthod like <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> or Kubernetes.</p>
+<span id="id4"></span><h2>Operating a Mesh<a class="headerlink" href="#operating-a-mesh" title="Permalink to this headline">¶</a></h2>
+<p>While the dripline standard specifies <em>what</em> can go in a mesh, it does not specify <em>how</em> a mesh is deployed.  The dripline developers recommend the use of containers and a deployment menthod like <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> or Kubernetes.</p>
 <p>The first thing to be deployed should be the broker.</p>
-<p>Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionlity as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.</p>
+<p>Next, the services that will be used should be deployed, configured so that they connect to the broker.  For basic functionality as a controls system, those services might include the relevant instruments and pieces of software, a database for storing values, and a logging service to record data in the database.</p>
 <p>Finally, the user can use the agent (<code class="docutils literal notranslate"><span class="pre">dl-agent</span></code> in the official implementation) to send messages.  The official implementation also includes <code class="docutils literal notranslate"><span class="pre">dl-mon</span></code> to allow users to monitor the messages being passed back and forth in the mesh.</p>
 </div>
 </div>

@@ -48,7 +48,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Use Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
 </ul>
 
@@ -89,29 +88,34 @@
             
   <div class="section" id="use-protocol">
 <h1>Use Protocol<a class="headerlink" href="#use-protocol" title="Permalink to this headline">¶</a></h1>
-<p>The following sections summarize various conventions that all Dripline-compliant implementations should strive to follow.</p>
+<p>The following sections summarize various conventions that all dripline-compliant implementations should strive to follow.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#amqp-exchanges">amqp-exchanges</a></p></li>
+<li><p><a class="reference internal" href="#amqp-queues">amqp-queues</a></p></li>
 <li><p><a class="reference internal" href="#broadcast-requests">broadcast-requests</a></p></li>
 <li><p><a class="reference internal" href="#lockout">lockout</a></p></li>
 </ul>
+<p>For information on the AMQP concepts such as exchanges, queues, and routing keys, please consult <a class="reference external" href="https://www.rabbitmq.com/tutorials/amqp-concepts.html">this explanation</a> of AMQP concepts.  It’s useful to recall that in the AMQP model:</p>
+<ul class="simple">
+<li><p>messages are published to a particular exchange,</p></li>
+<li><p>the routing key binds an exchange to a queue and indicates which messages on a particular exchange go to which queue,</p></li>
+<li><p>and messages are consumed from the queue.</p></li>
+</ul>
+<p>Services and asynchronous child endpoints consume messages from queues; in the former case the service distributes messages to its synchronous child endpoints according to the routing key.</p>
 <div class="section" id="amqp-exchanges">
 <span id="id1"></span><h2>AMQP Exchanges<a class="headerlink" href="#amqp-exchanges" title="Permalink to this headline">¶</a></h2>
-<p>All dripline messages are sent using one of two exchanges, <cite>alerts</cite> and <cite>requests</cite>. They differ both in the types of messages they handle and the types of bindings made.</p>
+<p>All dripline messages are sent using one of two exchanges, <code class="docutils literal notranslate"><span class="pre">alerts</span></code> and <code class="docutils literal notranslate"><span class="pre">requests</span></code>. They differ both in the types of messages they handle and the types of bindings made.</p>
 <div class="section" id="alerts">
 <h3>Alerts<a class="headerlink" href="#alerts" title="Permalink to this headline">¶</a></h3>
-<p>The alerts exchange is used for one directional information transfer, always in the form of a T_ALERT message type. These messages are not delivered to any particular consumer, and may well be of interest to zero, one, or many consumers. All messages have a routing key which begins with an indication of the type of content, and may have further details. The accepted forms are as follows:</p>
-<ul class="simple">
-<li><p>sensor_value.&lt;sensor_name&gt;: The messages indicate the current state of a particular system (such as a measurement of a sensor). Typical usages of this information includes triggering alarms (such as value out of safe interval), logging values to a database, or as input to a PID or similar feedback system. The <cite>sensor_name</cite> indicates where the data came from, and allows consumers to consume only messages with values of interest.</p></li>
-<li><p>status_message.&lt;origin_name&gt;.&lt;severity&gt;: The message contains a human-understandable description of the status of &lt;origin&gt;. The &lt;severity&gt; follows the logging levels of typical logging libraries, and allows consumers determine how verbose their behavior will be.</p></li>
-</ul>
+<p>The alerts exchange is used for one directional information transfer, always in the form of an alert message. These messages are not delivered to any particular consumer, and may well be of interest to zero, one, or many consumers. All messages have a routing key which begins with an indication of the type of content, and may have further details. See :ref:<a href="#id2"><span class="problematic" id="id3">`</span></a>binding coventions&lt;amqp-binding&gt; for examples of acceptable uses of the alerts exchange.</p>
 </div>
 <div class="section" id="requests">
 <h3>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h3>
-<p>The requests exchange is used for round-trip information transfers in the form of T_Request messages and their resulting T_Reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that [special case described below](#broadcast-requests)), and may include a routing key specifier to indicate a particular command (for an OP_CMD) or attribute (for an OP_GET or OP_SET which configures an endpoint rather than assigning or querying the endpoint itself). The T_REPLY is then sent to the routing key specified in the properties provided along with the AMQP message.</p>
+<p>The requests exchange is used for round-trip information transfers in the form of request messages and their resulting reply messages. Routing keys for requests begin with the name of the endpoint being targeted (or broadcast, for that <a class="reference internal" href="#broadcast-requests"><span class="std std-ref">special case described below</span></a>), and may include a <a class="reference internal" href="Wire-Protocol.html#structure"><span class="std std-ref">specifier</span></a> to indicate a particular command (for a command) or attribute (for a get or set that configures an endpoint rather than assigning or querying the endpoint itself). The reply is then sent to the routing key specified in the header properties provided along with the original request.</p>
 </div>
 <div class="section" id="properties">
 <h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<p>AMQP exchanges can be configured in a number of ways, and in the official dripline implementations we use these properties:</p>
 <ul class="simple">
 <li><p>Type: <code class="docutils literal notranslate"><span class="pre">EXCHANGE_TYPE_DIRECT</span></code></p></li>
 <li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
@@ -121,9 +125,11 @@
 </div>
 </div>
 <div class="section" id="amqp-queues">
-<h2>AMQP Queues<a class="headerlink" href="#amqp-queues" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id2">
-<h3>Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h2>AMQP Queues<a class="headerlink" href="#amqp-queues" title="Permalink to this headline">¶</a></h2>
+<p>Within a dripline mesh each message consumer, either a service or an asynchronous endpoint, has its own queue from which it consumes messages.</p>
+<div class="section" id="id5">
+<h3>Properties<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>AMQP queues can be configured in a number of ways, and in the official dripline implementations we use these properties:</p>
 <ul class="simple">
 <li><p>Passive: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
 <li><p>Durable: <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
@@ -133,17 +139,17 @@
 </div>
 </div>
 <div class="section" id="broadcast-requests">
-<span id="id3"></span><h2>Broadcast Requests<a class="headerlink" href="#broadcast-requests" title="Permalink to this headline">¶</a></h2>
-<p>In addition to binding against the name of the endpoint (or endpoints) which compose a service, all services shall also bind against the <cite>broadcast.#</cite> routing key. All services must respond to requests sent to matching binding keys (currently only ever an OP_CMD) and must not generate additional errors if the Reply is undeliverable. Since every running service is expected to respond, and there is no guaranteed order or timing, any process sending such a request should deal with this properly (ie, accept multiple replies, wait “long enough” for replies to come, cope with inconsistent reply order) if it cares. The following subsections cover the commands which must be supported.</p>
-<p>Note that it is only ever appropriate to use broadcasts when a command is expected to apply to every running service regardless of what that set includes. It is not acceptable to use this to as a shorthand for interacting with a known subset of endpoints (in the hopes that all others will ignore it). In that use-case, one should create a single endpoint which applies the desired logic to contact the intended set of endpoints.</p>
+<span id="id6"></span><h2>Broadcast Requests<a class="headerlink" href="#broadcast-requests" title="Permalink to this headline">¶</a></h2>
+<p>In addition to binding the name of the endpoint (or endpoints) that compose a service, all services shall also bind the <code class="docutils literal notranslate"><span class="pre">broadcast.#</span></code> routing key on the requests exchange. All services must respond to broadcast requests, which is consistent with the above rules of the requests exchange, and they must not generate additional errors if thereply is undeliverable. Since every running service is expected to respond, and there is no guaranteed order or timing, any process sending such a request should deal with this properly (ie, accept multiple replies, wait “long enough” for replies to come, cope with inconsistent reply order) if it cares. The following subsections cover the commands that must be supported.</p>
+<p>Note that it is only ever appropriate to use broadcasts when a request is expected to apply to every running service regardless of what that set includes. It is not acceptable to use this to as a shorthand for interacting with a known subset of endpoints (in the hopes that all others will ignore it). In that use-case, one should create a single endpoint that applies the desired logic to contact the intended set of endpoints.</p>
 <p>The following commands describe behaviors as part of the protocol. Because they are (or at least may) be sent as a broadcast, any implementation is expected to implement them so that the entire mesh behaves in a consistent and predictable way.</p>
 <div class="section" id="lock">
 <h3>lock<a class="headerlink" href="#lock" title="Permalink to this headline">¶</a></h3>
-<p>See [below](#lockout). Note that a service receiving this will attempt to lock all of its endpoints.</p>
+<p>See <a class="reference internal" href="#lockout"><span class="std std-ref">below</span></a>. Note that a service receiving this will attempt to lock all of its endpoints.</p>
 </div>
 <div class="section" id="unlock">
 <h3>unlock<a class="headerlink" href="#unlock" title="Permalink to this headline">¶</a></h3>
-<p>See [below](#lockout). Note that a service receiving this will attempt to unlock all of its endpoints.</p>
+<p>See <a class="reference internal" href="#lockout"><span class="std std-ref">below</span></a>. Note that a service receiving this will attempt to unlock all of its endpoints.</p>
 </div>
 <div class="section" id="ping">
 <h3>ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h3>
@@ -152,19 +158,18 @@
 <div class="section" id="set-condition">
 <h3>set_condition<a class="headerlink" href="#set-condition" title="Permalink to this headline">¶</a></h3>
 <p>Single integer argument. Any unexpected value should result in return code 304 (Value Error). A particular dripline deployment can define a set of conditions as needed. It is encouraged to use large values with reasonable spacing, a la HTML or dripline error values, to facilitate intermediate values being defined later.</p>
-<p>It is important to note that set_condition is a bit of a panic button, the order in which services receive/respond to set_condition is not well defined and every service is expected to respond immediately (without trying to coordinate with other services). It is designed to support notions such as “abort data taking” or “danger! make everything as safe as possible” and is not suited to situations where coordination is desired or when one wants to carefully check that each service succeeded in getting to the desired state before taking further action.</p>
+<p>It is important to note that <code class="docutils literal notranslate"><span class="pre">set_condition</span></code> is a bit of a panic button, the order in which services receive/respond to set_condition is not well defined and every service is expected to respond immediately (without trying to coordinate with other services). It is designed to support notions such as “abort data taking” or “danger! make everything as safe as possible” and is not suited to situations where coordination is desired or when one wants to carefully check that each service succeeded in getting to the desired state before taking further action.</p>
 </div>
 </div>
 <div class="section" id="lockout">
-<span id="id4"></span><h2>Lockout<a class="headerlink" href="#lockout" title="Permalink to this headline">¶</a></h2>
-<p>A service may implement a lockout system to restrict access for certain types of request messages.  The lockout is intended to avoid stupid things happening (i.e. multiple people sending commands to the same service), and not as a security feature.  When a service is “locked,” lockable messages will only be accepted if they have the right key in the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field of the message header.  Services not implementing a lockout system will ignore the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field entirely.</p>
+<span id="id7"></span><h2>Lockout<a class="headerlink" href="#lockout" title="Permalink to this headline">¶</a></h2>
+<p>An endpoint may implement a lockout system to restrict access for certain types of request messages.  The lockout is intended to avoid stupid things happening (i.e. multiple people sending commands to the same service), and not as a security feature.  When a service is “locked,” lockable messages will only be accepted if they have the right key in the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field of the message header.  Endpoints not implementing a lockout system will ignore the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field entirely.  However, in the official implementation all endpoints include lockout capabilities.</p>
 <p>The following request types are lockable:</p>
 <ul class="simple">
-<li><p>OP_SET</p></li>
-<li><p>OP_CMD*</p></li>
-<li><p>OP_SEND</p></li>
+<li><p>set</p></li>
+<li><p>command*</p></li>
 </ul>
-<p>Unlock is a cmd but can bypass the lock with a force argument (see below). Broadcast commands <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">set_condition</span></code> ignore lockout.</p>
+<p>* Unlock is a command but can bypass the lock with a force argument (see below). Broadcast commands <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">set_condition</span></code> ignore lockout.</p>
 <div class="section" id="keys">
 <h3>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h3>
 <p>The lockout key is 16-bytes long. When represented as a string, it will be formatted as 16 hexidecimal characters, in one of these ways:</p>
@@ -179,27 +184,27 @@
 <ul class="simple">
 <li><p>Enabling the lock</p>
 <ul>
-<li><p>The lock is enabled with an <cite>OP_CMD</cite> request and a <cite>lock</cite> instruction.</p></li>
-<li><p>The key can be provided by the request, in which case it should be given as a properly formatted key in the <cite>lockout_key</cite> field.  Improperly formatted keys (that are non-empty strings) will result in an error (code 308).</p></li>
-<li><p>If the key is not provided (i.e. the <cite>lockout_key</cite> field is an empty string), the key will be generated by the service.</p></li>
-<li><p>If a service was unlocked, and the lock was successfully enabled, a success code 0 will be returned, and the key (whether provided or generated) will be returned in the <cite>“lockout-key”</cite> field of the payload of the reply.</p></li>
-<li><p>If the service was already locked, an error code 307 will be returned.</p></li>
+<li><p>The lock is enabled with a command request and a <code class="docutils literal notranslate"><span class="pre">lock</span></code> instruction.</p></li>
+<li><p>The key can be provided by the request, in which case it should be given as a properly formatted key in the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field.  Improperly formatted keys (that are non-empty strings) will result in an error (code 308).</p></li>
+<li><p>If the key is not provided (i.e. the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field is an empty string), the key will be generated by the endpoint.</p></li>
+<li><p>If an endpoint was unlocked, and the lock was successfully enabled, a success code 0 will be returned, and the key (whether provided or generated) will be returned in the <code class="docutils literal notranslate"><span class="pre">lockout-key</span></code> field of the payload of the reply.</p></li>
+<li><p>If the endpoint was already locked, an error code 307 will be returned.</p></li>
 </ul>
 </li>
 <li><p>Using the lock</p>
 <ul>
-<li><p>If a service is locked, any lockable request must have the valid key in the <cite>lockout_key</cite> field to be processed.</p></li>
-<li><p>If a service is not locked (or does not implement any lockout functionality), the <cite>lockout_key</cite> field will be ignored.</p></li>
-<li><p>When using the key provided in a request, if the key is improperly formatted, an error code 308 will be returned; if the key does not match the service’s lockout key, an error code 307 will be returned.</p></li>
+<li><p>If an endpoint is locked, any lockable request must have the valid key in the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field to be processed.</p></li>
+<li><p>If an endpoint is not locked (or does not implement any lockout functionality), the <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code> field will be ignored.</p></li>
+<li><p>When using the key provided in a request, if the key is improperly formatted, an error code 308 will be returned; if the key does not match the endpoint’s lockout key, an error code 307 will be returned.</p></li>
 </ul>
 </li>
 <li><p>Disabling the lock</p>
 <ul>
-<li><p>The lock is disabled with an <cite>OP_CMD</cite> request and an <cite>unlock</cite> instruction.</p></li>
+<li><p>The lock is disabled with a command request and an <code class="docutils literal notranslate"><span class="pre">unlock</span></code> instruction.</p></li>
 <li><p>The rules for “Using the lock” above apply.</p></li>
-<li><p>If a service is not locked, a warning code 1 will be returned.</p></li>
-<li><p>if the service was locked, and was successfully unlocked, success code 0 will be returned.</p></li>
-<li><p>The lock may be forced to disable by providing the field <cite>“force”: true</cite> in the payload of the request. The value of the field should be a boolean.  This exception is intended to allow access to services to be regained in the event that the lockout key is lost; as mentioned above, the lockout is intended to avoid stupid mistakes, rather than as a true security feature.</p></li>
+<li><p>If an endpoint is not locked, a warning code 1 will be returned.</p></li>
+<li><p>if the endpoint was locked, and was successfully unlocked, success code 0 will be returned.</p></li>
+<li><p>The lock may be forced to disable by providing the field <a href="#id8"><span class="problematic" id="id9">``</span></a>force: true` in the payload of the request. The value of the field should be a boolean.  This exception is intended to allow access to services to be regained in the event that the lockout key is lost; as mentioned above, the lockout is intended to avoid stupid mistakes, rather than as a true security feature.</p></li>
 </ul>
 </li>
 </ul>

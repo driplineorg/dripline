@@ -5,6 +5,7 @@ Version History
 ======= ============== =============
 Version Date           Release Notes
 ======= ============== =============
+3.0.0   Apr 1, 2019    Dripline 3 released
 2.1.1   Jan 26, 2017   Added return codes 500, 501, and 502
 2.1.0   Dec 19, 2016   Require support for ``broadcast.#``; T_INFO removed from use; added set_condition broadcast request
 2.0.0   Jan 19, 2016   OP_CONFIG deprecated; Use of MSGPACK deprecated; OP_CMD instruction in payload ``values`` deprecated; optional support for ``broadcast.#``
