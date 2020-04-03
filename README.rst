@@ -28,17 +28,25 @@ The other known implementations are:
 
 * Go: `dripline-go <https://github.com/project8/dripline-go>`_
 * LabView: `dripline-labview <https://github.com/project8/dripline-labview>`_
+* Web: `dripline-web <https://github.com/project8/dripline-web>`_
 
 
 Getting help
 ++++++++++++
 
-Dripline documentation can be [here](https://driplineorg.github.io).
+Dripline documentation can be `here <https://driplineorg.github.io>`_.
 
-The [dripline](https://github.com/driplineorg/dripline) repo has an issue tracker for questions about or problems with the dripline standard.  The [dripline-cpp](https://github.com/driplineorg/dripline-cpp) and [dripline-python](https://github.com/driplineorg/dripline-python) repositories eachhave their own issue trackers for questions about or problems with those implementations.
+The `dripline <https://github.com/driplineorg/dripline>`_ repo has an issue tracker for questions about or problems with the dripline standard.  The `dripline-cpp <https://github.com/driplineorg/dripline-cpp>`_ and `dripline-python <https://github.com/driplineorg/dripline-python>`_ repositories each have their own issue trackers for questions about or problems with those implementations.
 
 
 Other Notes
 +++++++++++
+
 Dripline is developed and tested primarily using RabbitMQ 3.3.x on Debian 9 and run in docker containers.
 Other workflows are certainly valid, but a managed-container framework is recommended for most cases.
+
+
+Name
+++++
+
+The origin of the name "dripline" is lost to history, but it is *always* written lowercase (except when it's not).
