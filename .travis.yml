@@ -7,10 +7,8 @@ addons:
     - tree
 branches:
   only:
-  - master
+  - main
   - develop
-  - dl3/develop
-  - dl3/master
   - "/^v\\d+\\.\\d+\\.\\d+(-S*)?$/"
   - "/.*\\.(?i:build)$/"
 before_install:
@@ -23,7 +21,7 @@ jobs:
   include:
   - stage: build docs
     script:
-    - echo $(if [[ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "master" ]];
+    - echo $(if [[ "$TRAVIS_BRANCH" == "develop" || "$TRAVIS_BRANCH" == "main" ]];
       then echo "$TRAVIS_BRANCH"; elif [[ ! -z "$TRAVIS_TAG" ]]; then echo "tags/$TRAVIS_TAG";
       else echo "branches/$(echo $TRAVIS_BRANCH | tr / _ | tr - .)"; fi) | tee /tmp/output_location
     - make html
