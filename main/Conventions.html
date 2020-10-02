@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conventions &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/DL3Logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Version History" href="Version.html" />
+    <link rel="prev" title="Use Protocol" href="Use-Protocol.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/DL3Logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Use-Protocol.html" title="previous chapter">Use Protocol</a></li>
+      <li>Next: <a href="Version.html" title="next chapter">Version History</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="conventions">
+<h1>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h1>
+<p>Dripline sets specific requirements on the structure and content of messages, as well as dictating that certain behaviors be supported.
+There is, by design, no strict instruction as to how those requirements are implemented and satisfied.
+While this provides the flexibility to implement in any platform, it does not help one gain an intuition for how libraries will work.</p>
+<p>Within implementation libraries within this organization, we will strive to provide a greater consistency in implementation patterns; these are described here.
+This description will hopefully help in learning to use the libraries, and the consistency should make transitions between them go more smoothly.</p>
+<div class="section" id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="cli-and-config">User Interface &amp; Configuration</a></p>
+<ul>
+<li><p><a class="reference external" href="ui-cli">Command Line Interface</a></p></li>
+<li><p><a class="reference external" href="config-files">Configuration Files</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="amqp-bindings">AMQP Bindings and Consuming Messages</a></p></li>
+</ul>
+</div>
+<div class="section" id="cli-and-config">
+<span id="id1"></span><h2>User Interface &amp; Configuration<a class="headerlink" href="#cli-and-config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-interface-cli">
+<span id="ui-cli"></span><h3>Command Line Interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permalink to this headline">¶</a></h3>
+<p>Command line options will generally follow the conventions of common Unix/(GNU/Linux)/BSD tools.
+You can find more information information in the standards for <a class="reference external" href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html">POSIX</a> and <a class="reference external" href="https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html">GNU</a>.
+The following description is adopted from <a class="reference external" href="https://github.com/project8/scarab/blob/develop/documentation/application_building.rst">the scarab library</a> (which is used by dripline-cpp):</p>
+<dl class="simple">
+<dt>A command called <code class="docutils literal notranslate"><span class="pre">executable</span></code> will consist of four parts::</dt><dd><p>executable [subcommand] [options] [non-option arguments]</p>
+</dd>
+<dt>executable</dt><dd><p>the (path to the) executable program itself</p>
+</dd>
+<dt>subcommand</dt><dd><p>Larger commands with multiple modes of operation typically group those under subcommands.
+This must come immediately after the executable itself and may determine what options and non-option arguments are available.</p>
+</dd>
+<dt>options</dt><dd><p>Options are indicated by a hyphen and a single character (e.g. <code class="docutils literal notranslate"><span class="pre">-c</span></code>) or two hyphens and a multi-character name (e.g. <code class="docutils literal notranslate"><span class="pre">--config</span></code>).
+They may be optional or required and may be passed in any order.
+All options must be explicitly defined by the (sub)command.
+Options may be “flags” (which indicate a behavior by their presence alone),</p>
+</dd>
+<dt>non-option arguments</dt><dd><p>A non-option argument does not start with a hyphen and have more-specific treatment in dripline’s applications. The available arguments is not an explicit list but is instead processed during execution. These arguments are divided into two subgroups: keyword arguments consist of a key/value pair, separated by a single equals <code class="docutils literal notranslate"><span class="pre">=</span></code> while ordered arguments have no equals. Keyword arguments are collected in a map-like object and accessible by the keys, ordered arguments are collected in an ordered array-like object.</p>
+</dd>
+</dl>
+<p>Several options are generically useful and therefore always available:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>prints usage information for the executable or subcommand (if given), then exits without processing other options</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-V</span></code> or <code class="docutils literal notranslate"><span class="pre">--version</span></code></dt><dd><p>prints the version information and then exits</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-v</span></code> or <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></dt><dd><p>increase verbosity of the terminal output</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-q</span></code> or <code class="docutils literal notranslate"><span class="pre">--quiet</span></code></dt><dd><p>decrease verbosity of the terminal output</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-c</span></code> or <code class="docutils literal notranslate"><span class="pre">--config</span></code></dt><dd><p>(requires a value which is a path to a local file).
+Gives a configuration file describing the desired action.
+Config files are discussed in more detail in the next section.
+The content of the config file are collected in a map-like object and any non-option arguments (see above) provided will be added to it or override values if they already exist.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="config-files">
+<span id="id2"></span><h3>Configuration Files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h3>
+<p>Configuration files are a convenient way to specify configuration information in a saved way, which can be reused and/or version controlled.
+It can also be useful simply to save keystrokes for commands which are otherwise long.
+In general, the content of a dripline config file is expected to translate to a map-like object at the top level, with values equivalent to those which could be passed as non-option arguments.
+For dripline-cpp and dripline-python, the supported file formats are <a class="reference external" href="http://yaml.org">YAML</a> and <a class="reference external" href="https://www.json.org">JSON</a> (the former being a superset of the latter).</p>
+</div>
+</div>
+<div class="section" id="amqp-bindings-consuming-messages">
+<span id="amqp-binding"></span><h2>AMQP Bindings &amp; Consuming Messages<a class="headerlink" href="#amqp-bindings-consuming-messages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="alerts-exchange-messages">
+<h3>Alerts Exchange Messages<a class="headerlink" href="#alerts-exchange-messages" title="Permalink to this headline">¶</a></h3>
+<p>On the alerts exchange, messages may be sent with various routing keys, per the requirements of the alerts exchange.
+The message content follows predictable payload formats which allow the data to be sensibly processed and used. Messages with the following first words in their routing key are described in further detail.</p>
+<dl class="simple">
+<dt>sensor_value.&lt;from&gt;</dt><dd><p>These messages include state information related to a particular endpoint (that is, the information you’d receive if you were to send a get request to the endpoint). The payload will therefore have the key <cite>value_raw</cite> and may also have the key <cite>value_cal</cite>. The <cite>value_raw</cite> is the raw data rececieved by the dripline service from the relevant hardware or other service, and the <cite>value_cal</cite> processes the <cite>value_raw</cite> into something more usable. A typical use case would be a temperature sensor, read out as a resistance, but calibrated to units of Kelvins.</p>
+</dd>
+<dt>status_message.&lt;from&gt;.&lt;severity&gt;</dt><dd><p>These messages have two variable routing key terms. The <code class="docutils literal notranslate"><span class="pre">from</span></code> word indicates what service the message is produced by, and <code class="docutils literal notranslate"><span class="pre">severity</span></code> indicates how git of a concern the message is expected to be. Typical values of severity are the set {notice, alert, critical}, though others may be defined. The payload is expected to be a human-understandable string. These are typically consumed and printed to a terminal, logging, or messaging service (email, sms, twitter, slack, etc.).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Conventions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

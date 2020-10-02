@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design &#8212; Dripline 3.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/DL3Logo.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Architecture" href="Architecture.html" />
+    <link rel="prev" title="Dripline Protocol Specification and Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/DL3Logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="index.html">Dripline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Wire-Protocol.html">Wire Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Use-Protocol.html">Use Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version.html">Version History</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Dripline Protocol Specification and Documentation</a></li>
+      <li>Next: <a href="Architecture.html" title="next chapter">Architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<p>There are several design principles which guide development. The descriptions here should convey our design intent and should guide future design decisions.</p>
+<div class="section" id="rest-inspired">
+<h2>REST inspired<a class="headerlink" href="#rest-inspired" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://en.wikipedia.org/wiki/Representational_state_transfer">description on wikipedia</a> does a great job describing the REST standard.
+In particular, dripline stresses:</p>
+<ol class="arabic simple">
+<li><p><strong>Client-Server Model:</strong> Any number of “services” may be run, each acting as a server. The service can then independently respond to requests from any number of clients. Further, each resource has a specific set of responsibilities, making everything easier to maintain and new capabilities easier to deploy.</p></li>
+<li><p><strong>Stateless:</strong> Every interaction is considered isolated and contains enough information to respond to the particular request. No resource should assume un-verified conditions in any other.</p></li>
+<li><p><strong>Layered System:</strong> Of particular import for hardware interactions, components expose a uniform Interface without knowing or caring what happens in the background. This is what allows things like uniform interaction with LXI and GPIB instruments, despite the need for a shared bus.</p></li>
+<li><p><strong>Uniform Interface:</strong> Regardless of implementing language, hardware, etc. all interactions use the same wire-protocol. This makes it easy to implement new resources in whatever environment is most convenient for that resource.</p></li>
+</ol>
+</div>
+<div class="section" id="forward-compatibility">
+<h2>Forward Compatibility<a class="headerlink" href="#forward-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>While the value of backward compatibility is generally considered self-evident, dripline also strives to achieve forward compatibility. The main way that this is achieved is by requiring that if a message contains unexpected fields, they be ignored if possible. This allows us to add new fields (such as <code class="docutils literal notranslate"><span class="pre">sender_info</span></code> or <code class="docutils literal notranslate"><span class="pre">lockout_key</span></code>) and expect running services fitting the older standard to still respond to requests. Obviously use of those new fields requires an update, but having heterogeneous versions running in parallel allows rolling updates of resources with reduced down time.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Driplineorg Maintainers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Design.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
