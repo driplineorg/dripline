@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Dripline'
-copyright = u'2020, Driplineorg Maintainers'
+copyright = u'2023, Driplineorg Maintainers'
 author = u'Driplineorg Maintainers'
 
 # The short X.Y version
