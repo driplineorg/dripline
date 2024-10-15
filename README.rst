@@ -1,4 +1,4 @@
-Welcome to Dripline
+Welcome to dripline
 ===================
 
 Slow controls for medium scale physics experiments

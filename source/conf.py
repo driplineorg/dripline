@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Dripline'
-copyright = u'2023, Driplineorg Maintainers'
+copyright = u'2024, Driplineorg Maintainers'
 author = u'Driplineorg Maintainers'
 
 # The short X.Y version
@@ -40,6 +40,7 @@ release = u'3.0.0'
 # ones.
 extensions = [
     'sphinx.ext.githubpages',
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -69,24 +70,32 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
+# Intersphinx details
+intersphinx_mapping = {
+    "scarab": ("https://scarab.readthedocs.io/en/stable/", None),
+    "dripline": ("https://dripline.readthedocs.io/en/latest/", None),
+    "dripline-cpp": ("https://dripline-cpp.readthedocs.io/en/latest/", None),
+    "dripline-python": ("https://dripline-python.readthedocs.io/en/latest/", None),
+    "dl-home": ("https://driplineorggithubio.readthedocs.io/en/latest/", None),
+}
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
-
-html_theme_options = {
-  'fixed_sidebar': True,
-  'sidebar_collapse': True
-}
+html_theme = 'furo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+  'source_repository': 'https://github.com/driplineorg/dripline',
+  'source_branch': 'main',
+  'source_directory': 'source/',
+  'navigation_with_keys': True,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
